@@ -1,2 +1,2 @@
 # weather
-weather-widget
+react weather-widget
