@@ -6,9 +6,9 @@ import Main from "./blocks/main/Main";
 import { useAppDispatch, useAppSelector } from "./hooks/redux";
 import { RootState } from "./ducks/store";
 import { fetchWeather } from "./ducks/reducers/ActionCreators";
+import WeatherContainer from "./blocks/WeatherContainer";
 
 function App() {
-    const { weather, isLoading, error } = useAppSelector((state: RootState) => state.weatherReducer)
     const dispatch = useAppDispatch()
 
     useEffect(() => {
@@ -17,10 +17,8 @@ function App() {
 
     return (
         <>
-            {isLoading && 'loading...'}
-            {error && error}
             <Header/>
-            <Main weather={weather}/>
+            <WeatherContainer/>
             <Footer/>
         </>
     );

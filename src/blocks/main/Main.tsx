@@ -1,12 +1,17 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { IWeather } from "../../models/IWeather";
 
-const Main = (props: any) => {
-    const {weather}: IWeather = props
+interface MainProps {
+    weather: IWeather
+}
+
+const Main: FC<MainProps> = ({ weather }) => {
     return (
         <main className="main">
             <h1>Прогноз погоды</h1>
-            {JSON.stringify(weather, null, 2)}
+            <pre>
+                {JSON.stringify(weather, null, 2)}
+            </pre>
         </main>
     );
 };

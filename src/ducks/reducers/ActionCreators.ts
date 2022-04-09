@@ -1,12 +1,10 @@
-import { AppDispatch } from "../store";
 import { IWeather } from "../../models/IWeather";
 import axios from "axios";
-import { weatherSlice } from "./weatherSlice";
 import { createAsyncThunk } from "@reduxjs/toolkit";
+import { APIkey } from "../../consts";
 
 const lat = '0';
 const lon = '0';
-const APIkey = 'ed1fbb3cca80e3681ca83da0c451992d';
 
 export const fetchWeather = createAsyncThunk(
     'weather/fetch',
