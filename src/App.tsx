@@ -18,7 +18,7 @@ function App() {
     return (
         <>
             {isLoading && 'loading...'}
-            {error && 'Ошибка...'}
+            {error && error}
             <Header/>
             <Main weather={weather}/>
             <Footer/>
