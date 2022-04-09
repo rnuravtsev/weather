@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/dist/query/react";
-import { IWeather } from "../models/IWeather";
+import { ICity } from "../models/ICity";
 
 interface IFetchWeatherForPlace {
     lat: number,
@@ -12,7 +12,7 @@ export const weatherAPI = createApi({
     baseQuery: fetchBaseQuery({ baseUrl: 'https://api.openweathermap.org/data/2.5' }),
     tagTypes: ['Weather'],
     endpoints: (build) => ({
-        fetchWeatherForPlace: build.query<IWeather, IFetchWeatherForPlace>({
+        fetchWeatherForPlace: build.query<ICity, IFetchWeatherForPlace>({
             query: ({lat, lon, apikey}) => ({
                 url: '/weather',
                 params: {
@@ -23,7 +23,7 @@ export const weatherAPI = createApi({
             }),
             providesTags: result => ['Weather']
         }),
-        createWeather: build.mutation<IWeather, IWeather>({
+        createWeather: build.mutation<ICity, ICity>({
             query: (weather) => ({
                 url: '/weather',
                 method: 'POST',

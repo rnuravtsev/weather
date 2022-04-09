@@ -1,6 +1,8 @@
 import React from 'react';
 import { weatherAPI } from "../services/weatherService";
 import { APIkey } from "../consts";
+import Main from "./City/City";
+import City from "./City/City";
 
 const WeatherContainer = () => {
     const { data: weather, error, isLoading } = weatherAPI.useFetchWeatherForPlaceQuery({
@@ -10,15 +12,16 @@ const WeatherContainer = () => {
     })
     return (
         <>
-            {
-                isLoading
-                    ? 'Loader'
-                    : error
-                        ? <p>error</p>
-                        : <pre>{JSON.stringify(weather)}</pre>
-            }
+        {
+            isLoading
+                ? 'Loader'
+                : error
+                    ? <p>error</p>
+                    : <City weather={weather}/>
+        }
         </>
     );
 };
+
 
 export default WeatherContainer;

@@ -1,4 +1,4 @@
-export interface IWeather {
+export interface ICity {
     "coord": {
         "lon": number,
         "lat": number
