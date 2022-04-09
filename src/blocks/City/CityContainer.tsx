@@ -1,10 +1,9 @@
 import React from 'react';
-import { weatherAPI } from "../services/weatherService";
-import { APIkey } from "../consts";
-import Main from "./City/City";
-import City from "./City/City";
+import { weatherAPI } from "../../services/weatherService";
+import { APIkey } from "../../consts";
+import City from "../City/City";
 
-const WeatherContainer = () => {
+const CityContainer = () => {
     const { data: weather, error, isLoading } = weatherAPI.useFetchWeatherForPlaceQuery({
         lon: 100,
         lat: 50,
@@ -24,4 +23,4 @@ const WeatherContainer = () => {
 };
 
 
-export default WeatherContainer;
+export default CityContainer;

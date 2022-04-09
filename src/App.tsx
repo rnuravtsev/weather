@@ -1,16 +1,21 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import './App.css';
-import Header from "./blocks/header/Header";
-import Footer from "./blocks/footer/Footer";
-import { useAppDispatch, } from "./hooks/redux";
-import WeatherContainer from "./blocks/WeatherContainer";
+import Header from "./blocks/Header/Header";
+import Footer from "./blocks/Footer/Footer";
+import CityContainer from "./blocks/City/CityContainer";
 
 function App() {
     return (
         <div className="app">
-            <Header/>
-            <WeatherContainer/>
-            <Footer/>
+            <div className="app__header">
+                <Header/>
+            </div>
+            <main className="app__main">
+                <CityContainer/>
+            </main>
+            <div className="app__footer">
+                <Footer/>
+            </div>
         </div>
     );
 }

@@ -8,10 +8,10 @@ interface MainProps {
 const City: FC<MainProps> = ({ weather }) => {
     const { name, main } = weather || {}
     return (
-        <main className="main">
+        <section className="city">
             <h2 className="">{name}</h2>
             <pre>{JSON.stringify(main)}</pre>
-        </main>
+        </section>
     );
 };
 
