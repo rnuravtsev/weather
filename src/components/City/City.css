@@ -1,0 +1,26 @@
+.city {
+    text-align: center;
+}
+
+.city__title {
+    margin-right: 10px;
+    line-height: 1rem;
+}
+
+.city__temp {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 5rem;
+    line-height: 5rem;
+}
+
+.city__description {
+    margin-bottom: 0;
+    flex: 1;
+}
+
+.city__flex-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}

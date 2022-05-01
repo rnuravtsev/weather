@@ -1,12 +1,16 @@
-import React from 'react';
+import React, { FC } from 'react';
 import './App.css';
-import Header from "./blocks/Header/Header";
-import Footer from "./blocks/Footer/Footer";
-import CityContainer from "./blocks/City/CityContainer";
+import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
+import CityContainer from "./components/City/CityContainer";
 
-function App() {
+interface IApp {
+    theme: string
+}
+
+const App: FC<IApp> = ({ theme }) => {
     return (
-        <div className="app">
+        <div className={`app app_theme_${theme}`}>
             <div className="app__header">
                 <Header/>
             </div>
