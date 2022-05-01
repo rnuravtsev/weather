@@ -1,35 +1,36 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/dist/query/react";
 import { ICity } from "../models/ICity";
+import { APIkey, BASE_WEATHER_API, TEMPERATURE_UNITS } from "../consts";
 
 interface IFetchWeatherForPlace {
-    lat: number,
-    lon: number,
-    apikey: string
+    latitude?: number,
+    longitude?: number,
 }
 
 export const weatherAPI = createApi({
     reducerPath: 'weatherAPI',
-    baseQuery: fetchBaseQuery({ baseUrl: 'https://api.openweathermap.org/data/2.5' }),
+    baseQuery: fetchBaseQuery({ baseUrl: BASE_WEATHER_API }),
     tagTypes: ['Weather'],
     endpoints: (build) => ({
         fetchWeatherForPlace: build.query<ICity, IFetchWeatherForPlace>({
-            query: ({lat, lon, apikey}) => ({
+            query: ({ latitude, longitude }) => ({
                 url: '/weather',
                 params: {
-                    lat: lat,
-                    lon: lon,
-                    apikey: apikey,
+                    lat: latitude,
+                    lon: longitude,
+                    apikey: APIkey,
+                    units: TEMPERATURE_UNITS,
                 }
             }),
             providesTags: result => ['Weather']
         }),
-        createWeather: build.mutation<ICity, ICity>({
-            query: (weather) => ({
-                url: '/weather',
-                method: 'POST',
-                body: weather
-            }),
-            invalidatesTags: ['Weather']
-        })
+        // createWeather: build.mutation<ICity, ICity>({
+        //     query: (weather) => ({
+        //         url: '/weather',
+        //         method: 'POST',
+        //         body: weather
+        //     }),
+        //     invalidatesTags: ['Weather']
+        // })
     })
 })

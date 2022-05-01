@@ -3,10 +3,16 @@
 }
 
 .app {
-  display: grid;
   height: 100vh;
+  display: grid;
   grid-template-columns: minmax(100px, auto) 1fr minmax(100px, auto);
   grid-template-rows: minmax(100px, auto) 1fr minmax(100px, auto);
+  place-items: center;
+}
+
+.app_theme_dark {
+  background-color: #000;
+  color: #fff;
 }
 
 .app__header {
