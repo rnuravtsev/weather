@@ -1,5 +1,6 @@
 .city {
     text-align: center;
+    grid-area: city;
 }
 
 .city__title {

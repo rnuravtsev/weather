@@ -3,7 +3,7 @@ import { weatherAPI } from "../../services/weatherService";
 import City from "../City/City";
 import { useAppSelector } from "../../hooks/redux";
 import { RootState } from "../../ducks/store";
-import { ICity } from "../../models/ICity";
+import { ICityAPI } from "../../models/ICityAPI";
 
 import { weatherIcons } from '../../weatherIcons';
 import { ICityAdapter } from "../../models/ICityApp";
@@ -16,7 +16,7 @@ const CityContainer = () => {
         skip: !isGeoConfirm
     })
 
-    const mapProps = (data?: ICity): ICityAdapter | undefined => {
+    const mapProps = (data?: ICityAPI): ICityAdapter | undefined => {
         if (!data) {
             return undefined
         }

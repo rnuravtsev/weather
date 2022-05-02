@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import App from "../../App";
+import App from "./App";
 import { useAppDispatch } from "../../hooks/redux";
 import { userGeoConfirm } from "../../ducks/ActionCreators";
 

@@ -1,4 +1,4 @@
-export interface ICity {
+export interface ICityAPI {
     "coord": {
         "lon": number,
         "lat": number
