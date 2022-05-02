@@ -1,4 +1,4 @@
-import React, { FC, useEffect } from 'react';
+import React, { FC } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLocationArrow } from "@fortawesome/free-solid-svg-icons";
 import { capitalizeFirstLetter } from "../../utils";
@@ -19,6 +19,7 @@ const City: FC<ICityProps> = ({ weather, isGeoConfirm }) => {
 
     return (
         <section className="city">
+            <h2 className="visually-hidden">Прогноз погоды для вашего города</h2>
             <div className="city__lead">
                 <div className="city__flex-wrapper">
                     <h2 className="city__title">{location}</h2>
@@ -35,8 +36,6 @@ const City: FC<ICityProps> = ({ weather, isGeoConfirm }) => {
                     <p className="city__temp-min">M:{Math.floor(temperature_min)}&#176;</p>
                 </div>
             </div>
-            {/*<FontAwesomeIcon icon={faCoffee}/>*/}
-            {/*<pre>{JSON.stringify(main)}</pre>*/}
         </section>
     );
 };
