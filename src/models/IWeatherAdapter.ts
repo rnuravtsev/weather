@@ -1,4 +1,4 @@
-export interface ICityAdapter {
+export interface IWeatherAdapter {
     "country": string,
     "condition": number
     "description": string,

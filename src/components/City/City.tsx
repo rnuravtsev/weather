@@ -3,14 +3,17 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLocationArrow } from "@fortawesome/free-solid-svg-icons";
 import { capitalizeFirstLetter } from "../../utils";
 import './City.css'
-import { ICityAdapter } from "../../models/ICityApp";
+import { IWeatherAdapter } from "../../models/IWeatherAdapter";
+import CityWeekForecast from "./CityWeekForecast";
+import { IWeekForecastOneDayAPI } from "../../models/IWeekForecastOneDayAPI";
 
 interface ICityProps {
-    weather?: ICityAdapter,
+    weather?: IWeatherAdapter,
+    weekForecast?: IWeekForecastOneDayAPI[],
     isGeoConfirm: boolean,
 }
 
-const City: FC<ICityProps> = ({ weather, isGeoConfirm }) => {
+const City: FC<ICityProps> = ({ weather, isGeoConfirm, weekForecast }) => {
     if (!weather) {
         return null
     }
@@ -19,22 +22,32 @@ const City: FC<ICityProps> = ({ weather, isGeoConfirm }) => {
 
     return (
         <section className="city">
-            <h2 className="visually-hidden">Прогноз погоды для вашего города</h2>
             <div className="city__lead">
-                <div className="city__flex-wrapper">
-                    <h2 className="city__title">{location}</h2>
-                    {isGeoConfirm &&
-                    <FontAwesomeIcon icon={faLocationArrow}/>
-                    }
+                <div className="city__main">
+                    <div className="city__flex-wrapper">
+                        flag
+                        <h2 className="city__title">{location}</h2>
+                        {isGeoConfirm &&
+                        <FontAwesomeIcon icon={faLocationArrow}/>
+                        }
+                    </div>
+                    <p className="city__temp">{Math.floor(temperature)}&#176;</p>
                 </div>
-                <p className="city__temp">{Math.floor(temperature)}&#176;</p>
-                <div className="city__flex-wrapper">
-                    <p className="city__description">{capitalizeFirstLetter(description)}</p>
+                <div className="city__peripheral">
+                    <div className="city__flex-wrapper">
+                        <p className="city__description">{capitalizeFirstLetter(description)}</p>
+                    </div>
+                    <div className="city__flex-wrapper">
+                        <p className="city__temp-max">H:{Math.floor(temperature_max)}&#176;</p>
+                        <p className="city__temp-min">M:{Math.floor(temperature_min)}&#176;</p>
+                    </div>
                 </div>
-                <div className="city__flex-wrapper">
-                    <p className="city__temp-max">H:{Math.floor(temperature_max)}&#176;</p>
-                    <p className="city__temp-min">M:{Math.floor(temperature_min)}&#176;</p>
-                </div>
+            </div>
+            <div className="city__day">
+                День
+            </div>
+            <div className="city__week">
+                <CityWeekForecast list={weekForecast}/>
             </div>
         </section>
     );

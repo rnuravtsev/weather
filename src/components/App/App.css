@@ -7,7 +7,6 @@
     display: grid;
     grid-template-columns: minmax(100px, auto) 1fr minmax(100px, auto);
     grid-template-rows: minmax(100px, auto) 1fr minmax(100px, auto);
-    place-items: center;
 }
 
 .app_theme_dark {

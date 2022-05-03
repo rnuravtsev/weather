@@ -1,4 +1,4 @@
-export interface ICityAPI {
+export interface IWeatherAPI {
     "coord": {
         "lon": number,
         "lat": number

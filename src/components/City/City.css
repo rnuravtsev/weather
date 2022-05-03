@@ -1,12 +1,30 @@
 .city {
-    text-align: center;
     grid-area: city;
+    display: grid;
+    grid-template-rows: repeat(3, auto);
+}
+
+.city__lead {
+    display: grid;
+    grid-template-columns: [main] minmax(100px, 400px) [peripheral] 1fr;
+    grid-template-rows: repeat(2, 1fr);
+}
+
+.city__main {
+    grid-column: 1;
+    grid-row: 1 / 2;
+}
+
+.city__peripheral {
+    grid-column: 2;
+    grid-row: 1 / 2;
 }
 
 .city__title {
     margin-right: 10px;
     line-height: 1rem;
 }
+
 
 .city__temp {
     margin-top: 0;
@@ -24,4 +42,20 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+.city__week-days {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.city__week-day {
+    display: flex;
+    justify-content: space-between;
+}
+
+.city__week-temperature {
+    display: flex;
+    column-gap: 10px;
 }
