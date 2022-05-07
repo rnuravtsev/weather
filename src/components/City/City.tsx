@@ -4,15 +4,14 @@ import { faLocationArrow, faWind, faDroplet, faSun } from "@fortawesome/free-sol
 import { capitalizeFirstLetter } from "../../utils";
 import './City.css'
 import './Hours.css'
-import { IWeatherAdapter } from "../../models/IWeatherAdapter";
 import CityWeekForecast from "./CityWeekForecast";
-import { IForecastAdapter } from "../../models/IForecastAdapter";
 import CityHoursForecast from "./CityHoursForecast";
 import { getDayLight } from "./utils";
+import { IWeather, IForecast } from "../../types";
 
 interface ICityProps {
-    weather?: IWeatherAdapter,
-    weekForecast?: IForecastAdapter,
+    weather?: IWeather,
+    weekForecast?: IForecast,
     isGeoConfirm: boolean,
 }
 
@@ -20,7 +19,17 @@ const City: FC<ICityProps> = ({ weather, isGeoConfirm, weekForecast }) => {
     if (!weather) {
         return null
     }
-    const { location, temperature, temperature_min, temperature_max, description, wind_speed, humidity, sunrise, sunset } = weather
+    const {
+        location,
+        temperature,
+        temperature_min,
+        temperature_max,
+        description,
+        wind_speed,
+        humidity,
+        sunrise,
+        sunset
+    } = weather
 
 
     return (
@@ -32,7 +41,8 @@ const City: FC<ICityProps> = ({ weather, isGeoConfirm, weekForecast }) => {
                         <h2 className="city__title">
                             {location}
                             {isGeoConfirm &&
-                            <FontAwesomeIcon className="city__icon city__icon_type_navi" icon={faLocationArrow}/>
+                            <FontAwesomeIcon className="city__icon city__icon_type_navi"
+                                             icon={faLocationArrow}/>
                             }
                         </h2>
                     </div>

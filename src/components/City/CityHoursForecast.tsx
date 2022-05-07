@@ -2,14 +2,14 @@ import React, { FC } from 'react';
 import { MAX_HOUR_CONT_FORECAST } from "../../consts";
 import CityHourForecast from "./CityHourForecast";
 import { IHourForecastAPI } from "../../models/IHourForecastAPI";
-import { IHourForecastAdapter } from "../../models/IHourForecastAdapter";
+import { IHourForecast } from "../../types";
 
 interface ICityHoursForecastProps {
     hours?: IHourForecastAPI[],
 }
 
 const CityHoursForecast: FC<ICityHoursForecastProps> = ({ hours }) => {
-    const mapOneHourForecast = (data?: IHourForecastAPI): IHourForecastAdapter | undefined => {
+    const mapOneHourForecast = (data?: IHourForecastAPI): IHourForecast | undefined => {
         return {
             hour: data?.dt,
             temperature: data?.temp,
