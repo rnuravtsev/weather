@@ -1,4 +1,4 @@
-export interface ICityAdapter {
+export interface IWeatherAdapter {
     "country": string,
     "condition": number
     "description": string,
@@ -8,8 +8,8 @@ export interface ICityAdapter {
     "id": number,
     "icon_id": string | number,
     "location": string,
-    "sunrise": string | number,
-    "sunset": string | number,
+    "sunrise": number,
+    "sunset": number,
     "temperature": number,
     "temperature_min": number,
     "temperature_max": number,

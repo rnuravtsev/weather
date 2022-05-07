@@ -1,5 +1,11 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCloud, faSun, faCloudSun, faCloudRain, faSnowflake } from "@fortawesome/free-solid-svg-icons";
+import {
+    faCloud,
+    faSun,
+    faCloudSun,
+    faCloudRain,
+    faSnowflake
+} from "@fortawesome/free-solid-svg-icons";
 import React from "react";
 
 const renderSunIcon = () => <FontAwesomeIcon icon={faSun}/>
@@ -15,3 +21,18 @@ export const weatherIcon = {
     rain: () => renderRainIcon(),
     snow: () => renderSnowIcon(),
 };
+
+const weekDays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+
+//TODO: Подумать что выводить, если day === undefined, пока так
+export const getWeekDay = (day?: number): string => (day || day === 0) ? weekDays[day] : 'не удалось загрузить данные';
+
+export const getTodayDate = () => {
+    return new Date().toDateString()
+}
+
+export const getDayLight = (sunrise: number, sunset: number): number => {
+    const humanSunriseTime = new Date(sunrise * 1000).getHours();
+    const humanSunsetTime = new Date(sunset * 1000).getHours();
+    return humanSunsetTime - humanSunriseTime;
+}

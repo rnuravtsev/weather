@@ -3,10 +3,11 @@ import { weatherAPI } from "../../services/weatherService";
 import City from "../City/City";
 import { useAppSelector } from "../../hooks/redux";
 import { RootState } from "../../ducks/store";
-import { ICityAPI } from "../../models/ICityAPI";
-
+import { IWeatherAPI } from "../../models/IWeatherAPI";
 import { weatherIcons } from '../../weatherIcons';
-import { ICityAdapter } from "../../models/ICityApp";
+import { IWeatherAdapter } from "../../models/IWeatherAdapter";
+import { IForecastAPI } from "../../models/IForecastAPI";
+import { IForecastAdapter } from "../../models/IForecastAdapter";
 
 const CityContainer = () => {
     const isGeoConfirm = useAppSelector((state: RootState) => state.userReducer.isGeoConfirm);
@@ -16,12 +17,20 @@ const CityContainer = () => {
         skip: !isGeoConfirm
     })
 
-    const mapProps = (data?: ICityAPI): ICityAdapter | undefined => {
+    // TODO: Обработать ошибки и загрузку
+    const {
+        data: weekForecast,
+        error: weekForecastError,
+        isLoading: weekForecastLoading
+    } = weatherAPI.useFetchWeekForecastQuery(userGeo, {
+        skip: !isGeoConfirm
+    })
+
+    const mapWeatherProps = (data?: IWeatherAPI): IWeatherAdapter | undefined => {
         if (!data) {
             return undefined
         }
 
-        // @ts-ignore
         return {
             id: data.id,
             location: data.name,
@@ -39,9 +48,16 @@ const CityContainer = () => {
             temperature_max: Math.round(data.main.temp_max),
             timezone: data.timezone / 3600,
             wind_speed: Math.round(data.wind.speed * 3.6),
-            // TODO: Не получается определить тип для weatherIcon
+            // TODO: Не получается определить тип для weather_icon
             // weather_icon: weatherIcons[data.weather[0].id].icon
         }
+    }
+
+    const mapForecastProps = (forecast?: IForecastAPI): IForecastAdapter | undefined => {
+        return {
+            hourlyForecast: forecast?.hourly,
+            weekForecast: forecast?.daily
+        };
     }
 
     return (
@@ -53,7 +69,8 @@ const CityContainer = () => {
                     ? <p>error</p>
                     :
                     <>
-                        <City weather={mapProps(weather)} isGeoConfirm={isGeoConfirm}/>
+                        <City weekForecast={mapForecastProps(weekForecast)} weather={mapWeatherProps(weather)}
+                              isGeoConfirm={isGeoConfirm}/>
                     </>
             }
         </>

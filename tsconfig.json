@@ -18,7 +18,15 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    // Запрещает класть в переменную null без явного объявления
+    "strictNullChecks": true,
+    // Делает вызовы методов bind, call, apply строго типизированными
+    "strictBindCallApply": true,
+    // Делает более строгими типы функций
+    "strictFunctionTypes": true,
+    // Запрещает объявление непустого поля класса без инициализации
+    "strictPropertyInitialization": true
   },
   "include": [
     "src"
