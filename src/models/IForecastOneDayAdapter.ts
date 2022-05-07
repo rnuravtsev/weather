@@ -1,4 +1,4 @@
-export interface IWeekForecastOneDayAdapter {
+export interface IForecastOneDayAdapter {
     weekDay?: number,
     temperature_max?: number
     temperature_min?: number

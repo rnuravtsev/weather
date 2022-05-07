@@ -6,8 +6,8 @@ import { RootState } from "../../ducks/store";
 import { IWeatherAPI } from "../../models/IWeatherAPI";
 import { weatherIcons } from '../../weatherIcons';
 import { IWeatherAdapter } from "../../models/IWeatherAdapter";
-import { IWeekForecastAPI } from "../../models/IWeekForecastAPI";
-import { IWeekForecastOneDayAPI } from "../../models/IWeekForecastOneDayAPI";
+import { IForecastAPI } from "../../models/IForecastAPI";
+import { IForecastAdapter } from "../../models/IForecastAdapter";
 
 const CityContainer = () => {
     const isGeoConfirm = useAppSelector((state: RootState) => state.userReducer.isGeoConfirm);
@@ -53,7 +53,12 @@ const CityContainer = () => {
         }
     }
 
-    const mapForecastProps = (forecast?: IWeekForecastAPI): IWeekForecastOneDayAPI[] | undefined => forecast?.daily
+    const mapForecastProps = (forecast?: IForecastAPI): IForecastAdapter | undefined => {
+        return {
+            hourlyForecast: forecast?.hourly,
+            weekForecast: forecast?.daily
+        };
+    }
 
     return (
         <>

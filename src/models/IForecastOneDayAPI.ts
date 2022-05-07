@@ -1,4 +1,4 @@
-export interface IWeekForecastOneDayAPI {
+export interface IForecastOneDayAPI {
     "dt": number,
     "sunrise": number,
     "sunset": number,

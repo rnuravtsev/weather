@@ -1,9 +1,9 @@
 import React, { FC } from 'react';
-import { IWeekForecastOneDayAdapter } from "../../models/IWeekForecastOneDayAdapter";
+import { IForecastOneDayAdapter } from "../../models/IForecastOneDayAdapter";
 import { getWeekDay } from "./utils";
 
 interface ICityWeekDayForecast {
-    forecast?: IWeekForecastOneDayAdapter
+    forecast?: IForecastOneDayAdapter
 }
 
 const CityWeekDayForecast: FC<ICityWeekDayForecast> = ({ forecast }) => {

@@ -28,6 +28,7 @@
           'city city city favs'
           'city city city favs'
           'city city city favs';
+    grid-gap: 20px;
 }
 
 .app__footer {

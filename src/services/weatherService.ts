@@ -1,7 +1,7 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/dist/query/react";
 import { IWeatherAPI } from "../models/IWeatherAPI";
 import { APIkey, BASE_WEATHER_API, TEMPERATURE_UNITS } from "../consts";
-import { IWeekForecastAPI } from "../models/IWeekForecastAPI";
+import { IForecastAPI } from "../models/IForecastAPI";
 
 interface IFetchWeatherForPlace {
     latitude?: number,
@@ -25,14 +25,14 @@ export const weatherAPI = createApi({
             }),
             providesTags: () => ['Weather']
         }),
-        fetchWeekForecast: build.query<IWeekForecastAPI, IFetchWeatherForPlace>({
+        fetchWeekForecast: build.query<IForecastAPI, IFetchWeatherForPlace>({
             query: ({ latitude, longitude }) => ({
                 url: '/onecall',
                 params: {
                     lat: latitude,
                     lon: longitude,
                     appid: APIkey,
-                    exclude: ['current', 'minutely', 'hourly', 'alerts'].join(','),
+                    exclude: ['current', 'minutely'].join(','),
                     units: TEMPERATURE_UNITS,
                 }
             }),

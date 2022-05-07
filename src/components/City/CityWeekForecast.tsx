@@ -1,14 +1,14 @@
 import React, { FC } from 'react';
 import CityWeekDayForecast from "./CityWeekDayForecast";
-import { IWeekForecastOneDayAPI } from "../../models/IWeekForecastOneDayAPI";
-import { IWeekForecastOneDayAdapter } from "../../models/IWeekForecastOneDayAdapter";
+import { IForecastOneDayAPI } from "../../models/IForecastOneDayAPI";
+import { IForecastOneDayAdapter } from "../../models/IForecastOneDayAdapter";
 
 interface ICityWeekForecastProps {
-    list?: IWeekForecastOneDayAPI[],
+    list?: IForecastOneDayAPI[],
 }
 
 const CityWeekForecast: FC<ICityWeekForecastProps> = ({ list }) => {
-    const mapOneDayForecast = (data?: IWeekForecastOneDayAPI): IWeekForecastOneDayAdapter | undefined => {
+    const mapOneDayForecast = (data?: IForecastOneDayAPI): IForecastOneDayAdapter | undefined => {
         return {
             weekDay: data?.dt,
             temperature_max: data?.temp.max,
