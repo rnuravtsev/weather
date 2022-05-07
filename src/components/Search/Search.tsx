@@ -16,7 +16,7 @@ const Search: FC<ISearchProps> = ({ handleSearch }) => {
         <section className="search">
             <h2 className="visually-hidden">Поиск</h2>
             <div className="search__flex-wrapper">
-                <FontAwesomeIcon icon={faMagnifyingGlass}/>
+                <FontAwesomeIcon className="search__icon" icon={faMagnifyingGlass}/>
                 <input onChange={debouncedOnChangeInput}/>
             </div>
         </section>

@@ -18,9 +18,10 @@ const CityContainer = () => {
     const {
         data: weekForecast,
         error: weekForecastError,
-        isLoading: weekForecastLoading
+        isLoading: weekForecastLoading,
     } = weatherAPI.useFetchWeekForecastQuery(userGeo, {
-        skip: !isGeoConfirm
+        skip: !isGeoConfirm,
+
     })
 
     // TODO: Обработать ошибки и загрузку

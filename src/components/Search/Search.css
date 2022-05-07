@@ -7,3 +7,7 @@
     align-items: center;
     gap: 5px;
 }
+
+.search__icon {
+    font-size: 20px;
+}
