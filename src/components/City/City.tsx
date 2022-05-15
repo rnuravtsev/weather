@@ -37,7 +37,8 @@ const City: FC<ICityProps> = ({ weather, isGeoConfirm, weekForecast }) => {
             <div className="city__lead">
                 <div className="city__main">
                     <div className="city__flex-wrapper">
-                        flag
+                        {/*// TODO: Временно флаг России*/}
+                        <i className="city__icon city__icon_type_flag">🇷🇺</i>
                         <h2 className="city__title">
                             {location}
                             {isGeoConfirm &&

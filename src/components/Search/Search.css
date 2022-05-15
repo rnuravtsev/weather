@@ -9,5 +9,10 @@
 }
 
 .search__icon {
-    font-size: 20px;
+    font-size: 1.25rem;
+}
+
+.search__input {
+    font-size: 1.125rem;
+    min-height: 1.125rem;
 }

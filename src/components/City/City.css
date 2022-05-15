@@ -13,6 +13,9 @@
 .city__main {
     grid-column: 1;
     grid-row: 1 / 2;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
 }
 
 .city__peripheral {
@@ -25,7 +28,7 @@
 }
 
 .city__title {
-    margin-right: 10px;
+    margin: 0;
     display: flex;
     column-gap: 0.625rem;
     font-size: 1.5rem;
@@ -113,4 +116,9 @@
 .city__week-temperature {
     display: flex;
     column-gap: 10px;
+}
+
+.city__icon_type_flag {
+    font-size: 1.5rem;
+    line-height: 1.5rem;
 }

@@ -14,28 +14,20 @@ const CityContainer = () => {
         skip: !isGeoConfirm
     })
 
-    // TODO: Обработать ошибки и загрузку
     const {
         data: weekForecast,
         error: weekForecastError,
         isLoading: weekForecastLoading,
     } = weatherAPI.useFetchWeekForecastQuery(userGeo, {
         skip: !isGeoConfirm,
-
     })
 
-    // TODO: Обработать ошибки и загрузку
-    const {
-        data: searchPlaceWeatherData,
-        isLoading: searchPlaceLoading,
-        error: searchPlaceError,
-    } = weatherAPI.useFetchWeatherForSearchingPlaceQuery({ place: searchingPlace }, {
-        skip: !searchingPlace
-    })
+    const finalLoading = userGeoLoading || weekForecastLoading;
+    const finalErrors = (userGeoError || weekForecastError);
 
     const resolveWeatherForPlace = () => {
         if (searchingPlace) {
-            return searchPlaceWeatherData
+            return searchingPlace
         }
 
         return weather
@@ -44,9 +36,9 @@ const CityContainer = () => {
     return (
         <>
             {
-                userGeoLoading
+                finalLoading
                     ? 'Loader'
-                    : userGeoError
+                    : finalErrors
                     ? <p>error</p>
                     :
                     <>

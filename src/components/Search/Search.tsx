@@ -1,14 +1,16 @@
-import React, { FC, useState } from 'react';
+import React, { FC } from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons/faMagnifyingGlass";
+import { faSpinner } from "@fortawesome/free-solid-svg-icons/faSpinner";
 import './Search.css'
 import { debounce } from "../../utils";
 
 interface ISearchProps {
+    isLoading: boolean,
     handleSearch: (value: string) => void,
 }
 
-const Search: FC<ISearchProps> = ({ handleSearch }) => {
+const Search: FC<ISearchProps> = ({ handleSearch, isLoading }) => {
     const onChangeInput = (evt: React.ChangeEvent<HTMLInputElement>) => handleSearch(evt.target.value);
     const debouncedOnChangeInput = debounce(onChangeInput);
 
@@ -17,7 +19,8 @@ const Search: FC<ISearchProps> = ({ handleSearch }) => {
             <h2 className="visually-hidden">Поиск</h2>
             <div className="search__flex-wrapper">
                 <FontAwesomeIcon className="search__icon" icon={faMagnifyingGlass}/>
-                <input onChange={debouncedOnChangeInput}/>
+                <input className="search__input" onChange={debouncedOnChangeInput}/>
+                {isLoading && <FontAwesomeIcon className="search__icon" icon={faSpinner}/>}
             </div>
         </section>
     );
