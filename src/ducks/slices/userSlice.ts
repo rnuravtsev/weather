@@ -1,11 +1,14 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { IWeather } from "../../types";
+import { IWeatherSearchingPlaceAPI } from "../../models/IWeatherSearchingPlaceAPI";
 
 interface IUserState {
     isGeoConfirm: boolean,
     geo: {
         longitude?: number
         latitude?: number
-    }
+    },
+    searchingPlace?: IWeatherSearchingPlaceAPI,
 }
 
 const initialState: IUserState = {
@@ -13,7 +16,8 @@ const initialState: IUserState = {
     geo: {
         longitude: undefined,
         latitude: undefined
-    }
+    },
+    searchingPlace: undefined,
 }
 
 export const userSlice = createSlice({
@@ -25,11 +29,14 @@ export const userSlice = createSlice({
         },
         setUserGeoConfirm(state) {
             state.isGeoConfirm = true
+        },
+        setSearchingPlace(state, action) {
+            state.searchingPlace = action.payload
         }
     },
     extraReducers: {}
 });
 
-export const { setUserGeoPosition, setUserGeoConfirm } = userSlice.actions
+export const { setUserGeoPosition, setUserGeoConfirm, setSearchingPlace } = userSlice.actions
 
 export default userSlice.reducer

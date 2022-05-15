@@ -1,11 +1,16 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/dist/query/react";
 import { IWeatherAPI } from "../models/IWeatherAPI";
-import { APIkey, BASE_WEATHER_API, TEMPERATURE_UNITS } from "../consts";
+import { API_KEY, BASE_WEATHER_API, TEMPERATURE_UNITS } from "../consts";
 import { IForecastAPI } from "../models/IForecastAPI";
+import { IWeatherSearchingPlaceAPI } from "../models/IWeatherSearchingPlaceAPI";
 
 interface IFetchWeatherForPlace {
     latitude?: number,
     longitude?: number,
+}
+
+interface IFetchWeatherForSearchingPlace {
+    place: string,
 }
 
 export const weatherAPI = createApi({
@@ -19,7 +24,7 @@ export const weatherAPI = createApi({
                 params: {
                     lat: latitude,
                     lon: longitude,
-                    apikey: APIkey,
+                    apikey: API_KEY,
                     units: TEMPERATURE_UNITS,
                 }
             }),
@@ -31,12 +36,22 @@ export const weatherAPI = createApi({
                 params: {
                     lat: latitude,
                     lon: longitude,
-                    appid: APIkey,
+                    appid: API_KEY,
                     exclude: ['current', 'minutely'].join(','),
                     units: TEMPERATURE_UNITS,
                 }
             }),
             providesTags: () => ['Weather']
         }),
+        fetchWeatherForSearchingPlace: build.query<IWeatherSearchingPlaceAPI, IFetchWeatherForSearchingPlace>({
+            query: ({ place }) => ({
+                url: 'weather',
+                params: {
+                    q: place,
+                    appid: API_KEY,
+                    units: TEMPERATURE_UNITS,
+                }
+            })
+        })
     })
 })

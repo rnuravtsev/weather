@@ -7,3 +7,12 @@
     align-items: center;
     gap: 5px;
 }
+
+.search__icon {
+    font-size: 1.25rem;
+}
+
+.search__input {
+    font-size: 1.125rem;
+    min-height: 1.125rem;
+}

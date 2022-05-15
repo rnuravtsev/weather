@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
-import { IHourForecastAdapter } from "../../models/IHourForecastAdapter";
+import { IHourForecast } from "../../types";
 
 export interface ICityHourForecastProps {
-    hourForecast?: IHourForecastAdapter,
+    hourForecast?: IHourForecast,
 }
 
 const CityHourForecast: FC<ICityHourForecastProps> = ({ hourForecast }) => {
