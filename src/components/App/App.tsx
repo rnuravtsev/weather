@@ -21,7 +21,6 @@ const App: FC<IApp> = ({ theme }) => {
             <main className="app__main">
                 <Date/>
                 <SearchContainer/>
-                <ThemeSwitcher/>
                 <CityContainer/>
                 <Favs/>
             </main>

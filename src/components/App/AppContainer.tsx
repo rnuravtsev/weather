@@ -1,19 +1,21 @@
 import React, { ReactEventHandler, useEffect, useState } from 'react';
 import App from "./App";
-import { useAppDispatch } from "../../hooks/redux";
+import { useAppDispatch, useAppSelector } from "../../hooks/redux";
 import { userGeoConfirm } from "../../ducks/ActionCreators";
+import { RootState } from "../../ducks/store";
+import { setUserTheme } from "../../ducks/slices/userSlice";
 
 const AppContainer = () => {
-    const [theme, switchTheme] = useState('light');
+    const appTheme = useAppSelector((state: RootState) => state.userReducer.theme);
     const dispatch = useAppDispatch()
 
     useEffect(() => {
         //TODO: Изменить тип аргумента
         const windowThemeChangeHandler = (evt: any) => {
             if (evt.matches) {
-                switchTheme('dark')
+                dispatch(setUserTheme('dark'));
             } else {
-                switchTheme('light')
+                dispatch(setUserTheme('light'));
             }
         }
 
@@ -24,7 +26,7 @@ const AppContainer = () => {
         return () => window.matchMedia('(prefers-color-scheme: dark)').removeEventListener('change', windowThemeChangeHandler)
     }, [])
     return (
-        <App theme={theme}/>
+        <App theme={appTheme}/>
     );
 };
 

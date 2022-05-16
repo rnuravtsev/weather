@@ -1,5 +1,6 @@
 .favs {
     grid-area: favs;
+    outline: 1px dashed black;
 }
 
 .favs__list {
