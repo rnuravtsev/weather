@@ -2,8 +2,8 @@ import { IHourForecastAPI } from "./models/IHourForecastAPI";
 import { IForecastOneDayAPI } from "./models/IForecastOneDayAPI";
 
 export interface IWeatherFetch {
-    latitude?: number | string,
-    longitude?: number | string,
+    latitude?: number,
+    longitude?: number,
 }
 
 export interface IFavItem {

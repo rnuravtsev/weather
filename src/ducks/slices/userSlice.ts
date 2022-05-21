@@ -28,7 +28,7 @@ export const userSlice = createSlice({
         setUserTheme(state, action) {
           state.theme = action.payload
         },
-        setUserGeoPosition(state, action) {
+        setGeoPosition(state, action) {
             state.geo = action.payload
         },
         setUserGeoConfirm(state) {
@@ -41,6 +41,6 @@ export const userSlice = createSlice({
     extraReducers: {}
 });
 
-export const { setUserGeoPosition, setUserGeoConfirm, setSearchingPlace, setUserTheme } = userSlice.actions
+export const { setGeoPosition, setUserGeoConfirm, setSearchingPlace, setUserTheme } = userSlice.actions
 
 export default userSlice.reducer

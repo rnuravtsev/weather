@@ -15,8 +15,8 @@
 }
 
 .app_theme_dark {
-    background-color: black;
-    color: white;
+    background-color: var(--theme-black-bg);
+    color: var(--theme-black-color);
 }
 
 .app_theme_dark .favs {
@@ -25,6 +25,12 @@
 
 .app_theme_dark a {
     color: white;
+}
+
+.app_theme_dark input {
+    background-color: var(--theme-black-color);
+    color: var(--theme-black-bg);
+    border: none;
 }
 
 .app__header {
