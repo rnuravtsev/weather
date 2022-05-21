@@ -1,8 +1,8 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { IWeather } from "../../types";
+import { createSlice } from "@reduxjs/toolkit";
 import { IWeatherSearchingPlaceAPI } from "../../models/IWeatherSearchingPlaceAPI";
 
 interface IUserState {
+    theme: string,
     isGeoConfirm: boolean,
     geo: {
         longitude?: number
@@ -12,6 +12,7 @@ interface IUserState {
 }
 
 const initialState: IUserState = {
+    theme: 'light',
     isGeoConfirm: false,
     geo: {
         longitude: undefined,
@@ -24,7 +25,10 @@ export const userSlice = createSlice({
     name: 'user',
     initialState,
     reducers: {
-        setUserGeoPosition(state, action) {
+        setUserTheme(state, action) {
+          state.theme = action.payload
+        },
+        setGeoPosition(state, action) {
             state.geo = action.payload
         },
         setUserGeoConfirm(state) {
@@ -37,6 +41,6 @@ export const userSlice = createSlice({
     extraReducers: {}
 });
 
-export const { setUserGeoPosition, setUserGeoConfirm, setSearchingPlace } = userSlice.actions
+export const { setGeoPosition, setUserGeoConfirm, setSearchingPlace, setUserTheme } = userSlice.actions
 
 export default userSlice.reducer

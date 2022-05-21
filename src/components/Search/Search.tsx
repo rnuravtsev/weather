@@ -7,11 +7,11 @@ import { debounce } from "../../utils";
 
 interface ISearchProps {
     isLoading: boolean,
-    handleSearch: (value: string) => void,
+    onChange: (value: string) => void,
 }
 
-const Search: FC<ISearchProps> = ({ handleSearch, isLoading }) => {
-    const onChangeInput = (evt: React.ChangeEvent<HTMLInputElement>) => handleSearch(evt.target.value);
+const Search: FC<ISearchProps> = ({ onChange, isLoading }) => {
+    const onChangeInput = (evt: React.ChangeEvent<HTMLInputElement>) => onChange(evt.target.value);
     const debouncedOnChangeInput = debounce(onChangeInput);
 
     return (

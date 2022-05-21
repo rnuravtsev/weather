@@ -1,11 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-    faCloud,
-    faSun,
-    faCloudSun,
-    faCloudRain,
-    faSnowflake
-} from "@fortawesome/free-solid-svg-icons";
+import { faCloud, faCloudRain, faCloudSun, faSnowflake, faSun } from "@fortawesome/free-solid-svg-icons";
 import React from "react";
 
 const renderSunIcon = () => <FontAwesomeIcon icon={faSun}/>
@@ -35,4 +29,13 @@ export const getDayLight = (sunrise: number, sunset: number): number => {
     const humanSunriseTime = new Date(sunrise * 1000).getHours();
     const humanSunsetTime = new Date(sunset * 1000).getHours();
     return humanSunsetTime - humanSunriseTime;
+}
+
+export const convertGeoForRequest = (obj: { lat: number, lon: number } | undefined) => {
+    if (obj) {
+        return {
+            latitude: obj.lat,
+            longitude: obj.lon
+        }
+    }
 }

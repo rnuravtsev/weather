@@ -4,21 +4,27 @@ import City from "../City/City";
 import { useAppSelector } from "../../hooks/redux";
 import { RootState } from "../../ducks/store";
 import { mapForecastProps, mapWeatherProps } from "./mapProps";
+import { convertGeoForRequest } from "./utils";
 
 const CityContainer = () => {
     const isGeoConfirm = useAppSelector((state: RootState) => state.userReducer.isGeoConfirm);
-    const userGeo = useAppSelector(state => state.userReducer.geo);
+    const geoPosition = useAppSelector(state => state.userReducer.geo);
     const searchingPlace = useAppSelector(state => state.userReducer.searchingPlace);
+    const searchingPlaceGeoPosition = convertGeoForRequest(searchingPlace?.coord);
 
-    const { data: weather, error: userGeoError, isLoading: userGeoLoading } = weatherAPI.useFetchWeatherForPlaceQuery(userGeo, {
-        skip: !isGeoConfirm
+    const {
+        data: weather,
+        error: userGeoError,
+        isLoading: userGeoLoading
+    } = weatherAPI.useFetchWeatherForPlaceQuery(geoPosition, {
+        skip: !isGeoConfirm || !!searchingPlace
     })
 
     const {
         data: weekForecast,
         error: weekForecastError,
         isLoading: weekForecastLoading,
-    } = weatherAPI.useFetchWeekForecastQuery(userGeo, {
+    } = weatherAPI.useFetchWeekForecastQuery((searchingPlaceGeoPosition || geoPosition), {
         skip: !isGeoConfirm,
     })
 
@@ -42,7 +48,8 @@ const CityContainer = () => {
                     ? <p>error</p>
                     :
                     <>
-                        <City weekForecast={mapForecastProps(weekForecast)} weather={mapWeatherProps(resolveWeatherForPlace())}
+                        <City weekForecast={mapForecastProps(weekForecast)}
+                              weather={mapWeatherProps(resolveWeatherForPlace())}
                               isGeoConfirm={isGeoConfirm}/>
                     </>
             }

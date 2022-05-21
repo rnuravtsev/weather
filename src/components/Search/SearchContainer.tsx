@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Search from "./Search";
 import { useAppDispatch } from "../../hooks/redux";
 import { setSearchingPlace } from "../../ducks/slices/userSlice";
@@ -19,14 +19,14 @@ const SearchContainer = () => {
 
     useEffect(() => {
         if (inputValue) {
-           dispatch(setSearchingPlace(searchPlaceWeatherData))
+            dispatch(setSearchingPlace(searchPlaceWeatherData))
         }
     })
 
-    const onChangeSearch = (value: string) => setInputValue(value)
+    const handleSearchChange = (value: string) => setInputValue(value)
 
     return (
-        <Search isLoading={isLoading} handleSearch={onChangeSearch}/>
+        <Search isLoading={isLoading} onChange={handleSearchChange}/>
     );
 };
 
