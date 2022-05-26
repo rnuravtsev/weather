@@ -1,6 +1,7 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import userReducer from "./slices/userSlice"
 import { weatherAPI } from "../services/weatherService";
+import { rtkQueryErrorHandler } from "./middlewares";
 
 const rootReducer = combineReducers({
     userReducer,
@@ -11,7 +12,7 @@ export const setupStore = () => {
     return configureStore({
         reducer: rootReducer,
         middleware: (getDefaultMiddleware) =>
-            getDefaultMiddleware().concat(weatherAPI.middleware)
+            getDefaultMiddleware().concat(weatherAPI.middleware, rtkQueryErrorHandler),
     })
 }
 

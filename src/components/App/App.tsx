@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import { ToastContainer } from "react-toastify";
 import './App.css';
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
@@ -6,7 +7,7 @@ import CityContainer from "../../components/City/CityContainer";
 import Favs from "../Favs/Favs";
 import Date from "../Date/Date";
 import SearchContainer from "../Search/SearchContainer";
-import ThemeSwitcher from "../ThemeSwitcher/ThemeSwitcher";
+import 'react-toastify/dist/ReactToastify.css';
 
 interface IApp {
     theme: string
@@ -27,6 +28,7 @@ const App: FC<IApp> = ({ theme }) => {
             <div className="app__footer">
                 <Footer/>
             </div>
+            <ToastContainer />
         </div>
     );
 }

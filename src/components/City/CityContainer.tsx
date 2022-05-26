@@ -29,7 +29,7 @@ const CityContainer = () => {
     })
 
     const finalLoading = userGeoLoading || weekForecastLoading;
-    const finalErrors = (userGeoError || weekForecastError);
+    const finalErrors = userGeoError || weekForecastError;
 
     const resolveWeatherForPlace = () => {
         if (searchingPlace) {
