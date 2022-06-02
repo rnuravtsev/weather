@@ -7,6 +7,7 @@ import CityContainer from "../../components/City/CityContainer";
 import Favs from "../Favs/Favs";
 import Date from "../Date/Date";
 import SearchContainer from "../Search/SearchContainer";
+import Save from "../Save/Save";
 import 'react-toastify/dist/ReactToastify.css';
 
 interface IApp {
@@ -22,6 +23,7 @@ const App: FC<IApp> = ({ theme }) => {
             <main className="app__main">
                 <Date/>
                 <SearchContainer/>
+                <Save/>
                 <CityContainer/>
                 <Favs/>
             </main>

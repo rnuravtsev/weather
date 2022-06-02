@@ -1,0 +1,5 @@
+.save {
+    grid-area: save;
+    display: flex;
+    justify-content: center;
+}

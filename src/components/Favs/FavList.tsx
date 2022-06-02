@@ -9,7 +9,6 @@ interface IFavListProps {
 const FavList: FC<IFavListProps> = ({ list }) => {
     return (
         <ul className="favs__list">
-            <li className="favs__item favs__item_add">+ Add Item</li>
             {list?.map((el, i) => {
                 return <FavItem item={el} key={`favItem-${i}`}/>
             })}
