@@ -1,10 +1,21 @@
-import React, { FC } from 'react'
+import React from 'react'
 import './Save.css'
+import { useAppDispatch, useAppSelector } from "../../hooks/redux";
+import { RootState } from "../../ducks/store";
+import { setFavItem } from "../../ducks/slices/userSlice";
 
-const Save: FC = () => {
+const Save = () => {
+    const place = useAppSelector((state: RootState) => state.userReducer.searchingPlace)
+    const dispatch = useAppDispatch()
+
+    const onButtonClick = () => {
+        localStorage.setItem(`${place?.name}`, JSON.stringify(place))
+        dispatch(setFavItem(place))
+    }
+
     return (
         <section className="save">
-            <button className="save__btn btn">Add</button>
+            <button className="save__btn btn" onClick={onButtonClick} disabled={!place}>Add</button>
         </section>
     )
 }

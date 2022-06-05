@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import FavList from "./FavList";
+import FavItem from "./FavItem";
 import { IFavItem } from "../../types";
 import './Favs.css';
 
@@ -13,7 +13,13 @@ const Favs: FC<IFavsProps> = ({ favs }) => {
             <h2 className="visually-hidden">
                 Список избранных локаций
             </h2>
-            <FavList list={favs}/>
+            {favs && (
+                <ul className="favs__list">
+                    {favs?.map((el, i) => {
+                        return <FavItem item={el} key={`favItem-${i}`}/>
+                    })}
+                </ul>
+            )}
         </section>
     );
 };
