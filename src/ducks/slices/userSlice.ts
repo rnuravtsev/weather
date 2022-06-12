@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { IWeatherSearchingPlaceAPI } from "../../models/IWeatherSearchingPlaceAPI";
 import { IFavItem } from "../../types";
-import { getFavsFromLocalStorage } from "../utils";
+// import { getFavsFromLocalStorage } from "../utils";
 
 interface IUserState {
     theme: string,
@@ -11,7 +11,7 @@ interface IUserState {
         latitude?: number
     },
     searchingPlace?: IWeatherSearchingPlaceAPI,
-    favs?: IFavItem[]
+    favs?: IWeatherSearchingPlaceAPI[]
 }
 
 const initialState: IUserState = {
@@ -22,7 +22,7 @@ const initialState: IUserState = {
         latitude: undefined
     },
     searchingPlace: undefined,
-    favs: getFavsFromLocalStorage()
+    favs: []
 }
 
 export const userSlice = createSlice({

@@ -41,6 +41,7 @@ const City: FC<ICityProps> = ({ weather, isGeoConfirm, weekForecast }) => {
                         <i className="city__icon city__icon_type_flag">🇷🇺</i>
                         <h2 className="city__title">
                             {location}
+                            {/*// TODO: Временно значок навигации показывается всегда*/}
                             {isGeoConfirm &&
                             <FontAwesomeIcon className="city__icon city__icon_type_navi"
                                              icon={faLocationArrow}/>

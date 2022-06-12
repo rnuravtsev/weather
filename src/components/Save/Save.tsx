@@ -9,7 +9,6 @@ const Save = () => {
     const dispatch = useAppDispatch()
 
     const onButtonClick = () => {
-        localStorage.setItem(`${place?.name}`, JSON.stringify(place))
         dispatch(setFavItem(place))
     }
 
