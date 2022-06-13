@@ -47,6 +47,9 @@ export const userSlice = createSlice({
         },
         setCurrentCity(state, action) {
             state.currentCity = action.payload
+        },
+        removeFavItem(state, action) {
+            state.favs = state.favs?.filter((el) => el.name !== action.payload);
         }
     },
     extraReducers: {}
@@ -58,7 +61,8 @@ export const {
     setSearchingPlace,
     setUserTheme,
     setFavItem,
-    setCurrentCity
+    setCurrentCity,
+    removeFavItem
 } = userSlice.actions
 
 export default userSlice.reducer

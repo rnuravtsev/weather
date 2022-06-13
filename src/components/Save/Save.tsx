@@ -1,7 +1,7 @@
 import React, { FC, useEffect, useState } from 'react'
 import './Save.css'
 import { useAppDispatch } from "../../hooks/redux";
-import { setFavItem } from "../../ducks/slices/userSlice";
+import { removeFavItem, setFavItem } from "../../ducks/slices/userSlice";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar as faStarSolid } from "@fortawesome/free-solid-svg-icons/faStar";
 import { faStar as faStarRegular } from "@fortawesome/free-regular-svg-icons/faStar";
@@ -28,12 +28,15 @@ const Save: FC<ISaveProps> = ({ currentCity, favs }) => {
         if (!fav) {
             dispatch(setFavItem(currentCity))
             setFav(true)
+        } else {
+            dispatch(removeFavItem(currentCity?.name))
+            setFav(false)
         }
     }
 
     return (
         <section className="save">
-            <button className="btn save__btn" onClick={onButtonClick} disabled={isBtnDisabled}>
+            <button className="btn save__btn" onClick={onButtonClick}>
                 {
                     fav
                         ? <FontAwesomeIcon icon={faStarSolid}/>

@@ -47,6 +47,7 @@
           'city city city favs'
           'city city city favs'
           'city city city favs';
+    grid-template-columns: 1fr 1fr 1fr minmax(200px, auto);
     grid-gap: 20px;
 }
 

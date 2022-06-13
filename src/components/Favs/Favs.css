@@ -8,3 +8,9 @@
     padding: 0;
     list-style: none;
 }
+
+.favs__item {
+    padding: 10px;
+    font-weight: 500;
+}
+

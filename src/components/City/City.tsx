@@ -14,9 +14,10 @@ interface ICityProps {
     weather?: IWeather,
     weekForecast?: IForecast,
     isGeoConfirm: boolean,
+    searchingPlace: boolean
 }
 
-const City: FC<ICityProps> = ({ weather, isGeoConfirm, weekForecast }) => {
+const City: FC<ICityProps> = ({ weather, isGeoConfirm, weekForecast, searchingPlace }) => {
     if (!weather) {
         return null
     }
@@ -33,6 +34,8 @@ const City: FC<ICityProps> = ({ weather, isGeoConfirm, weekForecast }) => {
         sunset
     } = weather
 
+    // const showIconLocation = isGeoConfirm && searchingPlace
+
     return (
         <section className="city">
             <div className="city__lead">
@@ -43,8 +46,7 @@ const City: FC<ICityProps> = ({ weather, isGeoConfirm, weekForecast }) => {
                         <i className="city__icon city__icon_type_flag">🇷🇺</i>
                         <h2 className="city__title">
                             {location}
-                            {/*// TODO: Временно значок навигации показывается всегда*/}
-                            {isGeoConfirm &&
+                            {isGeoConfirm && !searchingPlace &&
                             <FontAwesomeIcon className="city__icon city__icon_type_navi"
                                              icon={faLocationArrow}/>
                             }

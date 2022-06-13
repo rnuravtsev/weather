@@ -57,7 +57,9 @@ const CityContainer = () => {
                     <>
                         <City weekForecast={mapForecastProps(weekForecast)}
                               weather={mapWeatherProps(resolveWeatherForPlace())}
-                              isGeoConfirm={isGeoConfirm}/>
+                              isGeoConfirm={isGeoConfirm}
+                              searchingPlace={Boolean(searchingPlace)}
+                        />
                     </>
             }
         </>
