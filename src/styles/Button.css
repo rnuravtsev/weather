@@ -1,0 +1,3 @@
+.btn:not(:disabled):hover {
+    opacity: .75;
+}

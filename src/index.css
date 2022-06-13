@@ -1,3 +1,5 @@
+@import "./styles/Button.css";
+
 :root {
     --theme-black-bg: #202124;
     --theme-black-color: rgb(234, 147, 104);

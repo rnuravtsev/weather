@@ -1,12 +1,11 @@
 import React, { FC } from 'react';
 import FavItem from "./FavItem";
-import { IFavItem } from "../../types";
+import { IFavItem, TFavs } from "../../types";
 import './Favs.css';
 import { mapFavs } from "../../ducks/utils";
-import { IWeatherSearchingPlaceAPI } from "../../models/IWeatherSearchingPlaceAPI";
 
 interface IFavsProps {
-    favs?: IWeatherSearchingPlaceAPI[]
+    favs?: TFavs
 }
 
 const Favs: FC<IFavsProps> = ({ favs }) => {

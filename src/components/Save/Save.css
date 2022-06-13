@@ -1,5 +1,14 @@
 .save {
-    grid-area: save;
     display: flex;
     justify-content: center;
+}
+
+.save__btn {
+    font-size: 1.2rem;
+    background-color: transparent;
+    border: 0;
+}
+
+.save__btn:not(:disabled):hover {
+    opacity: .75;
 }

@@ -33,6 +33,7 @@ const ThemeSwitcher = () => {
             <FontAwesomeIcon icon={faSun}/>
             <div className='theme-switcher__wrapper'>
                 <button className={classNames(
+                    'btn',
                     'theme-switcher__btn',
                     {
                         'theme-switcher__btn_type_dark': dark,

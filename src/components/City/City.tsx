@@ -1,13 +1,14 @@
 import React, { FC } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faLocationArrow, faWind, faDroplet, faSun } from "@fortawesome/free-solid-svg-icons";
+import { faDroplet, faLocationArrow, faSun, faWind } from "@fortawesome/free-solid-svg-icons";
 import { capitalizeFirstLetter } from "../../utils";
 import './City.css'
 import './Hours.css'
 import CityWeekForecast from "./CityWeekForecast";
 import CityHoursForecast from "./CityHoursForecast";
 import { getDayLight } from "./utils";
-import { IWeather, IForecast } from "../../types";
+import { IForecast, IWeather } from "../../types";
+import SaveContainer from "../Save/SaveContainer";
 
 interface ICityProps {
     weather?: IWeather,
@@ -19,6 +20,7 @@ const City: FC<ICityProps> = ({ weather, isGeoConfirm, weekForecast }) => {
     if (!weather) {
         return null
     }
+
     const {
         location,
         temperature,
@@ -31,12 +33,12 @@ const City: FC<ICityProps> = ({ weather, isGeoConfirm, weekForecast }) => {
         sunset
     } = weather
 
-
     return (
         <section className="city">
             <div className="city__lead">
                 <div className="city__main">
                     <div className="city__flex-wrapper">
+                        <SaveContainer />
                         {/*// TODO: Временно флаг России*/}
                         <i className="city__icon city__icon_type_flag">🇷🇺</i>
                         <h2 className="city__title">

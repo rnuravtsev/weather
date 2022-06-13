@@ -1,7 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { IWeatherSearchingPlaceAPI } from "../../models/IWeatherSearchingPlaceAPI";
-import { IFavItem } from "../../types";
-// import { getFavsFromLocalStorage } from "../utils";
+import { TFavs } from "../../types";
 
 interface IUserState {
     theme: string,
@@ -10,13 +9,15 @@ interface IUserState {
         longitude?: number
         latitude?: number
     },
+    currentCity: IWeatherSearchingPlaceAPI,
     searchingPlace?: IWeatherSearchingPlaceAPI,
-    favs?: IWeatherSearchingPlaceAPI[]
+    favs?: TFavs
 }
 
 const initialState: IUserState = {
     theme: 'light',
     isGeoConfirm: false,
+    currentCity: {} as IWeatherSearchingPlaceAPI,
     geo: {
         longitude: undefined,
         latitude: undefined
@@ -30,7 +31,7 @@ export const userSlice = createSlice({
     initialState,
     reducers: {
         setUserTheme(state, action) {
-          state.theme = action.payload
+            state.theme = action.payload
         },
         setGeoPosition(state, action) {
             state.geo = action.payload
@@ -43,11 +44,21 @@ export const userSlice = createSlice({
         },
         setFavItem(state, action) {
             state.favs?.push(action.payload)
+        },
+        setCurrentCity(state, action) {
+            state.currentCity = action.payload
         }
     },
     extraReducers: {}
 });
 
-export const { setGeoPosition, setUserGeoConfirm, setSearchingPlace, setUserTheme, setFavItem } = userSlice.actions
+export const {
+    setGeoPosition,
+    setUserGeoConfirm,
+    setSearchingPlace,
+    setUserTheme,
+    setFavItem,
+    setCurrentCity
+} = userSlice.actions
 
 export default userSlice.reducer

@@ -43,7 +43,7 @@
     grid-row: 2;
     display: grid;
     grid-template-areas:
-          'date search save favs'
+          'date search search favs'
           'city city city favs'
           'city city city favs'
           'city city city favs';
