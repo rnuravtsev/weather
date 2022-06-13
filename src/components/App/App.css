@@ -30,7 +30,7 @@
 .app_theme_dark input {
     background-color: var(--theme-black-color);
     color: var(--theme-black-bg);
-    border: none;
+    border-color: transparent;
 }
 
 .app__header {
