@@ -4,7 +4,7 @@ import City from "../City/City";
 import { useAppDispatch, useAppSelector } from "../../hooks/redux";
 import { RootState } from "../../ducks/store";
 import { mapForecastProps, mapWeatherProps } from "./mapProps";
-import { convertGeoForRequest } from "./utils";
+import {convertGeoForRequest} from "../../utils";
 import { setCurrentCity } from "../../ducks/slices/userSlice";
 
 const CityContainer = () => {

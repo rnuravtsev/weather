@@ -14,3 +14,8 @@
     font-weight: 500;
 }
 
+.favs__item:hover {
+    cursor: pointer;
+    opacity: .75;
+}
+

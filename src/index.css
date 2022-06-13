@@ -3,6 +3,7 @@
 :root {
     --theme-black-bg: #202124;
     --theme-black-color: rgb(186, 176, 171);
+    --text-main: #3d3d3d;
 }
 
 body {
@@ -13,7 +14,7 @@ body {
     sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    color: #3d3d3d;
+    color: var(--text-main);
 }
 
 code {

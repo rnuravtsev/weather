@@ -1,3 +1,4 @@
 .btn:not(:disabled):hover {
     opacity: .75;
+    cursor: pointer;
 }

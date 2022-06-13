@@ -30,12 +30,3 @@ export const getDayLight = (sunrise: number, sunset: number): number => {
     const humanSunsetTime = new Date(sunset * 1000).getHours();
     return humanSunsetTime - humanSunriseTime;
 }
-
-export const convertGeoForRequest = (obj: { lat: number, lon: number } | undefined) => {
-    if (obj) {
-        return {
-            latitude: obj.lat,
-            longitude: obj.lon
-        }
-    }
-}

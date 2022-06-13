@@ -9,3 +9,12 @@ export const debounce = (cb: any, delay: number = 1000) => {
         timeout = setTimeout(() => cb.apply(this, args), delay);
     }
 }
+
+export const convertGeoForRequest = (obj: { lat: number, lon: number } | undefined) => {
+    if (obj) {
+        return {
+            latitude: obj.lat,
+            longitude: obj.lon
+        }
+    }
+}

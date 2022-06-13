@@ -2,6 +2,11 @@
     box-sizing: border-box;
 }
 
+input {
+    border: 2px solid var(--text-main);
+    border-radius: 4px;
+}
+
 .app {
     min-height: 100vh;
     display: grid;
@@ -28,9 +33,9 @@
 }
 
 .app_theme_dark input {
-    background-color: var(--theme-black-color);
-    color: var(--theme-black-bg);
-    border-color: transparent;
+    background-color: var(--theme-black-bg);
+    color: var(--theme-black-color);
+    border: 2px solid var(--theme-black-color);
 }
 
 .app__header {
