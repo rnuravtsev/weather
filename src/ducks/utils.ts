@@ -1,6 +1,5 @@
 import { setGeoPosition, setUserGeoConfirm } from "./slices/userSlice";
 import { AppDispatch } from "./store";
-import { IFavItem } from "../types";
 import { IWeatherSearchingPlaceAPI } from "../models/IWeatherSearchingPlaceAPI";
 
 export const onNavGeoSuccess = async (pos: any, dispatch: AppDispatch) => {
@@ -19,7 +18,7 @@ export const onNavGeoError = (err: any) => {
 export const mapFavs = (props: IWeatherSearchingPlaceAPI) => {
 
     return {
-        location: props?.name,
+        name: props?.name,
         time: props?.dt,
         description: props?.weather[0].description,
         temperature: props?.main.temp,

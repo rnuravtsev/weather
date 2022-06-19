@@ -8,12 +8,11 @@ export interface IWeatherFetch {
 }
 
 export interface IFavItem {
-    location?: string,
-    time?: string | number,
-    description?: string,
-    temperature?: number,
-    temperature_min?: number,
-    temperature_max?: number,
+    name: string,
+    description: string,
+    temperature: number,
+    temperature_min: number,
+    temperature_max: number,
 }
 
 export interface IWeather {

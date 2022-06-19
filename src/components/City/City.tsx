@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faDroplet, faLocationArrow, faSun, faWind } from "@fortawesome/free-solid-svg-icons";
-import { capitalizeFirstLetter } from "../../utils";
+import { capitalizeEachFirstLetter, capitalizeFirstLetter } from "../../utils";
 import './City.css'
 import './Hours.css'
 import { getDayLight } from "./utils";
@@ -58,7 +58,7 @@ const City: FC<ICityProps> = ({ weather, isGeoConfirm, weekForecast, searchingPl
                 <div className="city__peripheral">
                     <div className="city__description">
                         <i className="city__icon">-- w --</i>
-                        <p className="city__text">{capitalizeFirstLetter(description)}</p>
+                        <p className="city__text">{capitalizeEachFirstLetter(description)}</p>
                     </div>
                     <div className="city__temperatures">
                         <p className="city__temp-max">H:{Math.floor(temperature_max)}&#176;</p>
