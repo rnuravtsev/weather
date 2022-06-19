@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import FavItem from "./FavItem";
-import { IFavItem, TFavs } from "../../types";
+import { TFavs } from "../../types";
 import './Favs.css';
 import { mapFavs } from "../../ducks/utils";
 
@@ -10,18 +10,20 @@ interface IFavsProps {
 
 const Favs: FC<IFavsProps> = ({ favs }) => {
     return (
-        <section className="favs">
-            <h2 className="visually-hidden">
-                Список избранных локаций
-            </h2>
-            {favs && (
+        <>
+            {!!favs?.length &&
+                <section className="favs">
+                <h2 className="favs__title">
+                    Favorites
+                </h2>
                 <ul className="favs__list">
-                    {favs?.map((el, i) => {
+                    {favs.map((el, i) => {
                         return <FavItem item={mapFavs(el)} key={`favItem-${i}`}/>
                     })}
                 </ul>
-            )}
-        </section>
+            </section>
+            }
+        </>
     );
 };
 

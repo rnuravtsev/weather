@@ -4,11 +4,11 @@ import { faDroplet, faLocationArrow, faSun, faWind } from "@fortawesome/free-sol
 import { capitalizeFirstLetter } from "../../utils";
 import './City.css'
 import './Hours.css'
-import CityWeekForecast from "./CityWeekForecast";
-import CityHoursForecast from "./CityHoursForecast";
 import { getDayLight } from "./utils";
 import { IForecast, IWeather } from "../../types";
 import SaveContainer from "../Save/SaveContainer";
+import WeekForecast from "../WeekForecast/Week";
+import HoursForecast from "../HoursForecast/HoursForecast";
 
 interface ICityProps {
     weather?: IWeather,
@@ -34,23 +34,24 @@ const City: FC<ICityProps> = ({ weather, isGeoConfirm, weekForecast, searchingPl
         sunset
     } = weather
 
-    // const showIconLocation = isGeoConfirm && searchingPlace
+    const showIconLocation = isGeoConfirm && !searchingPlace
 
     return (
         <section className="city">
+            <h2 className="city__title">Current</h2>
             <div className="city__lead">
                 <div className="city__main">
                     <div className="city__flex-wrapper">
                         <SaveContainer />
-                        {/*// TODO: Временно флаг России*/}
-                        <i className="city__icon city__icon_type_flag">🇷🇺</i>
-                        <h2 className="city__title">
+                        <h3 className="city__name">
                             {location}
-                            {isGeoConfirm && !searchingPlace &&
+                            {showIconLocation &&
                             <FontAwesomeIcon className="city__icon city__icon_type_navi"
                                              icon={faLocationArrow}/>
                             }
-                        </h2>
+                        </h3>
+                        {/*// TODO: Временно всегда флаг России*/}
+                        <i className="city__icon city__icon_type_flag">🇷🇺</i>
                     </div>
                     <p className="city__temp">{Math.floor(temperature)}&#176;</p>
                 </div>
@@ -66,24 +67,24 @@ const City: FC<ICityProps> = ({ weather, isGeoConfirm, weekForecast, searchingPl
                     <ul className="city__additional">
                         <li className="city__wind city__flex-wrapper">
                             <FontAwesomeIcon icon={faWind}/>
-                            <p className="city__wind-unit">{wind_speed} km/h</p>
+                            <p className="city__unit city__unit_type_wind">{wind_speed} km/h</p>
                         </li>
                         <li className="city__humidity city__flex-wrapper">
                             <FontAwesomeIcon icon={faDroplet}/>
-                            <p className="city__wind-unit">{humidity} %</p>
+                            <p className="city__unit city__unit_type_humidity">{humidity} %</p>
                         </li>
                         <li className="city__light-day city__flex-wrapper">
                             <FontAwesomeIcon icon={faSun}/>
-                            <p className="city__wind-unit">{getDayLight(sunrise, sunset)} h</p>
+                            <p className="city__unit city__unit_type_day-light">{getDayLight(sunrise, sunset)} h</p>
                         </li>
                     </ul>
                 </div>
             </div>
             <div className="city__hours">
-                <CityHoursForecast hours={weekForecast?.hourlyForecast}/>
+                <HoursForecast hours={weekForecast?.hourlyForecast}/>
             </div>
             <div className="city__week">
-                <CityWeekForecast list={weekForecast?.weekForecast}/>
+                <WeekForecast list={weekForecast?.weekForecast}/>
             </div>
         </section>
     );

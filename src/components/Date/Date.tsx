@@ -5,8 +5,8 @@ import { getTodayDate } from "../City/utils";
 const Date = () => {
     return (
         <section className="date">
-            <h2 className="visually-hidden">Текущая дата</h2>
-            {getTodayDate()}
+            <h2 className="date__title">Date</h2>
+            <p className="date__day">{getTodayDate()}</p>
         </section>
     );
 };

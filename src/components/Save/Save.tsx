@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from 'react'
+import React, { FC } from 'react'
 import './Save.css'
 import { useAppDispatch } from "../../hooks/redux";
 import { removeFavItem, setFavItem } from "../../ducks/slices/userSlice";
@@ -14,31 +14,21 @@ interface ISaveProps {
 }
 
 const Save: FC<ISaveProps> = ({ currentCity, favs }) => {
-    const [fav, setFav] = useState<boolean>(false)
     const dispatch = useAppDispatch()
 
     const isAlreadyFav = Boolean(favs?.some((el) => el.name === currentCity?.name))
-    const isBtnDisabled = !currentCity || fav
-
-    useEffect(() => {
-        setFav(isAlreadyFav)
-    }, [favs, currentCity])
 
     const onButtonClick = () => {
-        if (!fav) {
-            dispatch(setFavItem(currentCity))
-            setFav(true)
-        } else {
-            dispatch(removeFavItem(currentCity?.name))
-            setFav(false)
-        }
+        !isAlreadyFav
+            ? dispatch(setFavItem(currentCity))
+            : dispatch(removeFavItem(currentCity?.name))
     }
 
     return (
         <section className="save">
             <button className="btn save__btn" onClick={onButtonClick}>
                 {
-                    fav
+                    isAlreadyFav
                         ? <FontAwesomeIcon icon={faStarSolid}/>
                         : <FontAwesomeIcon icon={faStarRegular}/>
                 }

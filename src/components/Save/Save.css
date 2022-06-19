@@ -5,6 +5,7 @@
 
 .save__btn {
     font-size: 1.2rem;
+    color: currentColor;
     background-color: transparent;
     border: 0;
 }

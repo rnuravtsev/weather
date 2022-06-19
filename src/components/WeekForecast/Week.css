@@ -1,0 +1,15 @@
+.week__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.week__day {
+    display: flex;
+    justify-content: space-between;
+}
+
+.week__temperature {
+    display: flex;
+    column-gap: 10px;
+}

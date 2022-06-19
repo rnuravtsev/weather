@@ -9,20 +9,18 @@ interface IUserState {
         longitude?: number
         latitude?: number
     },
-    currentCity: IWeatherSearchingPlaceAPI,
-    searchingPlace?: IWeatherSearchingPlaceAPI,
+    currentCity?: IWeatherSearchingPlaceAPI,
     favs?: TFavs
 }
 
 const initialState: IUserState = {
     theme: 'light',
     isGeoConfirm: false,
-    currentCity: {} as IWeatherSearchingPlaceAPI,
+    currentCity: undefined,
     geo: {
         longitude: undefined,
         latitude: undefined
     },
-    searchingPlace: undefined,
     favs: []
 }
 
@@ -38,9 +36,6 @@ export const userSlice = createSlice({
         },
         setUserGeoConfirm(state) {
             state.isGeoConfirm = true
-        },
-        setSearchingPlace(state, action) {
-            state.searchingPlace = action.payload
         },
         setFavItem(state, action) {
             state.favs?.push(action.payload)
@@ -58,7 +53,6 @@ export const userSlice = createSlice({
 export const {
     setGeoPosition,
     setUserGeoConfirm,
-    setSearchingPlace,
     setUserTheme,
     setFavItem,
     setCurrentCity,

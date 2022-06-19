@@ -1,4 +1,5 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
+import { getPersistConfig } from "redux-deep-persist";
 import {
     FLUSH,
     PAUSE,
@@ -13,7 +14,6 @@ import storage from 'redux-persist/lib/storage'
 import userReducer from "./slices/userSlice"
 import { weatherAPI } from "../services/weatherService";
 import { rtkQueryErrorHandler } from "./middlewares";
-import {getPersistConfig} from "redux-deep-persist";
 
 const rootReducer = combineReducers({
     userReducer,
@@ -41,7 +41,6 @@ const store = configureStore({
         }).concat(weatherAPI.middleware, rtkQueryErrorHandler),
 })
 
-// TODO: для настройки redux-persist с ts
 const appStoreType = () => store;
 
 export const persistor = persistStore(store)

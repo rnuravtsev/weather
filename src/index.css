@@ -1,4 +1,6 @@
 @import "./styles/Button.css";
+@import "./styles/Icons.css";
+@import "./styles/custom.css";
 
 :root {
     --theme-black-bg: #202124;

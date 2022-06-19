@@ -6,8 +6,6 @@ import Footer from "../../components/Footer/Footer";
 import CityContainer from "../../components/City/CityContainer";
 import FavsContainer from "../Favs/FavsContainer";
 import Date from "../Date/Date";
-import SearchContainer from "../Search/SearchContainer";
-import Save from "../Save/Save";
 import 'react-toastify/dist/ReactToastify.css';
 
 interface IApp {
@@ -22,15 +20,22 @@ const App: FC<IApp> = ({ theme }) => {
             </div>
             <main className="app__main">
                 <Date/>
-                <SearchContainer/>
-                {/*<Save/>*/}
                 <CityContainer/>
                 <FavsContainer/>
             </main>
             <div className="app__footer">
                 <Footer/>
             </div>
-            <ToastContainer />
+            <ToastContainer/>
+            {theme === 'dark' &&
+            (
+                <>
+                    <div id="stars"/>
+                    <div id="stars2"/>
+                    <div id="stars3"/>
+                </>
+            )
+            }
         </div>
     );
 }

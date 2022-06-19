@@ -1,6 +1,12 @@
 .favs {
+    padding-left: 20px;
     grid-area: favs;
-    outline: 1px dashed black;
+    border-left: 2px solid var(--text-main);
+}
+
+.favs__title {
+    margin-top: 0;
+    line-height: 1;
 }
 
 .favs__list {

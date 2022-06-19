@@ -10,8 +10,9 @@ import { setCurrentCity } from "../../ducks/slices/userSlice";
 const CityContainer = () => {
     const isGeoConfirm = useAppSelector((state: RootState) => state.userReducer.isGeoConfirm);
     const geoPosition = useAppSelector((state: RootState) => state.userReducer.geo);
-    const searchingPlace = useAppSelector((state: RootState) => state.userReducer.searchingPlace);
-    const searchingPlaceGeoPosition = convertGeoForRequest(searchingPlace?.coord);
+    const currentCity = useAppSelector((state: RootState) => state.userReducer.currentCity);
+    const currentCityGeoPosition = convertGeoForRequest(currentCity?.coord);
+    const favs = useAppSelector((state: RootState) => state.userReducer.favs);
 
     const dispatch = useAppDispatch()
 
@@ -20,27 +21,35 @@ const CityContainer = () => {
         error: userGeoError,
         isLoading: userGeoLoading
     } = weatherAPI.useFetchWeatherForPlaceQuery(geoPosition, {
-        skip: !isGeoConfirm || !!searchingPlace
+        skip: !isGeoConfirm || !!currentCity
     })
 
     const {
         data: weekForecast,
         error: weekForecastError,
         isLoading: weekForecastLoading,
-    } = weatherAPI.useFetchWeekForecastQuery((searchingPlaceGeoPosition || geoPosition), {
-        skip: !isGeoConfirm,
+    } = weatherAPI.useFetchWeekForecastQuery((currentCityGeoPosition || geoPosition), {
+        skip: !currentCity,
     })
 
     useEffect(() => {
-        dispatch(setCurrentCity(weather))
+        if (!currentCity && favs) {
+            dispatch(setCurrentCity(favs[0]))
+        }
+    }, [])
+
+    useEffect(() => {
+        if (weather) {
+            dispatch(setCurrentCity(weather))
+        }
     }, [weather])
 
     const finalLoading = userGeoLoading || weekForecastLoading;
     const finalErrors = userGeoError || weekForecastError;
 
     const resolveWeatherForPlace = () => {
-        if (searchingPlace) {
-            return searchingPlace
+        if (currentCity) {
+            return currentCity
         }
 
         return weather
@@ -58,7 +67,7 @@ const CityContainer = () => {
                         <City weekForecast={mapForecastProps(weekForecast)}
                               weather={mapWeatherProps(resolveWeatherForPlace())}
                               isGeoConfirm={isGeoConfirm}
-                              searchingPlace={Boolean(searchingPlace)}
+                              searchingPlace={Boolean(currentCity)}
                         />
                     </>
             }

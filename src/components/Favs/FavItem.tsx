@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import { IFavItem } from "../../types";
 import { useAppDispatch, useAppSelector } from "../../hooks/redux";
 import { RootState } from "../../ducks/store";
-import { setSearchingPlace } from "../../ducks/slices/userSlice";
+import { setCurrentCity } from "../../ducks/slices/userSlice";
 
 interface FavItemProps {
     item: IFavItem
@@ -24,7 +24,7 @@ const FavItem: FC<FavItemProps> = ({ item }) => {
     const currentFav = favs?.find((fav) => fav.name === location)
 
     const onItemClick = () => {
-        dispatch(setSearchingPlace(currentFav))
+        dispatch(setCurrentCity(currentFav))
     }
     return (
         <li

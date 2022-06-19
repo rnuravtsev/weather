@@ -1,14 +1,14 @@
 import React, { FC } from 'react';
 import { MAX_HOUR_CONT_FORECAST } from "../../consts";
-import CityHourForecast from "./CityHourForecast";
 import { IHourForecastAPI } from "../../models/IHourForecastAPI";
 import { IHourForecast } from "../../types";
+import HourForecast from "./HourForecast";
 
-interface ICityHoursForecastProps {
+interface IHoursForecastProps {
     hours?: IHourForecastAPI[],
 }
 
-const CityHoursForecast: FC<ICityHoursForecastProps> = ({ hours }) => {
+const HoursForecast: FC<IHoursForecastProps> = ({ hours }) => {
     const mapOneHourForecast = (data?: IHourForecastAPI): IHourForecast | undefined => {
         return {
             hour: data?.dt,
@@ -18,17 +18,18 @@ const CityHoursForecast: FC<ICityHoursForecastProps> = ({ hours }) => {
         }
     }
     return (
-        <div className="city__hours hours">
+        <section className="city__hours hours">
+            <h2 className="hours__title">Hour forecast</h2>
             <ul className="hours__forecast">
                 {hours?.slice(0, MAX_HOUR_CONT_FORECAST).map((hour, i) => (
-                    <CityHourForecast
+                    <HourForecast
                         key={`hour-forecast-${i}`}
                         hourForecast={mapOneHourForecast(hour)}
                     />
                 ))}
             </ul>
-        </div>
+        </section>
     );
 };
 
-export default CityHoursForecast;
+export default HoursForecast;
