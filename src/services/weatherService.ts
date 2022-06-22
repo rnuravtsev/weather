@@ -50,8 +50,9 @@ export const weatherAPI = createApi({
                     q: place,
                     appid: API_KEY,
                     units: TEMPERATURE_UNITS,
-                }
-            })
+                },
+            }),
+            providesTags: () => ['Weather']
         })
     })
 })

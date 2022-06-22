@@ -19,7 +19,7 @@ const Search: FC<ISearchProps> = ({ onChange, isLoading }) => {
             <h2 className="visually-hidden">Поиск</h2>
             <div className="search__flex-wrapper">
                 <FontAwesomeIcon className="search__icon" icon={faMagnifyingGlass}/>
-                <input className="search__input" onChange={debouncedOnChangeInput}/>
+                <input className="search__input" placeholder="search.." onChange={debouncedOnChangeInput}/>
                 {isLoading && <FontAwesomeIcon className="search__icon" icon={faSpinner}/>}
             </div>
         </section>

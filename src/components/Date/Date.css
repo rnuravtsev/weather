@@ -1,3 +1,11 @@
 .date {
     grid-area: date;
 }
+
+.date__title {
+    margin-top: 0;
+}
+
+.date__day {
+    font-style: italic;
+}

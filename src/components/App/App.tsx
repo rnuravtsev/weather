@@ -1,13 +1,13 @@
 import React, { FC } from 'react';
 import { ToastContainer } from "react-toastify";
-import './App.css';
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import CityContainer from "../../components/City/CityContainer";
-import Favs from "../Favs/Favs";
+import FavsContainer from "../Favs/FavsContainer";
 import Date from "../Date/Date";
-import SearchContainer from "../Search/SearchContainer";
+import 'modern-normalize/modern-normalize.css'
 import 'react-toastify/dist/ReactToastify.css';
+import './App.css';
 
 interface IApp {
     theme: string
@@ -21,14 +21,22 @@ const App: FC<IApp> = ({ theme }) => {
             </div>
             <main className="app__main">
                 <Date/>
-                <SearchContainer/>
                 <CityContainer/>
-                <Favs/>
+                <FavsContainer/>
             </main>
             <div className="app__footer">
                 <Footer/>
             </div>
-            <ToastContainer />
+            <ToastContainer/>
+            {theme === 'dark' &&
+            (
+                <>
+                    <div id="stars"/>
+                    <div id="stars2"/>
+                    <div id="stars3"/>
+                </>
+            )
+            }
         </div>
     );
 }

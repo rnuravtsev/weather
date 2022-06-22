@@ -1,4 +1,4 @@
-import React, { ReactEventHandler, useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import App from "./App";
 import { useAppDispatch, useAppSelector } from "../../hooks/redux";
 import { userGeoConfirm } from "../../ducks/ActionCreators";

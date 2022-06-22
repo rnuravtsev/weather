@@ -50,6 +50,7 @@
     "jest-resolve": "^27.4.2",
     "jest-watch-typeahead": "^1.0.0",
     "mini-css-extract-plugin": "^2.4.5",
+    "modern-normalize": "^1.1.0",
     "postcss": "^8.4.4",
     "postcss-flexbugs-fixes": "^5.0.2",
     "postcss-loader": "^6.2.1",
@@ -63,6 +64,9 @@
     "react-redux": "^7.2.8",
     "react-refresh": "^0.11.0",
     "react-toastify": "^9.0.1",
+    "redux-deep-persist": "^1.0.6",
+    "redux-persist": "^6.0.0",
+    "redux-thunk": "^2.4.1",
     "resolve": "^1.20.0",
     "resolve-url-loader": "^4.0.0",
     "sass-loader": "^12.3.0",
@@ -95,6 +99,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "resolutions": {
+    "@types/react": "17.0.2",
+    "@types/react-dom": "17.0.2"
   },
   "jest": {
     "roots": [

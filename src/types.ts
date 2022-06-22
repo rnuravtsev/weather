@@ -1,5 +1,6 @@
 import { IHourForecastAPI } from "./models/IHourForecastAPI";
 import { IForecastOneDayAPI } from "./models/IForecastOneDayAPI";
+import { IWeatherSearchingPlaceAPI } from "./models/IWeatherSearchingPlaceAPI";
 
 export interface IWeatherFetch {
     latitude?: number,
@@ -7,12 +8,11 @@ export interface IWeatherFetch {
 }
 
 export interface IFavItem {
-    location?: string,
-    time?: string,
-    description?: string,
-    temperature?: number,
-    temperature_min?: number,
-    temperature_max?: number,
+    name: string,
+    description: string,
+    temperature: number,
+    temperature_min: number,
+    temperature_max: number,
 }
 
 export interface IWeather {
@@ -54,3 +54,5 @@ export interface IForecast {
     hourlyForecast?: IHourForecastAPI[],
     weekForecast?: IForecastOneDayAPI[],
 }
+
+export type TFavs = IWeatherSearchingPlaceAPI[]

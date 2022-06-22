@@ -1,39 +1,55 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { weatherAPI } from "../../services/weatherService";
 import City from "../City/City";
-import { useAppSelector } from "../../hooks/redux";
+import { useAppDispatch, useAppSelector } from "../../hooks/redux";
 import { RootState } from "../../ducks/store";
 import { mapForecastProps, mapWeatherProps } from "./mapProps";
-import { convertGeoForRequest } from "./utils";
+import {convertGeoForRequest} from "../../utils";
+import { setCurrentCity } from "../../ducks/slices/userSlice";
 
 const CityContainer = () => {
     const isGeoConfirm = useAppSelector((state: RootState) => state.userReducer.isGeoConfirm);
-    const geoPosition = useAppSelector(state => state.userReducer.geo);
-    const searchingPlace = useAppSelector(state => state.userReducer.searchingPlace);
-    const searchingPlaceGeoPosition = convertGeoForRequest(searchingPlace?.coord);
+    const geoPosition = useAppSelector((state: RootState) => state.userReducer.geo);
+    const currentCity = useAppSelector((state: RootState) => state.userReducer.currentCity);
+    const currentCityGeoPosition = convertGeoForRequest(currentCity?.coord);
+    const favs = useAppSelector((state: RootState) => state.userReducer.favs);
+
+    const dispatch = useAppDispatch()
 
     const {
         data: weather,
         error: userGeoError,
         isLoading: userGeoLoading
     } = weatherAPI.useFetchWeatherForPlaceQuery(geoPosition, {
-        skip: !isGeoConfirm || !!searchingPlace
+        skip: !isGeoConfirm || !!currentCity
     })
 
     const {
         data: weekForecast,
         error: weekForecastError,
         isLoading: weekForecastLoading,
-    } = weatherAPI.useFetchWeekForecastQuery((searchingPlaceGeoPosition || geoPosition), {
-        skip: !isGeoConfirm,
+    } = weatherAPI.useFetchWeekForecastQuery((currentCityGeoPosition || geoPosition), {
+        skip: !currentCity,
     })
+
+    useEffect(() => {
+        if (!currentCity && favs) {
+            dispatch(setCurrentCity(favs[0]))
+        }
+    }, [])
+
+    useEffect(() => {
+        if (weather) {
+            dispatch(setCurrentCity(weather))
+        }
+    }, [weather])
 
     const finalLoading = userGeoLoading || weekForecastLoading;
     const finalErrors = userGeoError || weekForecastError;
 
     const resolveWeatherForPlace = () => {
-        if (searchingPlace) {
-            return searchingPlace
+        if (currentCity) {
+            return currentCity
         }
 
         return weather
@@ -50,7 +66,9 @@ const CityContainer = () => {
                     <>
                         <City weekForecast={mapForecastProps(weekForecast)}
                               weather={mapWeatherProps(resolveWeatherForPlace())}
-                              isGeoConfirm={isGeoConfirm}/>
+                              isGeoConfirm={isGeoConfirm}
+                              searchingPlace={Boolean(currentCity)}
+                        />
                     </>
             }
         </>

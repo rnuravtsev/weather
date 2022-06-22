@@ -1,10 +1,77 @@
 .favs {
+    padding-left: 20px;
     grid-area: favs;
-    outline: 1px dashed black;
+    min-width: 250px;
+    border-left: 2px solid var(--text-main);
+}
+
+.favs__title {
+    margin-top: 0;
+    line-height: 1;
 }
 
 .favs__list {
     margin: 0;
     padding: 0;
+    display: grid;
+    gap: 25px;
     list-style: none;
+}
+
+.favs__item {
+    display: grid;
+    grid-template-areas:
+    'name temperature'
+    'description temperature-details';
+    row-gap: 5px;
+    column-gap: 15px;
+    font-weight: 500;
+}
+
+.favs__item p {
+    margin: 0;
+}
+
+.favs__name {
+    font-weight: 700;
+    font-size: 1.25rem;
+}
+
+.favs__item:hover {
+    cursor: pointer;
+    opacity: .75;
+}
+
+.favs__name {
+    grid-area: name;
+    max-width: 100px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.favs__description {
+    grid-area: description;
+    align-self: end;
+}
+
+.favs__temperature {
+    grid-area: temperature;
+    font-weight: 700;
+    font-size: 1.25rem;
+    line-height: 1;
+    justify-self: end;
+}
+
+.favs__temperature-details {
+    grid-area: temperature-details;
+    display: flex;
+    gap: 5px;
+    justify-self: end;
+}
+
+.favs__time,
+.favs__description,
+.favs__temperature-details {
+    font-size: .85rem;
 }

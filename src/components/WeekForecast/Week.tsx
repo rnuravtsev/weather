@@ -1,13 +1,13 @@
 import React, { FC } from 'react';
-import CityWeekDayForecast from "./CityWeekDayForecast";
+import CityWeekDayForecast from "./WeekDayForecast";
 import { IForecastOneDayAPI } from "../../models/IForecastOneDayAPI";
 import { IForecastOneDay } from "../../types";
 
-interface ICityWeekForecastProps {
+interface IWeekForecastProps {
     list?: IForecastOneDayAPI[],
 }
 
-const CityWeekForecast: FC<ICityWeekForecastProps> = ({ list }) => {
+const WeekForecast: FC<IWeekForecastProps> = ({ list }) => {
     const mapOneDayForecast = (data?: IForecastOneDayAPI): IForecastOneDay | undefined => {
         return {
             weekDay: data?.dt,
@@ -18,14 +18,17 @@ const CityWeekForecast: FC<ICityWeekForecastProps> = ({ list }) => {
         }
     }
     return (
-        <ul className="city__week-days">
-            {
-                list?.map((el, i) => (
-                    <CityWeekDayForecast forecast={mapOneDayForecast(el)} key={i}/>
-                ))
-            }
-        </ul>
+        <section className="city__week week">
+            <h2 className="week__title">Week forecast</h2>
+            <ul className="week__list">
+                {
+                    list?.map((el, i) => (
+                        <CityWeekDayForecast forecast={mapOneDayForecast(el)} key={i}/>
+                    ))
+                }
+            </ul>
+        </section>
     );
 };
 
-export default CityWeekForecast;
+export default WeekForecast;

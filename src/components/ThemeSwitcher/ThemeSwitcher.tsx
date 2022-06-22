@@ -1,9 +1,6 @@
 import React, { useState } from 'react';
 import classNames from "classnames";
 import { useAppDispatch, useAppSelector } from "../../hooks/redux";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMoon } from "@fortawesome/free-solid-svg-icons/faMoon";
-import { faSun } from "@fortawesome/free-solid-svg-icons/faSun";
 import { setUserTheme } from "../../ducks/slices/userSlice";
 import { RootState } from "../../ducks/store";
 import './ThemeSwitcher.css';
@@ -30,17 +27,24 @@ const ThemeSwitcher = () => {
     return (
         <section className="theme-switcher">
             <h2 className="visually-hidden">Переключатель цветовой темы</h2>
-            <FontAwesomeIcon icon={faSun}/>
             <div className='theme-switcher__wrapper'>
+                {
+                    !dark
+                        ? <i className="theme-switcher__icon theme-switcher__icon_sun">🌞</i>
+                        : <i className="theme-switcher__icon theme-switcher__icon_moon">🌜</i>
+                }
                 <button className={classNames(
+                    'btn',
                     'theme-switcher__btn',
                     {
                         'theme-switcher__btn_type_dark': dark,
                         'theme-switcher__btn_type_light': !dark
                     },
-                )} onClick={onButtonClick}/>
+                )}
+                onClick={onButtonClick}
+                aria-label="Switch between dark and light mode"
+                />
             </div>
-            <FontAwesomeIcon icon={faMoon}/>
         </section>
     );
 };
