@@ -56,11 +56,11 @@ input {
     grid-row: 2;
     display: grid;
     grid-template-areas:
-          'date search search favs'
-          'city city city favs'
-          'city city city favs'
-          'city city city favs';
-    grid-template-columns: 1fr 1fr 1fr auto;
+          'date favs'
+          'city favs'
+          'city favs'
+          'city favs';
+    grid-template-columns: 1fr auto;
     grid-gap: 20px;
 }
 
