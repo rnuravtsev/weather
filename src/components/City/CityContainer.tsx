@@ -59,8 +59,7 @@ const CityContainer = () => {
     return (
         <>
             {
-                // FIXME: Временно
-                !finalLoading
+                finalLoading
                     ? <SkeletonCityLead/>
                     : finalErrors
                     ? <p>error</p>
