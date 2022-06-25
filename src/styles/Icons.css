@@ -9,3 +9,32 @@
 .fa-wind {
     color: linen;
 }
+
+.weather-icon {
+    display: inline-block;
+    width: 40px;
+    height: 30px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+.weather-icon_type_sunny {
+    background-image: url('../icons/sunny.svg');
+}
+
+.weather-icon_type_cloudly {
+    background-image: url('../icons/cloudly.svg');
+}
+.weather-icon_type_partlySunny {
+    background-image: url('../icons/partlySunny.svg');
+}
+.weather-icon_type_rain {
+    background-image: url('../icons/rain.svg');
+}
+.weather-icon_type_chanceRain {
+    background-image: url('../icons/chanceRain.svg');
+}
+.weather-icon_type_chanceStorm {
+    background-image: url('../icons/chanceStorm.svg');
+}

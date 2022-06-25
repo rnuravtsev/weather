@@ -1,10 +1,10 @@
 import React, { FC } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faDroplet, faLocationArrow, faSun, faWind } from "@fortawesome/free-solid-svg-icons";
-import { capitalizeEachFirstLetter, capitalizeFirstLetter } from "../../utils";
+import { capitalizeEachFirstLetter } from "../../utils";
 import './City.css'
 import './Hours.css'
-import { getDayLight } from "./utils";
+import { getDayLight, renderWeatherIcon } from "./utils";
 import { IForecast, IWeather } from "../../types";
 import SaveContainer from "../Save/SaveContainer";
 import WeekForecast from "../WeekForecast/Week";
@@ -31,7 +31,8 @@ const City: FC<ICityProps> = ({ weather, isGeoConfirm, weekForecast, searchingPl
         wind_speed,
         humidity,
         sunrise,
-        sunset
+        sunset,
+        icon_id
     } = weather
 
     const showIconLocation = isGeoConfirm && !searchingPlace
@@ -42,7 +43,7 @@ const City: FC<ICityProps> = ({ weather, isGeoConfirm, weekForecast, searchingPl
             <div className="city__lead">
                 <div className="city__main">
                     <div className="city__flex-wrapper">
-                        <SaveContainer />
+                        <SaveContainer/>
                         <h3 className="city__name">
                             {location}
                             {showIconLocation &&
@@ -57,7 +58,7 @@ const City: FC<ICityProps> = ({ weather, isGeoConfirm, weekForecast, searchingPl
                 </div>
                 <div className="city__peripheral">
                     <div className="city__description">
-                        <i className="city__icon">-- w --</i>
+                        {renderWeatherIcon(icon_id)}
                         <p className="city__text">{capitalizeEachFirstLetter(description)}</p>
                     </div>
                     <div className="city__temperatures">
