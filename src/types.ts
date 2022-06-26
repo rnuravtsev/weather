@@ -22,7 +22,7 @@ export interface IWeather {
     "date": number,
     "humidity": number,
     "id": number,
-    "icon_id": string | number,
+    "icon_id": number,
     "location": string,
     "sunrise": number,
     "sunset": number,
@@ -39,15 +39,16 @@ export interface IWeatherUserGeo extends IWeather {
 
 export interface IHourForecast {
     hour?: number,
-    weather_icon?: string,
-    temperature?: number
+    weather_icon?: number,
+    temperature?: number,
+    icon_id?: number,
 }
 
 export interface IForecastOneDay {
     weekDay?: number,
     temperature_max?: number
     temperature_min?: number
-    weather_icon?: string
+    icon_id?: number
 }
 
 export interface IForecast {

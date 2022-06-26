@@ -14,19 +14,19 @@ const WeekForecast: FC<IWeekForecastProps> = ({ list }) => {
             temperature_max: data?.temp.max,
             temperature_min: data?.temp.min,
             // TODO: Временно i = 0
-            weather_icon: data?.weather[0].icon
+            icon_id: data?.weather[0].id
         }
     }
     return (
         <section className="city__week week">
             <h2 className="week__title">Week forecast</h2>
-            <ul className="week__list">
+            <table className="week__table">
                 {
                     list?.map((el, i) => (
                         <CityWeekDayForecast forecast={mapOneDayForecast(el)} key={i}/>
                     ))
                 }
-            </ul>
+            </table>
         </section>
     );
 };

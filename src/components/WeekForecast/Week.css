@@ -1,15 +1,13 @@
-.week__list {
-    margin: 0;
-    padding: 0;
-    list-style: none;
+.week__table {
+    width: 100%;
 }
 
-.week__day {
-    display: flex;
-    justify-content: space-between;
+.week__weather-icon {
+    text-align: center;
 }
 
 .week__temperature {
     display: flex;
+    justify-content: end;
     column-gap: 10px;
 }

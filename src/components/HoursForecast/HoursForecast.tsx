@@ -13,8 +13,7 @@ const HoursForecast: FC<IHoursForecastProps> = ({ hours }) => {
         return {
             hour: data?.dt,
             temperature: data?.temp,
-            // TODO: Временно i = 0
-            weather_icon: data?.weather[0].icon
+            icon_id: data?.weather[0].id
         }
     }
     return (

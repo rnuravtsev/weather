@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 import { getWeekDay } from "./utils";
 import { IForecastOneDay } from "../../types";
+import { renderWeatherIcon } from "../City/utils";
 import './Week.css'
 
 interface IWeekDayForecast {
@@ -14,21 +15,18 @@ const WeekDayForecast: FC<IWeekDayForecast> = ({ forecast }) => {
     const temperatureMin = forecast?.temperature_min ? Math.floor(forecast?.temperature_min) : 'нет данных';
 
     return (
-        <li className="week__day">
-            <p>
+        <tr className="week__day">
+            <td className="week__certain">
                 {getWeekDay(weekDay)}
-            </p>
-            <i className="city__icon">
-                ---
-                weather-icon
-                ---
-                {/*{forecast?.weather_icon}*/}
-            </i>
-            <div className="week__temperature">
+            </td>
+            <td className="week__weather-icon">
+                {renderWeatherIcon(forecast?.icon_id)}
+            </td>
+            <td className="week__temperature">
                 <p className="week__temp_max">{temperatureMax}<sup>&#176;</sup></p>
                 <p className="week__temp_min">{temperatureMin}<sup>&#176;</sup></p>
-            </div>
-        </li>
+            </td>
+        </tr>
     );
 };
 

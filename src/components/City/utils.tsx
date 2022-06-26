@@ -1,19 +1,23 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCloud, faCloudRain, faCloudSun, faSnowflake, faSun } from "@fortawesome/free-solid-svg-icons";
 import React from "react";
 
-const renderSunIcon = () => <FontAwesomeIcon icon={faSun}/>
-const renderCloudIcon = () => <FontAwesomeIcon icon={faCloud}/>
-const renderSunCloudIcon = () => <FontAwesomeIcon icon={faCloudSun}/>
-const renderRainIcon = () => <FontAwesomeIcon icon={faCloudRain}/>
-const renderSnowIcon = () => <FontAwesomeIcon icon={faSnowflake}/>
+const SunIcon = () => <i className="weather-icon weather-icon_type_sunny"/>
+const CloudIcon = () => <i className="weather-icon weather-icon_type_cloudly"/>
+// const PartlySunnyIcon = () => <i className="weather-icon weather-icon_type_partlySunny"/>
+const RainIcon = () => <i className="weather-icon weather-icon_type_rain"/>
+// const ChanceRainIcon = () => <i className="weather-icon weather-icon_type_chanceRain"/>
+const StormIcon = () => <i className="weather-icon weather-icon_type_chanceStorm"/>
 
-export const weatherIcon = {
-    clouds: () => renderCloudIcon(),
-    sunny: () => renderSunIcon(),
-    sunnyCloud: () => renderSunCloudIcon(),
-    rain: () => renderRainIcon(),
-    snow: () => renderSnowIcon(),
+export const renderWeatherIcon = (id: number | undefined) => {
+    if(!id) return null
+    if (id <= 232) {
+        return StormIcon()
+    } else if (id >= 300 && id <= 531) {
+        return RainIcon()
+    } else if (id === 800) {
+        return SunIcon()
+    } else {
+        return CloudIcon()
+    }
 };
 
 export const getTodayDate = () => {
