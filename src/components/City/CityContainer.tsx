@@ -6,6 +6,7 @@ import { RootState } from "../../ducks/store";
 import { mapForecastProps, mapWeatherProps } from "./mapProps";
 import {convertGeoForRequest} from "../../utils";
 import { setCurrentCity } from "../../ducks/slices/userSlice";
+import SkeletonCityLead from "./SkeletonCityLead";
 
 const CityContainer = () => {
     const isGeoConfirm = useAppSelector((state: RootState) => state.userReducer.isGeoConfirm);
@@ -59,7 +60,7 @@ const CityContainer = () => {
         <>
             {
                 finalLoading
-                    ? 'Loader'
+                    ? <SkeletonCityLead/>
                     : finalErrors
                     ? <p>error</p>
                     :
