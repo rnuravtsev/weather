@@ -10,12 +10,13 @@ import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
 
 interface IApp {
-    theme: string
+    theme: string,
+    weather?: string
 }
 
-const App: FC<IApp> = ({ theme }) => {
+const App: FC<IApp> = ({ theme, weather }) => {
     return (
-        <div className={`app app_theme_${theme}`}>
+        <div className={`app app_theme_${theme} app_weather_${weather?.toLowerCase()}`}>
             <div className="app__header">
                 <Header/>
             </div>

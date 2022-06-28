@@ -7,7 +7,10 @@ import { setUserTheme } from "../../ducks/slices/userSlice";
 
 const AppContainer = () => {
     const appTheme = useAppSelector((state: RootState) => state.userReducer.theme);
+    const weather = useAppSelector((state: RootState) => state.userReducer.currentCity?.weather[0].main)
     const dispatch = useAppDispatch()
+
+    console.log(weather)
 
     useEffect(() => {
         //TODO: Изменить тип аргумента
@@ -26,7 +29,7 @@ const AppContainer = () => {
         return () => window.matchMedia('(prefers-color-scheme: dark)').removeEventListener('change', windowThemeChangeHandler)
     }, [])
     return (
-        <App theme={appTheme}/>
+        <App weather={weather} theme={appTheme}/>
     );
 };
 

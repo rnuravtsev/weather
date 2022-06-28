@@ -1,3 +1,13 @@
+.btn {
+    border-radius: 2px;
+    transition: all .3s ease;
+}
+
+.btn:not(:disabled):focus {
+    outline-offset: 5px;
+    outline: 2px solid blue;
+}
+
 .btn:not(:disabled):hover {
     opacity: .75;
     cursor: pointer;

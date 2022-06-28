@@ -4,7 +4,7 @@ import { useAppSelector } from "../../hooks/redux";
 import { RootState } from "../../ducks/store";
 
 const Canvas = {
-    WIDTH: 955,
+    WIDTH: 886,
     HEIGHT: 988,
     HOUR_GAP: 50,
     HOUR_INIT_X: 25,

@@ -30,7 +30,6 @@ export interface IWeather {
     "temperature_min": number,
     "temperature_max": number,
     "wind_speed": number,
-    "weather_icon"?: string,
 }
 
 export interface IWeatherUserGeo extends IWeather {

@@ -14,9 +14,9 @@
 
 .search__input {
     font-size: 1.125rem;
-    min-height: 1.125rem;
+    min-height: 2.75rem;
 }
 
 .search__input::placeholder {
-    color: var(--text-main);
+    color: currentColor;
 }

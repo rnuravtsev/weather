@@ -14,7 +14,7 @@ interface ICityProps {
     weather?: IWeather,
     weekForecast?: IForecast,
     isGeoConfirm: boolean,
-    searchingPlace: boolean
+    searchingPlace: boolean,
 }
 
 const City: FC<ICityProps> = ({ weather, isGeoConfirm, weekForecast, searchingPlace }) => {
@@ -32,7 +32,8 @@ const City: FC<ICityProps> = ({ weather, isGeoConfirm, weekForecast, searchingPl
         humidity,
         sunrise,
         sunset,
-        icon_id
+        icon_id,
+        country
     } = weather
 
     const showIconLocation = isGeoConfirm && !searchingPlace
@@ -51,8 +52,7 @@ const City: FC<ICityProps> = ({ weather, isGeoConfirm, weekForecast, searchingPl
                                              icon={faLocationArrow}/>
                             }
                         </h3>
-                        {/*// TODO: Временно всегда флаг России*/}
-                        <i className="city__icon city__icon_type_flag">🇷🇺</i>
+                        {country === 'RU' ? <i className="city__icon city__icon_type_flag">🇷🇺</i> : null}
                     </div>
                     <p className="city__temp">{Math.floor(temperature)}&#176;</p>
                 </div>

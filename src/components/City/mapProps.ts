@@ -25,8 +25,6 @@ export const mapWeatherProps = (data?: IWeatherAPI | IWeatherSearchingPlaceAPI):
         temperature_min: Math.round(data.main.temp_min),
         temperature_max: Math.round(data.main.temp_max),
         wind_speed: Math.round(data.wind.speed * 3.6),
-        // TODO: Не получается определить тип для weather_icon
-        // weather_icon: weatherIcons[data.weather[0].id].icon
     }
 }
 

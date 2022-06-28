@@ -1,0 +1,12 @@
+input {
+    padding: 2px;
+    color: currentColor;
+    background-color: transparent;
+    border: 2px solid currentColor;
+    border-radius: 6px;
+}
+
+input:focus {
+    outline-offset: 2px;
+    outline: 2px solid blue;
+}

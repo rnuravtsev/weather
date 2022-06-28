@@ -1,11 +1,18 @@
 @import "./styles/Button.css";
 @import "./styles/Icons.css";
+@import "./styles/Input.css";
+@import "./styles/Link.css";
 @import "./styles/custom.css";
 
 :root {
     --theme-black-bg: #202124;
     --theme-black-color: rgb(186, 176, 171);
     --text-main: #3d3d3d;
+    --text-secondary: #e0e0e0;
+    --weather-bg-sunny: linear-gradient(180deg, rgba(63,167,241,1) 0%, rgba(176,214,245,1) 100%);
+    --weather-bg-cloudy: linear-gradient(180deg, rgba(214, 225, 236, 1) 0%, rgba(222, 231, 240, 1) 100%);
+    --weather-bg-rainy: linear-gradient(180deg, rgba(99,147,164,1) 0%, rgba(64,108,148,1) 100%);
+    --weather-bg-storm: linear-gradient(180deg, rgba(68,92,116,1) 0%, rgba(33,44,51,1) 100%);
 }
 
 body {

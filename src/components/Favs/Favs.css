@@ -1,8 +1,7 @@
 .favs {
-    padding-left: 20px;
+    padding-left: 1rem;
     grid-area: favs;
     min-width: 250px;
-    border-left: 2px solid var(--text-main);
 }
 
 .favs__title {
@@ -12,20 +11,26 @@
 
 .favs__list {
     margin: 0;
-    padding: 0;
+    padding: 0 1rem;
     display: grid;
     gap: 25px;
     list-style: none;
+    border-left: 2px solid currentColor;
 }
 
-.favs__item {
+.favs__btn {
     display: grid;
     grid-template-areas:
     'name temperature'
     'description temperature-details';
     row-gap: 5px;
     column-gap: 15px;
+    width: 100%;
+    color: currentColor;
     font-weight: 500;
+    border: none;
+    background-color: transparent;
+    border-radius: 2px;
 }
 
 .favs__item p {
@@ -35,6 +40,7 @@
 .favs__name {
     font-weight: 700;
     font-size: 1.25rem;
+    justify-self: start;
 }
 
 .favs__item:hover {
@@ -53,6 +59,7 @@
 .favs__description {
     grid-area: description;
     align-self: end;
+    justify-self: start;
 }
 
 .favs__temperature {
