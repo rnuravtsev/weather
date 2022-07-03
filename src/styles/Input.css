@@ -10,3 +10,7 @@ input:focus {
     outline-offset: 2px;
     outline: 2px solid blue;
 }
+
+.app_theme_dark input:focus {
+    outline-color: orange;
+}

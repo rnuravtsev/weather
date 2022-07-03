@@ -44,7 +44,7 @@
 }
 
 .app_weather_clouds:not(.app_theme_dark) .fa-droplet {
-    color: #5dd1f9;
+    color: #3e86a2;
 }
 
 .app_weather_clouds:not(.app_theme_dark) .fa-wind {

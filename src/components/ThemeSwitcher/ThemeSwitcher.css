@@ -66,6 +66,15 @@
     outline: none;
 }
 
+.app_theme_dark .theme-switcher__btn:not(:disabled):focus {
+    box-shadow: 0 0 3px 5px orange;
+}
+
+.app_theme_dark .theme-switcher__btn:not(:disabled):hover {
+    box-shadow: 0 0 2px 3px orange;
+}
+
+
 .theme-switcher__btn:active {
     animation-name: switchAnimation;
     animation-duration: .5s;

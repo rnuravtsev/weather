@@ -1,0 +1,9 @@
+@keyframes stormy {
+    from {
+        background-color: white;
+    }
+
+    to {
+        background-color: black;
+    }
+}

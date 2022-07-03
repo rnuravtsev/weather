@@ -1,4 +1,6 @@
 .favs {
+    position: sticky;
+    top: 10px;
     padding-left: 1rem;
     grid-area: favs;
     min-width: 250px;
@@ -11,7 +13,7 @@
 
 .favs__list {
     margin: 0;
-    padding: 0 1rem;
+    padding-left: 1rem;
     display: grid;
     gap: 25px;
     list-style: none;
