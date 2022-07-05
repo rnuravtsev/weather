@@ -1,9 +1,13 @@
 @keyframes stormy {
     from {
+        background-color: var(--theme-black-bg);
+    }
+
+    50% {
         background-color: white;
     }
 
     to {
-        background-color: black;
+        background-color: var(--theme-black-bg);
     }
 }

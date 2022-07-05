@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { IWeatherSearchingPlaceAPI } from "../../models/IWeatherSearchingPlaceAPI";
 import { TFavs } from "../../types";
+import { AppTheme } from "../../consts";
 
 interface IUserState {
     theme: string,
@@ -14,7 +15,7 @@ interface IUserState {
 }
 
 const initialState: IUserState = {
-    theme: 'light',
+    theme: AppTheme.Light,
     isGeoConfirm: false,
     currentCity: undefined,
     geo: {

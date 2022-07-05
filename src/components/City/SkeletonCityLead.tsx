@@ -2,6 +2,7 @@ import React from 'react'
 import ContentLoader from 'react-content-loader'
 import { useAppSelector } from "../../hooks/redux";
 import { RootState } from "../../ducks/store";
+import { AppTheme } from "../../consts";
 
 const Canvas = {
     WIDTH: 886,
@@ -81,9 +82,10 @@ const SkeletonCityLead = () => {
             speed={1.5}
             width={Canvas.WIDTH}
             height={Canvas.HEIGHT}
+            className="city"
             viewBox={`0 0 ${Canvas.WIDTH} ${Canvas.HEIGHT}`}
-            backgroundColor={theme === 'light' ? Canvas.LIGHT_THEME_BACKGROUND : Canvas.DARK_THEME_BACKGROUND}
-            foregroundColor={theme === 'light' ? Canvas.LIGHT_THEME_FOREGROUND : Canvas.DARK_THEME_FOREGROUND}
+            backgroundColor={theme === AppTheme.Light ? Canvas.LIGHT_THEME_BACKGROUND : Canvas.DARK_THEME_BACKGROUND}
+            foregroundColor={theme === AppTheme.Light ? Canvas.LIGHT_THEME_FOREGROUND : Canvas.DARK_THEME_FOREGROUND}
         >
             <rect x="0" y="0" rx="5" ry="2" width="148" height="20"/>
             <rect x="0" y="35" rx="5" ry="2" width="179" height="20"/>

@@ -13,7 +13,6 @@ const WeekForecast: FC<IWeekForecastProps> = ({ list }) => {
             weekDay: data?.dt,
             temperature_max: data?.temp.max,
             temperature_min: data?.temp.min,
-            // TODO: Временно i = 0
             icon_id: data?.weather[0].id
         }
     }
