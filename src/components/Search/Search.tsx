@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useRef } from 'react';
+import React, { FC, useEffect, useRef, useState } from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons/faMagnifyingGlass";
 import { faSpinner } from "@fortawesome/free-solid-svg-icons/faSpinner";
@@ -11,25 +11,27 @@ interface ISearchProps {
 }
 
 const Search: FC<ISearchProps> = ({ onChange, isLoading }) => {
+    const [hasFocus, setFocus] = useState<boolean>(false)
     const onChangeInput = (evt: React.ChangeEvent<HTMLInputElement>) => onChange(evt.target.value);
     const debouncedOnChangeInput = debounce(onChangeInput);
 
     const inputRef = useRef<HTMLInputElement>(null!)
 
-    const outsideClick = (e: any) => {
-        if (!(e.target === inputRef.current)) {
-            inputRef.current.value = ''
-        }
-
-        console.log('YO.target', e.target);
+    const onInputBlur = () => {
+        setFocus(false)
+        inputRef.current.value = ''
     }
 
     useEffect(() => {
-        window.addEventListener('click', outsideClick)
+        const keyboardListener = (evt: KeyboardEvent) => {
+            if (evt.ctrlKey && evt.key === 'k') {
+                inputRef.current.focus()
+            }
+        }
 
-        console.log('YO.current', inputRef.current);
+        window.addEventListener('keypress', keyboardListener)
 
-        return () => window.removeEventListener('click', outsideClick)
+        return () => window.removeEventListener('keypress', keyboardListener)
     })
 
     return (
@@ -37,7 +39,18 @@ const Search: FC<ISearchProps> = ({ onChange, isLoading }) => {
             <h2 className="visually-hidden">Поиск</h2>
             <div className="search__flex-wrapper">
                 <FontAwesomeIcon className="search__icon" icon={faMagnifyingGlass}/>
-                <input ref={inputRef} className="search__input" placeholder="search.." onClick={outsideClick} onChange={debouncedOnChangeInput}/>
+                <input
+                    ref={inputRef}
+                    className="search__input"
+                    placeholder="Search"
+                    onChange={debouncedOnChangeInput}
+                    onFocus={() => setFocus(true)}
+                    onBlur={onInputBlur}
+                />
+                {!hasFocus && <div className="doc-search">
+                    <span className="doc-search__key">ctrl</span>
+                    <span className="doc-search__key">k</span>
+                </div>}
                 {isLoading && <FontAwesomeIcon className="search__icon" icon={faSpinner}/>}
             </div>
         </section>

@@ -12,8 +12,7 @@ const AppContainer = () => {
     const dispatch = useAppDispatch()
 
     useEffect(() => {
-        //TODO: Изменить тип аргумента
-        const windowThemeChangeHandler = (evt: any) => {
+        const windowThemeChangeHandler = (evt: MediaQueryListEvent) => {
             if (evt.matches) {
                 dispatch(setUserTheme(AppTheme.Dark));
             } else {
