@@ -3,7 +3,7 @@ import { IFavItem } from "../../types";
 import { useAppDispatch, useAppSelector } from "../../hooks/redux";
 import { RootState } from "../../ducks/store";
 import { setCurrentCity } from "../../ducks/slices/userSlice";
-import { capitalizeEachFirstLetter, capitalizeFirstLetter } from "../../utils";
+import { capitalizeEachFirstLetter } from "../../utils";
 
 interface FavItemProps {
     item: IFavItem
@@ -32,13 +32,17 @@ const FavItem: FC<FavItemProps> = ({ item }) => {
             title={name}
             onClick={onItemClick}
         >
-            <p className="favs__name">{name}</p>
-            <p className="favs__description">{capitalizeEachFirstLetter(description)}</p>
-            <p className="favs__temperature">{Math.ceil(temperature)}°</p>
-            <div className="favs__temperature-details">
-                <p className="favs__temperature-max">H: {Math.ceil(temperature_max)}°</p>
-                <p className="favs__temperature-min">L: {Math.ceil(temperature_min)}°</p>
-            </div>
+            <button
+                className="btn favs__btn"
+            >
+                <p className="favs__name">{name}</p>
+                <p className="favs__description">{capitalizeEachFirstLetter(description)}</p>
+                <p className="favs__temperature">{Math.ceil(temperature)}°</p>
+                <div className="favs__temperature-details">
+                    <p className="favs__temperature-max">H: {Math.ceil(temperature_max)}°</p>
+                    <p className="favs__temperature-min">L: {Math.ceil(temperature_min)}°</p>
+                </div>
+            </button>
         </li>
     );
 };

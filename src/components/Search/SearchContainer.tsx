@@ -8,11 +8,9 @@ const SearchContainer = () => {
     const [inputValue, setInputValue] = useState('');
     const dispatch = useAppDispatch();
 
-    // TODO: Обработать ошибки и загрузку
     const {
         data: searchPlaceWeatherData,
         isLoading,
-        error,
     } = weatherAPI.useFetchWeatherForSearchingPlaceQuery({ place: inputValue }, {
         skip: !inputValue
     })

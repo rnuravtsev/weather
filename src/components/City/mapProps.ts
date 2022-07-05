@@ -3,8 +3,6 @@ import { IForecastAPI } from "../../models/IForecastAPI";
 import { IForecast, IWeather } from "../../types";
 import { IWeatherSearchingPlaceAPI } from "../../models/IWeatherSearchingPlaceAPI";
 
-
-// TODO: Ждем ответа от https://stackoverflow.com/questions/72150086/typescript-the-function-accepts-two-different-objects-but-returns-one-object
 export const mapWeatherProps = (data?: IWeatherAPI | IWeatherSearchingPlaceAPI): IWeather | undefined => {
     if (!data) {
         return undefined
@@ -25,8 +23,6 @@ export const mapWeatherProps = (data?: IWeatherAPI | IWeatherSearchingPlaceAPI):
         temperature_min: Math.round(data.main.temp_min),
         temperature_max: Math.round(data.main.temp_max),
         wind_speed: Math.round(data.wind.speed * 3.6),
-        // TODO: Не получается определить тип для weather_icon
-        // weather_icon: weatherIcons[data.weather[0].id].icon
     }
 }
 

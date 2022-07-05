@@ -2,11 +2,6 @@ import { IHourForecastAPI } from "./models/IHourForecastAPI";
 import { IForecastOneDayAPI } from "./models/IForecastOneDayAPI";
 import { IWeatherSearchingPlaceAPI } from "./models/IWeatherSearchingPlaceAPI";
 
-export interface IWeatherFetch {
-    latitude?: number,
-    longitude?: number,
-}
-
 export interface IFavItem {
     name: string,
     description: string,
@@ -30,11 +25,6 @@ export interface IWeather {
     "temperature_min": number,
     "temperature_max": number,
     "wind_speed": number,
-    "weather_icon"?: string,
-}
-
-export interface IWeatherUserGeo extends IWeather {
-    feels_like: number,
 }
 
 export interface IHourForecast {

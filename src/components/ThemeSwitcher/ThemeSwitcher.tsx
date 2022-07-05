@@ -4,22 +4,23 @@ import { useAppDispatch, useAppSelector } from "../../hooks/redux";
 import { setUserTheme } from "../../ducks/slices/userSlice";
 import { RootState } from "../../ducks/store";
 import './ThemeSwitcher.css';
+import { AppTheme } from "../../consts";
 
 const ThemeSwitcher = () => {
     const appTheme = useAppSelector((state: RootState) => state.userReducer.theme);
-    const [dark, setDark] = useState(appTheme === 'dark');
+    const [dark, setDark] = useState(appTheme === AppTheme.Dark);
     const dispatch = useAppDispatch();
 
     const onButtonClick = () => {
         switch (appTheme) {
-            case 'light':
-                dispatch(setUserTheme('dark'));
+            case AppTheme.Light:
+                dispatch(setUserTheme(AppTheme.Dark));
                 break;
-            case 'dark':
-                dispatch(setUserTheme('light'));
+            case AppTheme.Dark:
+                dispatch(setUserTheme(AppTheme.Light));
                 break;
             default:
-                dispatch(setUserTheme('light'));
+                dispatch(setUserTheme(AppTheme.Light));
         }
         setDark(!dark);
     }
@@ -41,8 +42,8 @@ const ThemeSwitcher = () => {
                         'theme-switcher__btn_type_light': !dark
                     },
                 )}
-                onClick={onButtonClick}
-                aria-label="Switch between dark and light mode"
+                        onClick={onButtonClick}
+                        aria-label="Switch between dark and light mode"
                 />
             </div>
         </section>

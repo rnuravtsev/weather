@@ -1,9 +1,9 @@
 .fa-sun {
-    color: yellow;
+    color: #F9C900;
 }
 
 .fa-droplet {
-    color: dodgerblue;
+    color: #c2eaf8;
 }
 
 .fa-wind {
@@ -26,15 +26,31 @@
 .weather-icon_type_cloudly {
     background-image: url('../icons/cloudly.svg');
 }
+
 .weather-icon_type_partlySunny {
     background-image: url('../icons/partlySunny.svg');
 }
+
 .weather-icon_type_rain {
     background-image: url('../icons/rain.svg');
 }
+
 .weather-icon_type_chanceRain {
     background-image: url('../icons/chanceRain.svg');
 }
+
 .weather-icon_type_chanceStorm {
     background-image: url('../icons/chanceStorm.svg');
+}
+
+.app_weather_clouds:not(.app_theme_dark) .fa-droplet {
+    color: #3e86a2;
+}
+
+.app_weather_clouds:not(.app_theme_dark) .fa-wind {
+    color: #9e9e9e;
+}
+
+.app_weather_clouds:not(.app_theme_dark) .fa-sun {
+    color: #fcf73f;
 }
