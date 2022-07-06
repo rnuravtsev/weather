@@ -4,6 +4,11 @@ import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons/faMagnifyin
 import { faSpinner } from "@fortawesome/free-solid-svg-icons/faSpinner";
 import './Search.css'
 import { debounce } from "../../utils";
+import classNames from "classnames";
+
+const enum KeyCodes {
+    K = 'KeyK'
+}
 
 interface ISearchProps {
     isLoading: boolean,
@@ -24,7 +29,7 @@ const Search: FC<ISearchProps> = ({ onChange, isLoading }) => {
 
     useEffect(() => {
         const keyboardListener = (evt: KeyboardEvent) => {
-            if (evt.ctrlKey && evt.key === 'k') {
+            if (evt.ctrlKey && evt.code === KeyCodes.K) {
                 inputRef.current.focus()
             }
         }
@@ -47,10 +52,10 @@ const Search: FC<ISearchProps> = ({ onChange, isLoading }) => {
                     onFocus={() => setFocus(true)}
                     onBlur={onInputBlur}
                 />
-                {!hasFocus && <div className="doc-search">
+                <div className={classNames("doc-search", {'doc-search_hide': hasFocus})}>
                     <span className="doc-search__key">ctrl</span>
                     <span className="doc-search__key">k</span>
-                </div>}
+                </div>
                 {isLoading && <FontAwesomeIcon className="search__icon" icon={faSpinner}/>}
             </div>
         </section>

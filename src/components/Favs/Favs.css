@@ -3,7 +3,6 @@
     top: 10px;
     padding-left: 1rem;
     grid-area: favs;
-    min-width: 250px;
 }
 
 .favs__title {

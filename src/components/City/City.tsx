@@ -76,7 +76,7 @@ const City: FC<ICityProps> = ({ weather, isGeoConfirm, weekForecast, searchingPl
                         </li>
                         <li className="city__light-day city__flex-wrapper">
                             <FontAwesomeIcon icon={faSun}/>
-                            <p className="city__unit city__unit_type_day-light">{getDayLight(sunrise, sunset)} h</p>
+                            <p className="city__unit city__unit_type_day-light">~ {getDayLight(sunrise, sunset)}h</p>
                         </li>
                     </ul>
                 </div>

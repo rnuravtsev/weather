@@ -11,7 +11,7 @@ const Canvas = {
     HOUR_INIT_X: 25,
     HOUR_INIT_Y: 250,
     HOUR_GAP_Y: 55,
-    HOUR_GAP_X: 222,
+    HOUR_GAP_X: 207,
     DAY_GAP: 50,
     DAY_INIT_X: 0,
     DAY_INIT_Y: 550,
@@ -83,6 +83,7 @@ const SkeletonCityLead = () => {
             width={Canvas.WIDTH}
             height={Canvas.HEIGHT}
             className="city"
+            style={{width: '100%'}}
             viewBox={`0 0 ${Canvas.WIDTH} ${Canvas.HEIGHT}`}
             backgroundColor={theme === AppTheme.Light ? Canvas.LIGHT_THEME_BACKGROUND : Canvas.DARK_THEME_BACKGROUND}
             foregroundColor={theme === AppTheme.Light ? Canvas.LIGHT_THEME_FOREGROUND : Canvas.DARK_THEME_FOREGROUND}

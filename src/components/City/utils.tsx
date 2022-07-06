@@ -25,14 +25,5 @@ export const getTodayDate = () => {
 }
 
 export const getDayLight = (sunrise: number, sunset: number): number => {
-    let result
-    const humanSunriseTime = new Date(sunrise * 1000).getHours();
-    const humanSunsetTime = new Date(sunset * 1000).getHours();
-    result = humanSunsetTime - humanSunriseTime;
-
-    if (result < 0) {
-        result += 24
-    }
-
-    return result
+    return new Date((sunset - sunrise) * 1000).getUTCHours()
 }

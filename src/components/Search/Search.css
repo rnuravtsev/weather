@@ -1,3 +1,13 @@
+@keyframes keyPress {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(0.8);
+    }
+}
+
 .search {
     grid-area: search;
 }
@@ -17,7 +27,7 @@
 
 .search__input {
     padding-left: 40px;
-    padding-right: 70px;
+    padding-right: 80px;
     font-size: 1.125rem;
     min-height: 2.75rem;
 }
@@ -32,6 +42,13 @@
     display: flex;
     min-width: calc(40px + .8em);
     gap: 5px;
+    opacity: 1;
+    transition: all .35s ease;
+}
+
+.doc-search_hide {
+    opacity: 0;
+    animation: keyPress .35s ease-in-out;
 }
 
 .doc-search__key {
