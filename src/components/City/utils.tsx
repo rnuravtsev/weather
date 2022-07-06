@@ -8,7 +8,7 @@ const RainIcon = () => <i className="weather-icon weather-icon_type_rain"/>
 const StormIcon = () => <i className="weather-icon weather-icon_type_chanceStorm"/>
 
 export const renderWeatherIcon = (id: number | undefined) => {
-    if(!id) return null
+    if (!id) return null
     if (id <= 232) {
         return StormIcon()
     } else if (id >= 300 && id <= 531) {
@@ -25,7 +25,14 @@ export const getTodayDate = () => {
 }
 
 export const getDayLight = (sunrise: number, sunset: number): number => {
+    let result
     const humanSunriseTime = new Date(sunrise * 1000).getHours();
     const humanSunsetTime = new Date(sunset * 1000).getHours();
-    return humanSunsetTime - humanSunriseTime;
+    result = humanSunsetTime - humanSunriseTime;
+
+    if (result < 0) {
+        result += 24
+    }
+
+    return result
 }
