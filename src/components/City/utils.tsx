@@ -2,10 +2,9 @@ import React from "react";
 
 const SunIcon = () => <i className="weather-icon weather-icon_type_sunny"/>
 const CloudIcon = () => <i className="weather-icon weather-icon_type_cloudly"/>
-// const PartlySunnyIcon = () => <i className="weather-icon weather-icon_type_partlySunny"/>
 const RainIcon = () => <i className="weather-icon weather-icon_type_rain"/>
-// const ChanceRainIcon = () => <i className="weather-icon weather-icon_type_chanceRain"/>
 const StormIcon = () => <i className="weather-icon weather-icon_type_chanceStorm"/>
+const SnowIcon = () => <i className="weather-icon weather-icon_type_snow"/>
 
 export const renderWeatherIcon = (id: number | undefined) => {
     if (!id) return null
@@ -13,11 +12,13 @@ export const renderWeatherIcon = (id: number | undefined) => {
         return StormIcon()
     } else if (id >= 300 && id <= 531) {
         return RainIcon()
+    } else if (id >= 600 && id <= 622) {
+        return SnowIcon()
     } else if (id === 800) {
         return SunIcon()
-    } else {
-        return CloudIcon()
     }
+
+    return CloudIcon()
 };
 
 export const getTodayDate = () => {

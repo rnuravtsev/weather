@@ -2,13 +2,13 @@ import React, { FC } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faDroplet, faLocationArrow, faSun, faWind } from "@fortawesome/free-solid-svg-icons";
 import { capitalizeEachFirstLetter } from "../../utils";
-import './City.css'
-import './Hours.css'
 import { getDayLight, renderWeatherIcon } from "./utils";
 import { IForecast, IWeather } from "../../types";
 import SaveContainer from "../Save/SaveContainer";
 import WeekForecast from "../WeekForecast/Week";
 import HoursForecast from "../HoursForecast/HoursForecast";
+import './City.css'
+import './Hours.css'
 
 interface ICityProps {
     weather?: IWeather,

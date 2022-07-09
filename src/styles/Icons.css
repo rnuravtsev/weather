@@ -43,6 +43,10 @@
     background-image: url('../icons/chanceStorm.svg');
 }
 
+.weather-icon_type_snow {
+    background-image: url('../icons/snow-dark.svg');
+}
+
 .app_weather_clouds:not(.app_theme_dark) .fa-droplet {
     color: #3e86a2;
 }
