@@ -4,7 +4,7 @@
     grid-template-columns: minmax(100px, auto) 1fr minmax(100px, auto);
     grid-template-rows: minmax(100px, auto) 1fr minmax(100px, auto);
     gap: 25px;
-    transition: background-color .35s ease;
+    transition: background-color .2s ease;
 }
 
 .app_weather_clear {

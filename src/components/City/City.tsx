@@ -2,13 +2,13 @@ import React, { FC } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faDroplet, faLocationArrow, faSun, faWind } from "@fortawesome/free-solid-svg-icons";
 import { capitalizeEachFirstLetter } from "../../utils";
-import './City.css'
-import './Hours.css'
 import { getDayLight, renderWeatherIcon } from "./utils";
 import { IForecast, IWeather } from "../../types";
 import SaveContainer from "../Save/SaveContainer";
 import WeekForecast from "../WeekForecast/Week";
 import HoursForecast from "../HoursForecast/HoursForecast";
+import './City.css'
+import './Hours.css'
 
 interface ICityProps {
     weather?: IWeather,
@@ -76,7 +76,7 @@ const City: FC<ICityProps> = ({ weather, isGeoConfirm, weekForecast, searchingPl
                         </li>
                         <li className="city__light-day city__flex-wrapper">
                             <FontAwesomeIcon icon={faSun}/>
-                            <p className="city__unit city__unit_type_day-light">{getDayLight(sunrise, sunset)} h</p>
+                            <p className="city__unit city__unit_type_day-light">~ {getDayLight(sunrise, sunset)}h</p>
                         </li>
                     </ul>
                 </div>

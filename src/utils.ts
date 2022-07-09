@@ -6,7 +6,7 @@ export const capitalizeEachFirstLetter = (string: string) => {
     return string.split(' ').map((el) => capitalizeFirstLetter(el)).join(' ')
 }
 
-export const debounce = (cb: any, delay: number = 1000) => {
+export const debounce = (cb: (...args: any) => any, delay: number = 1000) => {
     let timeout: any = null;
     return (...args: any) => {
         clearTimeout(timeout)

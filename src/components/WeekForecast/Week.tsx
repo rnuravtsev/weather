@@ -20,11 +20,13 @@ const WeekForecast: FC<IWeekForecastProps> = ({ list }) => {
         <section className="city__week week">
             <h2 className="week__title">Week forecast</h2>
             <table className="week__table">
+                <tbody>
                 {
                     list?.map((el, i) => (
-                        <CityWeekDayForecast forecast={mapOneDayForecast(el)} key={i}/>
+                        <CityWeekDayForecast forecast={mapOneDayForecast(el)} key={`${i}-weekForecast`}/>
                     ))
                 }
+                </tbody>
             </table>
         </section>
     );
