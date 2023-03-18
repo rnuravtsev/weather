@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
 import { ToastContainer } from "react-toastify";
-import Header from "../../components/Header/Header";
-import Footer from "../../components/Footer/Footer";
-import CityContainer from "../../components/City/CityContainer";
+import Header from "../Header/Header";
+import Footer from "../Footer/Footer";
+import CityContainer from "../City/CityContainer";
 import FavsContainer from "../Favs/FavsContainer";
 import Date from "../Date/Date";
 import Lightnings from "../Lightnings/Lightnings";
