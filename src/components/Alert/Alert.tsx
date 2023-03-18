@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, PropsWithChildren } from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleCheck } from "@fortawesome/free-solid-svg-icons/faCircleCheck";
 import { faCircleExclamation } from "@fortawesome/free-solid-svg-icons/faCircleExclamation";
@@ -15,12 +15,14 @@ const renderIcon = {
     warning: () => <FontAwesomeIcon icon={faTriangleExclamation}/>,
 }
 
-const Alert: FC<IAlertProps> = ({ msg, type }) => {
+const Alert: FC<PropsWithChildren<IAlertProps>> = ({ msg, type }) => {
     return (
         <div className="alert">
             <div className="alert__flex-wrapper">
-                {renderIcon[type]}
-                <p className="alert__message">{msg}</p>
+                <>
+                    {renderIcon[type]}
+                    <p className="alert__message">{msg}</p>
+                </>
             </div>
         </div>
     );

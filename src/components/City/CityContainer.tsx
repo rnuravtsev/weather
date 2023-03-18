@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { weatherAPI } from "../../services/weatherService";
-import City from "../City/City";
+import City from "./City";
 import { useAppDispatch, useAppSelector } from "../../hooks/redux";
 import { RootState } from "../../ducks/store";
 import { mapForecastProps, mapWeatherProps } from "./mapProps";
