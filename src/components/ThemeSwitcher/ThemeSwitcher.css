@@ -74,15 +74,14 @@
     box-shadow: 0 0 2px 3px orange;
 }
 
-
 .theme-switcher__btn:active {
     animation-name: switchAnimation;
-    animation-duration: .5s;
+    animation-duration: 0.5s;
     animation-iteration-count: infinite;
 }
 
 .theme-switcher__btn_type_light:hover {
-    box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.40);
+    box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.4);
 }
 
 .theme-switcher__btn_type_dark {

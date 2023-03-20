@@ -4,7 +4,7 @@
     grid-template-columns: minmax(100px, auto) 1fr minmax(100px, auto);
     grid-template-rows: minmax(100px, auto) 1fr minmax(100px, auto);
     gap: 25px;
-    transition: background-color .2s ease;
+    transition: background-color 0.2s ease;
 }
 
 .app_weather_clear {
@@ -52,7 +52,7 @@
 
 .app_theme_dark input::placeholder {
     color: currentColor;
-    opacity: .75;
+    opacity: 0.75;
 }
 
 .app__header {
@@ -65,10 +65,10 @@
     grid-row: 2;
     display: grid;
     grid-template-areas:
-          'date .'
-          'city favs'
-          'city .'
-          'city .';
+        'date .'
+        'city favs'
+        'city .'
+        'city .';
     grid-template-columns: 1fr auto;
     grid-gap: 20px;
 }

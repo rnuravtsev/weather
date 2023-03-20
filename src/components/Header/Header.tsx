@@ -1,16 +1,15 @@
-import React from 'react';
+import React from 'react'
+import SearchContainer from '../Search/SearchContainer'
+import ThemeSwitcher from '../ThemeSwitcher/ThemeSwitcher'
+
 import './Header.css'
-import ThemeSwitcher from "../ThemeSwitcher/ThemeSwitcher";
-import SearchContainer from "../Search/SearchContainer";
 
-const Header = () => {
-    return (
-        <header className="header">
-            <h1>"Weather"   </h1>
-            <SearchContainer/>
-            <ThemeSwitcher/>
-        </header>
-    );
-};
+const Header = () => (
+    <header className="header">
+        <h1>&ldquo;Weather&rdquo;</h1>
+        <SearchContainer />
+        <ThemeSwitcher />
+    </header>
+)
 
-export default Header;
+export default Header

@@ -1,35 +1,35 @@
-import React, { useEffect } from 'react';
-import { weatherAPI } from "../../services/weatherService";
-import City from "./City";
-import { useAppDispatch, useAppSelector } from "../../hooks/redux";
-import { RootState } from "../../ducks/store";
-import { mapForecastProps, mapWeatherProps } from "./mapProps";
-import {convertGeoForRequest} from "../../utils";
-import { setCurrentCity } from "../../ducks/slices/userSlice";
-import SkeletonCityLead from "./SkeletonCityLead";
+import React, { useEffect } from 'react'
+import { setCurrentCity } from '../../ducks/slices/userSlice'
+import { useAppDispatch, useAppSelector } from '../../hooks/redux'
+import { weatherAPI } from '../../services/weatherService'
+import { convertGeoForRequest } from '../../utils'
+import City from './City'
+import SkeletonCityLead from './SkeletonCityLead'
+import { mapForecastProps, mapWeatherProps } from './mapProps'
+import type { RootState } from '../../ducks/store'
 
 const CityContainer = () => {
-    const isGeoConfirm = useAppSelector((state: RootState) => state.userReducer.isGeoConfirm);
-    const geoPosition = useAppSelector((state: RootState) => state.userReducer.geo);
-    const currentCity = useAppSelector((state: RootState) => state.userReducer.currentCity);
-    const currentCityGeoPosition = convertGeoForRequest(currentCity?.coord);
-    const favs = useAppSelector((state: RootState) => state.userReducer.favs);
+    const isGeoConfirm = useAppSelector((state: RootState) => state.userReducer.isGeoConfirm)
+    const geoPosition = useAppSelector((state: RootState) => state.userReducer.geo)
+    const currentCity = useAppSelector((state: RootState) => state.userReducer.currentCity)
+    const currentCityGeoPosition = convertGeoForRequest(currentCity?.coord)
+    const favs = useAppSelector((state: RootState) => state.userReducer.favs)
 
     const dispatch = useAppDispatch()
 
     const {
         data: weather,
         error: userGeoError,
-        isLoading: userGeoLoading
+        isLoading: userGeoLoading,
     } = weatherAPI.useFetchWeatherForPlaceQuery(geoPosition, {
-        skip: !isGeoConfirm || !!currentCity
+        skip: !isGeoConfirm || !!currentCity,
     })
 
     const {
         data: weekForecast,
         error: weekForecastError,
         isLoading: weekForecastLoading,
-    } = weatherAPI.useFetchWeekForecastQuery((currentCityGeoPosition || geoPosition), {
+    } = weatherAPI.useFetchWeekForecastQuery(currentCityGeoPosition || geoPosition, {
         skip: !currentCity,
     })
 
@@ -45,8 +45,8 @@ const CityContainer = () => {
         }
     }, [weather])
 
-    const finalLoading = userGeoLoading || weekForecastLoading;
-    const finalErrors = userGeoError || weekForecastError;
+    const finalLoading = userGeoLoading || weekForecastLoading
+    const finalErrors = userGeoError || weekForecastError
 
     const resolveWeatherForPlace = () => {
         if (currentCity) {
@@ -58,23 +58,20 @@ const CityContainer = () => {
 
     return (
         <>
-            {
-                finalLoading
-                    ? <SkeletonCityLead/>
-                    : finalErrors
-                    ? <p>error</p>
-                    :
-                    <>
-                        <City weekForecast={mapForecastProps(weekForecast)}
-                              weather={mapWeatherProps(resolveWeatherForPlace())}
-                              isGeoConfirm={isGeoConfirm}
-                              searchingPlace={Boolean(currentCity)}
-                        />
-                    </>
-            }
+            {finalErrors && <p>error</p>}
+
+            {finalLoading && SkeletonCityLead}
+
+            {!finalLoading && !finalErrors && (
+                <City
+                    weekForecast={mapForecastProps(weekForecast)}
+                    weather={mapWeatherProps(resolveWeatherForPlace())}
+                    isGeoConfirm={isGeoConfirm}
+                    searchingPlace={Boolean(currentCity)}
+                />
+            )}
         </>
-    );
-};
+    )
+}
 
-
-export default CityContainer;
+export default CityContainer

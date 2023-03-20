@@ -11,11 +11,11 @@
 }
 
 .save__btn:not(:disabled):hover {
-    opacity: .75;
+    opacity: 0.75;
 }
 
 /*theme*/
 
 .app_theme_dark .save__btn {
-    color: var(--theme-black-color)
+    color: var(--theme-black-color);
 }

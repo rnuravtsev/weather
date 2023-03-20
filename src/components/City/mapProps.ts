@@ -1,7 +1,7 @@
-import { IWeatherAPI } from "../../models/IWeatherAPI";
-import { IForecastAPI } from "../../models/IForecastAPI";
-import { IForecast, IWeather } from "../../types";
-import { IWeatherSearchingPlaceAPI } from "../../models/IWeatherSearchingPlaceAPI";
+import type { IForecastAPI } from '../../models/IForecastAPI'
+import type { IWeatherAPI } from '../../models/IWeatherAPI'
+import type { IWeatherSearchingPlaceAPI } from '../../models/IWeatherSearchingPlaceAPI'
+import type { IForecast, IWeather } from '../../types'
 
 export const mapWeatherProps = (data?: IWeatherAPI | IWeatherSearchingPlaceAPI): IWeather | undefined => {
     if (!data) {
@@ -16,19 +16,17 @@ export const mapWeatherProps = (data?: IWeatherAPI | IWeatherSearchingPlaceAPI):
         date: data.dt,
         description: data.weather[0].description,
         humidity: data.main.humidity,
-        icon_id: data.weather[0].id,
+        iconId: data.weather[0].id,
         sunrise: data.sys.sunrise,
         sunset: data.sys.sunset,
         temperature: Math.round(data.main.temp),
-        temperature_min: Math.round(data.main.temp_min),
-        temperature_max: Math.round(data.main.temp_max),
-        wind_speed: Math.round(data.wind.speed * 3.6),
+        temperatureMin: Math.round(data.main.temp_min),
+        temperatureMax: Math.round(data.main.temp_max),
+        windSpeed: Math.round(data.wind.speed * 3.6),
     }
 }
 
-export const mapForecastProps = (forecast?: IForecastAPI): IForecast | undefined => {
-    return {
-        hourlyForecast: forecast?.hourly,
-        weekForecast: forecast?.daily
-    };
-}
+export const mapForecastProps = (forecast?: IForecastAPI): IForecast | undefined => ({
+    hourlyForecast: forecast?.hourly,
+    weekForecast: forecast?.daily,
+})

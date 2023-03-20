@@ -1,23 +1,24 @@
-import React, { FC } from 'react';
-import { IHourForecast } from "../../types";
-import { renderWeatherIcon } from "../City/utils";
+import React from 'react'
+import type { FC } from 'react'
+import { renderWeatherIcon } from '../City/utils'
+import type { IHourForecast } from '../../types'
 
 export interface ICityHourForecastProps {
-    hourForecast?: IHourForecast,
+    hourForecast?: IHourForecast
 }
 
 const CityHourForecast: FC<ICityHourForecastProps> = ({ hourForecast }) => {
-    const { hour, temperature, icon_id } = hourForecast || {}
+    const { hour, temperature, iconId } = hourForecast || {}
 
-    const peopleHour = hour ? new Date(hour * 1000).getHours() : null;
+    const peopleHour = hour ? new Date(hour * 1000).getHours() : null
 
     return (
         <li className="city__hour-forecast">
             <p className="city__hour">{peopleHour}</p>
-            {renderWeatherIcon(icon_id)}
+            {renderWeatherIcon(iconId)}
             <p>{temperature && Math.floor(temperature)}&#176;</p>
         </li>
-    );
-};
+    )
+}
 
-export default CityHourForecast;
+export default CityHourForecast

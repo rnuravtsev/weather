@@ -1,16 +1,16 @@
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/dist/query/react";
-import { IWeatherAPI } from "../models/IWeatherAPI";
-import { API_KEY, BASE_WEATHER_API, TEMPERATURE_UNITS } from "../consts";
-import { IForecastAPI } from "../models/IForecastAPI";
-import { IWeatherSearchingPlaceAPI } from "../models/IWeatherSearchingPlaceAPI";
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/dist/query/react'
+import { API_KEY, BASE_WEATHER_API, TEMPERATURE_UNITS } from '../consts'
+import type { IForecastAPI } from '../models/IForecastAPI'
+import type { IWeatherAPI } from '../models/IWeatherAPI'
+import type { IWeatherSearchingPlaceAPI } from '../models/IWeatherSearchingPlaceAPI'
 
 interface IFetchWeatherForPlace {
-    latitude?: number,
-    longitude?: number,
+    latitude?: number
+    longitude?: number
 }
 
 interface IFetchWeatherForSearchingPlace {
-    place: string,
+    place: string
 }
 
 export const weatherAPI = createApi({
@@ -26,9 +26,9 @@ export const weatherAPI = createApi({
                     lon: longitude,
                     apikey: API_KEY,
                     units: TEMPERATURE_UNITS,
-                }
+                },
             }),
-            providesTags: () => ['Weather']
+            providesTags: () => ['Weather'],
         }),
         fetchWeekForecast: build.query<IForecastAPI, IFetchWeatherForPlace>({
             query: ({ latitude, longitude }) => ({
@@ -39,20 +39,22 @@ export const weatherAPI = createApi({
                     appid: API_KEY,
                     exclude: ['current', 'minutely'].join(','),
                     units: TEMPERATURE_UNITS,
-                }
-            }),
-            providesTags: () => ['Weather']
-        }),
-        fetchWeatherForSearchingPlace: build.query<IWeatherSearchingPlaceAPI, IFetchWeatherForSearchingPlace>({
-            query: ({ place }) => ({
-                url: 'weather',
-                params: {
-                    q: place,
-                    appid: API_KEY,
-                    units: TEMPERATURE_UNITS,
                 },
             }),
-            providesTags: () => ['Weather']
-        })
-    })
+            providesTags: () => ['Weather'],
+        }),
+        fetchWeatherForSearchingPlace: build.query<IWeatherSearchingPlaceAPI, IFetchWeatherForSearchingPlace>(
+            {
+                query: ({ place }) => ({
+                    url: 'weather',
+                    params: {
+                        q: place,
+                        appid: API_KEY,
+                        units: TEMPERATURE_UNITS,
+                    },
+                }),
+                providesTags: () => ['Weather'],
+            },
+        ),
+    }),
 })

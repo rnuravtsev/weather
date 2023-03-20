@@ -1,13 +1,17 @@
-import React from 'react';
-import './Footer.css';
+import React from 'react'
 
-const Footer = () => {
-    return (
-        <footer className="footer">
-            <p>CRA 2022</p>
-            <p>Powered by <a href="https://openweathermap.org" target="_blank" rel="noopener">openweathermap.org</a></p>
-        </footer>
-    );
-};
+import './Footer.css'
 
-export default Footer;
+const Footer = () => (
+    <footer className="footer">
+        <p>CRA 2022</p>
+        <p>
+            Powered by{' '}
+            <a href="https://openweathermap.org" target="_blank" rel="noopener noreferrer">
+                openweathermap.org
+            </a>
+        </p>
+    </footer>
+)
+
+export default Footer

@@ -1,49 +1,49 @@
-import { IHourForecastAPI } from "./models/IHourForecastAPI";
-import { IForecastOneDayAPI } from "./models/IForecastOneDayAPI";
-import { IWeatherSearchingPlaceAPI } from "./models/IWeatherSearchingPlaceAPI";
+import type { IForecastOneDayAPI } from './models/IForecastOneDayAPI'
+import type { IHourForecastAPI } from './models/IHourForecastAPI'
+import type { IWeatherSearchingPlaceAPI } from './models/IWeatherSearchingPlaceAPI'
 
 export interface IFavItem {
-    name: string,
-    description: string,
-    temperature: number,
-    temperature_min: number,
-    temperature_max: number,
+    name: string
+    description: string
+    temperature: number
+    temperatureMin: number
+    temperatureMax: number
 }
 
 export interface IWeather {
-    "country": string,
-    "condition": number
-    "description": string,
-    "date": number,
-    "humidity": number,
-    "id": number,
-    "icon_id": number,
-    "location": string,
-    "sunrise": number,
-    "sunset": number,
-    "temperature": number,
-    "temperature_min": number,
-    "temperature_max": number,
-    "wind_speed": number,
+    country: string
+    condition: number
+    description: string
+    date: number
+    humidity: number
+    id: number
+    iconId: number
+    location: string
+    sunrise: number
+    sunset: number
+    temperature: number
+    temperatureMin: number
+    temperatureMax: number
+    windSpeed: number
 }
 
 export interface IHourForecast {
-    hour?: number,
-    weather_icon?: number,
-    temperature?: number,
-    icon_id?: number,
+    hour?: number
+    weatherIcon?: number
+    temperature?: number
+    iconId?: number
 }
 
 export interface IForecastOneDay {
-    weekDay?: number,
-    temperature_max?: number
-    temperature_min?: number
-    icon_id?: number
+    weekDay?: number
+    temperatureMax?: number
+    temperatureMin?: number
+    iconId?: number
 }
 
 export interface IForecast {
-    hourlyForecast?: IHourForecastAPI[],
-    weekForecast?: IForecastOneDayAPI[],
+    hourlyForecast?: IHourForecastAPI[]
+    weekForecast?: IForecastOneDayAPI[]
 }
 
 export type TFavs = IWeatherSearchingPlaceAPI[]

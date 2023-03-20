@@ -22,8 +22,8 @@
 .favs__btn {
     display: grid;
     grid-template-areas:
-    'name temperature'
-    'description temperature-details';
+        'name temperature'
+        'description temperature-details';
     row-gap: 5px;
     column-gap: 15px;
     width: 100%;
@@ -46,7 +46,7 @@
 
 .favs__item:hover {
     cursor: pointer;
-    opacity: .75;
+    opacity: 0.75;
 }
 
 .favs__name {
@@ -81,5 +81,5 @@
 .favs__time,
 .favs__description,
 .favs__temperature-details {
-    font-size: .85rem;
+    font-size: 0.85rem;
 }

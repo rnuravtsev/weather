@@ -1,6 +1,6 @@
 .btn {
     border-radius: 2px;
-    transition: all .3s ease;
+    transition: all 0.3s ease;
 }
 
 .btn:not(:disabled):focus {
@@ -9,7 +9,7 @@
 }
 
 .btn:not(:disabled):hover {
-    opacity: .75;
+    opacity: 0.75;
     cursor: pointer;
 }
 

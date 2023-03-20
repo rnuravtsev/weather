@@ -1,5 +1,5 @@
-import { combineReducers, configureStore } from "@reduxjs/toolkit";
-import { getPersistConfig } from "redux-deep-persist";
+import { combineReducers, configureStore } from '@reduxjs/toolkit'
+import { getPersistConfig } from 'redux-deep-persist'
 import {
     FLUSH,
     PAUSE,
@@ -8,24 +8,22 @@ import {
     persistStore,
     PURGE,
     REGISTER,
-    REHYDRATE
+    REHYDRATE,
 } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
-import userReducer from "./slices/userSlice"
-import { weatherAPI } from "../services/weatherService";
-import { rtkQueryErrorHandler } from "./middlewares";
+import { weatherAPI } from '../services/weatherService'
+import { rtkQueryErrorHandler } from './middlewares'
+import userReducer from './slices/userSlice'
 
 const rootReducer = combineReducers({
     userReducer,
-    [weatherAPI.reducerPath]: weatherAPI.reducer
+    [weatherAPI.reducerPath]: weatherAPI.reducer,
 })
 
 const rootPersistConfig = getPersistConfig({
     key: 'root',
     storage,
-    whitelist: [
-        'userReducer.favs'
-    ],
+    whitelist: ['userReducer.favs'],
     rootReducer,
 })
 
@@ -41,7 +39,7 @@ const store = configureStore({
         }).concat(weatherAPI.middleware, rtkQueryErrorHandler),
 })
 
-const appStoreType = () => store;
+const appStoreType = () => store
 
 export const persistor = persistStore(store)
 

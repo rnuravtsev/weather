@@ -1,10 +1,7 @@
-import { createAsyncThunk } from "@reduxjs/toolkit";
-import { onNavGeoSuccess, onNavGeoError } from "./utils";
-import { AppDispatch } from "./store";
+import { createAsyncThunk } from '@reduxjs/toolkit'
+import { onNavGeoError, onNavGeoSuccess } from './utils'
+import type { AppDispatch } from './store'
 
-export const userGeoConfirm = createAsyncThunk(
-    'user/geoConfirm',
-    async (dispatch: AppDispatch) => {
-        await navigator.geolocation.getCurrentPosition((evt) => onNavGeoSuccess(evt, dispatch), onNavGeoError)
-    }
-)
+export const userGeoConfirm = createAsyncThunk('user/geoConfirm', async (dispatch: AppDispatch) => {
+    await navigator.geolocation.getCurrentPosition((evt) => onNavGeoSuccess(evt, dispatch), onNavGeoError)
+})
