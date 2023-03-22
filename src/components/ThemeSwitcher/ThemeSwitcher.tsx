@@ -5,7 +5,7 @@ import { useAppDispatch, useAppSelector } from '../../hooks/redux'
 import type { RootState } from '../../ducks/store'
 import { AppTheme } from '../../consts'
 
-import './ThemeSwitcher.css'
+import './ThemeSwitcher.scss'
 
 const ThemeSwitcher = () => {
     const appTheme = useAppSelector((state: RootState) => state.userReducer.theme)

@@ -12,11 +12,13 @@
 
 .weather-icon {
     display: inline-block;
+
     width: 40px;
     height: 30px;
+
     background-repeat: no-repeat;
-    background-size: contain;
     background-position: center;
+    background-size: contain;
 }
 
 .weather-icon_type_sunny {

@@ -9,8 +9,8 @@ import WeekForecast from '../WeekForecast/Week'
 import { getDayLight, renderWeatherIcon } from './utils'
 import type { IForecast, IWeather } from '../../types'
 
-import './City.css'
-import './Hours.css'
+import './City.scss'
+import './Hours.scss'
 
 interface ICityProps {
     weather?: IWeather

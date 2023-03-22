@@ -4,7 +4,7 @@ import { renderWeatherIcon } from '../City/utils'
 import { getWeekDay } from './utils'
 import type { IForecastOneDay } from '../../types'
 
-import './Week.css'
+import './Week.scss'
 
 interface IWeekDayForecast {
     forecast?: IForecastOneDay

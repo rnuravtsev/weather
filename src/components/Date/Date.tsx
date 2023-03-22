@@ -1,7 +1,7 @@
 import React from 'react'
 import { getTodayDate } from '../City/utils'
 
-import './Date.css'
+import './Date.scss'
 
 const Date = () => (
     <section className="date">

@@ -4,3 +4,5 @@ public
 
 **.css
 **.svg
+stylelint.config.js
+vite.config.ts

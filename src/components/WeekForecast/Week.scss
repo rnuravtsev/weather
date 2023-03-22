@@ -8,12 +8,12 @@
 
 .week__temperature {
     display: flex;
-    justify-content: end;
     column-gap: 10px;
+    justify-content: end;
     font-weight: 500;
 }
 
 .week__certain {
-    font-weight: 500;
     font-style: italic;
+    font-weight: 500;
 }

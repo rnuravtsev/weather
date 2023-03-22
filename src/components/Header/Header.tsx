@@ -2,7 +2,7 @@ import React from 'react'
 import SearchContainer from '../Search/SearchContainer'
 import ThemeSwitcher from '../ThemeSwitcher/ThemeSwitcher'
 
-import './Header.css'
+import './Header.scss'
 
 const Header = () => (
     <header className="header">

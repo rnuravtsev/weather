@@ -1,16 +1,16 @@
 .btn {
-    border-radius: 2px;
+    border-radius: 20px;
     transition: all 0.3s ease;
 }
 
 .btn:not(:disabled):focus {
-    outline-offset: 5px;
-    outline: 2px solid blue;
+    outline: 1px solid blue;
+    outline-offset: 2px;
 }
 
 .btn:not(:disabled):hover {
-    opacity: 0.75;
     cursor: pointer;
+    opacity: 0.75;
 }
 
 .app_theme_dark button:not(:disabled):focus {

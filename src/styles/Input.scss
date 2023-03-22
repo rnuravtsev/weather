@@ -1,14 +1,16 @@
 input {
     padding: 2px;
-    color: currentColor;
+
+    color: currentcolor;
+
     background-color: transparent;
-    border: 2px solid currentColor;
+    border: 2px solid currentcolor;
     border-radius: 6px;
 }
 
 input:focus {
-    outline-offset: 2px;
     outline: 2px solid blue;
+    outline-offset: 2px;
 }
 
 .app_theme_dark input:focus {

@@ -11,7 +11,7 @@ import Lightnings from '../Lightnings/Lightnings'
 
 import 'modern-normalize/modern-normalize.css'
 import 'react-toastify/dist/ReactToastify.css'
-import './App.css'
+import './App.scss'
 
 interface IApp {
     theme: string

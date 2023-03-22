@@ -6,7 +6,7 @@ import AppContainer from './components/App/AppContainer'
 import store, { persistor } from './ducks/store'
 import reportWebVitals from './reportWebVitals'
 
-import './index.css'
+import './index.scss'
 
 ReactDOM.render(
     <React.StrictMode>

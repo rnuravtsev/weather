@@ -4,7 +4,7 @@ import FavItem from './FavItem'
 import type { TFavs } from '../../types'
 import { mapFavs } from '../../ducks/utils'
 
-import './Favs.css'
+import './Favs.scss'
 
 interface IFavsProps {
     favs?: TFavs

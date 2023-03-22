@@ -9,7 +9,7 @@ import { useAppDispatch } from '../../hooks/redux'
 import type { IWeatherSearchingPlaceAPI } from '../../models/IWeatherSearchingPlaceAPI'
 import type { TFavs } from '../../types'
 
-import './Save.css'
+import './Save.scss'
 
 interface ISaveProps {
     currentCity?: IWeatherSearchingPlaceAPI
