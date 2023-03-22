@@ -2,7 +2,7 @@ import React from 'react'
 import { CSSTransition } from 'react-transition-group'
 import type { FC } from 'react'
 
-import './Lightnings.css'
+import './Lightnings.scss'
 
 interface ILightningProps {
     in: boolean

@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import classNames from 'classnames'
 import { debounce } from '../../utils'
 
-import './Search.css'
+import './Search.scss'
 
 const enum KeyCodes {
     K = 'KeyK',

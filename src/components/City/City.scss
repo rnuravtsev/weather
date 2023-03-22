@@ -1,6 +1,6 @@
 .city {
-    grid-area: city;
     display: grid;
+    grid-area: city;
     grid-template-rows: repeat(3, auto);
 }
 
@@ -10,32 +10,35 @@
 
 .city__lead {
     display: grid;
-    grid-template-columns: [main] minmax(100px, 400px) [peripheral] 1fr;
     grid-template-rows: repeat(2, auto);
+    grid-template-columns: [main] minmax(100px, 400px) [peripheral] 1fr;
 }
 
 .city__main {
-    grid-column: 1;
-    grid-row: 1 / 2;
     display: flex;
     flex-direction: column;
+    grid-row: 1 / 2;
+    grid-column: 1;
     row-gap: 20px;
 }
 
 .city__peripheral {
-    grid-column: 2;
-    grid-row: 1 / 2;
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
+    grid-row: 1 / 2;
+    grid-column: 2;
     gap: 10px;
+    align-items: flex-end;
+
     font-weight: 700;
 }
 
 .city__name {
-    margin: 0;
     display: flex;
     column-gap: 0.625rem;
+
+    margin: 0;
+
     font-size: 1.5rem;
     line-height: 1rem;
 }
@@ -52,18 +55,19 @@
 }
 
 .city__description {
-    margin-bottom: 0;
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
     gap: 10px;
+    align-items: flex-end;
+
+    margin-bottom: 0;
 }
 
 .city__temperatures {
     display: flex;
+    gap: 10px;
     align-items: center;
     justify-content: flex-end;
-    gap: 10px;
 }
 
 .city__temp-max {
@@ -80,16 +84,18 @@
 
 .city__flex-wrapper {
     display: flex;
-    align-items: center;
     gap: 10px;
+    align-items: center;
 }
 
 .city__additional {
-    margin: 0;
-    padding: 0;
-    list-style: none;
     display: flex;
     gap: 10px;
+    padding: 0;
+
+    margin: 0;
+
+    list-style: none;
 }
 
 .city__unit {
@@ -107,8 +113,9 @@
 .city__hour-forecast {
     display: flex;
     flex-direction: column;
-    align-items: center;
     row-gap: 20px;
+    align-items: center;
+
     font-weight: 500;
 }
 

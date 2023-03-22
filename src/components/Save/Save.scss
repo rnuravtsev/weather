@@ -5,17 +5,18 @@
 
 .save__btn {
     font-size: 1.2rem;
-    color: currentColor;
+    color: currentcolor;
     background-color: transparent;
     border: 0;
+}
+
+/* theme */
+
+.app_theme_dark .save__btn {
+    color: var(--theme-black-color);
 }
 
 .save__btn:not(:disabled):hover {
     opacity: 0.75;
 }
 
-/*theme*/
-
-.app_theme_dark .save__btn {
-    color: var(--theme-black-color);
-}
