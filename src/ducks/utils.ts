@@ -17,7 +17,7 @@ export const onNavGeoError = (err: GeolocationPositionError) => {
     console.warn(`ERROR(${err.code}): ${err.message}`)
 }
 
-export const mapFavs = (props: IWeatherSearchingPlaceAPI) => ({
+export const mapFavorites = (props: IWeatherSearchingPlaceAPI) => ({
     name: props?.name,
     time: props?.dt,
     description: props?.weather[0].description,

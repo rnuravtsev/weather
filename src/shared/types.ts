@@ -1,8 +1,8 @@
-import type { IForecastOneDayAPI } from './models/IForecastOneDayAPI'
-import type { IHourForecastAPI } from './models/IHourForecastAPI'
-import type { IWeatherSearchingPlaceAPI } from './models/IWeatherSearchingPlaceAPI'
+import type { IForecastOneDayAPI } from '../models/IForecastOneDayAPI'
+import type { IHourForecastAPI } from '../models/IHourForecastAPI'
+import type { IWeatherSearchingPlaceAPI } from '../models/IWeatherSearchingPlaceAPI'
 
-export interface IFavItem {
+export interface IFavoriteItem {
     name: string
     description: string
     temperature: number
@@ -46,4 +46,4 @@ export interface IForecast {
     weekForecast?: IForecastOneDayAPI[]
 }
 
-export type TFavs = IWeatherSearchingPlaceAPI[]
+export type TFavorites = IWeatherSearchingPlaceAPI[]

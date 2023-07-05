@@ -2,9 +2,10 @@ import React from 'react'
 
 import './Footer.scss'
 
+const date = new Date()
 const Footer = () => (
     <footer className="footer">
-        <p>CRA 2022</p>
+        <p>CRA {date.getFullYear()}</p>
         <p>
             Powered by{' '}
             <a href="https://openweathermap.org" target="_blank" rel="noopener noreferrer">

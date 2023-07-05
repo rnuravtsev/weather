@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { AppTheme } from '../../consts'
+import { AppTheme } from '../../shared/consts'
 import type { IWeatherSearchingPlaceAPI } from '../../models/IWeatherSearchingPlaceAPI'
-import type { TFavs } from '../../types'
+import type { TFavorites } from '../../shared/types'
 
 interface IUserState {
     theme: string
@@ -11,7 +11,7 @@ interface IUserState {
         latitude?: number
     }
     currentCity?: IWeatherSearchingPlaceAPI
-    favs?: TFavs
+    favs?: TFavorites
 }
 
 const initialState: IUserState = {

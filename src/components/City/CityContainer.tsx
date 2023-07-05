@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { setCurrentCity } from '../../ducks/slices/userSlice'
 import { useAppDispatch, useAppSelector } from '../../hooks/redux'
 import { weatherAPI } from '../../services/weatherService'
-import { convertGeoForRequest } from '../../utils'
+import { convertGeoForRequest } from '../../shared/utils'
 import City from './City'
 import SkeletonCityLead from './SkeletonCityLead'
 import { mapForecastProps, mapWeatherProps } from './mapProps'
@@ -13,7 +13,7 @@ const CityContainer = () => {
     const geoPosition = useAppSelector((state: RootState) => state.userReducer.geo)
     const currentCity = useAppSelector((state: RootState) => state.userReducer.currentCity)
     const currentCityGeoPosition = convertGeoForRequest(currentCity?.coord)
-    const favs = useAppSelector((state: RootState) => state.userReducer.favs)
+    const favorites = useAppSelector((state: RootState) => state.userReducer.favs)
 
     const dispatch = useAppDispatch()
 
@@ -34,16 +34,16 @@ const CityContainer = () => {
     })
 
     useEffect(() => {
-        if (!currentCity && favs) {
-            dispatch(setCurrentCity(favs[0]))
+        if (!currentCity && favorites) {
+            dispatch(setCurrentCity(favorites[0]))
         }
-    }, [])
+    }, [currentCity, favorites, dispatch])
 
     useEffect(() => {
         if (weather) {
             dispatch(setCurrentCity(weather))
         }
-    }, [weather])
+    }, [weather, dispatch])
 
     const finalLoading = userGeoLoading || weekForecastLoading
     const finalErrors = userGeoError || weekForecastError

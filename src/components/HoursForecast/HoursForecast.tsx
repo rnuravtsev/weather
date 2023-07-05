@@ -1,9 +1,9 @@
 import React from 'react'
 import type { FC } from 'react'
-import { MAX_HOUR_CONT_FORECAST } from '../../consts'
+import { MAX_HOUR_CONT_FORECAST } from '../../shared/consts'
 import HourForecast from './HourForecast'
 import type { IHourForecastAPI } from '../../models/IHourForecastAPI'
-import type { IHourForecast } from '../../types'
+import type { IHourForecast } from '../../shared/types'
 
 interface IHoursForecastProps {
     hours?: IHourForecastAPI[]

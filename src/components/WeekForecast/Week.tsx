@@ -2,7 +2,7 @@ import React from 'react'
 import type { FC } from 'react'
 import CityWeekDayForecast from './WeekDayForecast'
 import type { IForecastOneDayAPI } from '../../models/IForecastOneDayAPI'
-import type { IForecastOneDay } from '../../types'
+import type { IForecastOneDay } from '../../shared/types'
 
 interface IWeekForecastProps {
     list?: IForecastOneDayAPI[]

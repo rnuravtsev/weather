@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/dist/query/react'
-import { API_KEY, BASE_WEATHER_API, TEMPERATURE_UNITS } from '../consts'
+import { API_KEY, BASE_WEATHER_API, TEMPERATURE_UNITS } from '../shared/consts'
 import type { IForecastAPI } from '../models/IForecastAPI'
 import type { IWeatherAPI } from '../models/IWeatherAPI'
 import type { IWeatherSearchingPlaceAPI } from '../models/IWeatherSearchingPlaceAPI'

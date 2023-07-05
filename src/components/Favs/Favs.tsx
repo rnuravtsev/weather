@@ -1,13 +1,13 @@
 import type { FC } from 'react'
 import React from 'react'
 import FavItem from './FavItem'
-import type { TFavs } from '../../types'
-import { mapFavs } from '../../ducks/utils'
+import type { TFavorites } from '../../shared/types'
+import { mapFavorites } from '../../ducks/utils'
 
 import './Favs.scss'
 
 interface IFavsProps {
-    favs?: TFavs
+    favs?: TFavorites
 }
 
 const Favs: FC<IFavsProps> = ({ favs }) => (
@@ -18,7 +18,7 @@ const Favs: FC<IFavsProps> = ({ favs }) => (
                 <h2 className="favs__title">Favorites</h2>
                 <ul className="favs__list">
                     {favs.map((el) => (
-                        <FavItem item={mapFavs(el)} key={`favItem-${el.id}`} />
+                        <FavItem item={mapFavorites(el)} key={`favItem-${el.id}`} />
                     ))}
                 </ul>
             </section>

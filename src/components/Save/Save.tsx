@@ -7,13 +7,13 @@ import classNames from 'classnames'
 import { removeFavItem, setFavItem } from '../../ducks/slices/userSlice'
 import { useAppDispatch } from '../../hooks/redux'
 import type { IWeatherSearchingPlaceAPI } from '../../models/IWeatherSearchingPlaceAPI'
-import type { TFavs } from '../../types'
+import type { TFavorites } from '../../shared/types'
 
 import './Save.scss'
 
 interface ISaveProps {
     currentCity?: IWeatherSearchingPlaceAPI
-    favs?: TFavs
+    favs?: TFavorites
 }
 
 const Save: FC<ISaveProps> = ({ currentCity, favs }) => {

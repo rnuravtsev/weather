@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { AppTheme } from '../../consts'
+import { AppTheme } from '../../shared/consts'
 import { userGeoConfirm } from '../../ducks/ActionCreators'
 import { setUserTheme } from '../../ducks/slices/userSlice'
 import { useAppDispatch, useAppSelector } from '../../hooks/redux'
@@ -28,7 +28,7 @@ const AppContainer = () => {
             window
                 .matchMedia('(prefers-color-scheme: dark)')
                 .removeEventListener('change', windowThemeChangeHandler)
-    }, [])
+    }, [dispatch])
     return <App weather={weather} theme={appTheme} />
 }
 

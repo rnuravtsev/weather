@@ -2,7 +2,7 @@ import React from 'react'
 import type { FC } from 'react'
 import { renderWeatherIcon } from '../City/utils'
 import { getWeekDay } from './utils'
-import type { IForecastOneDay } from '../../types'
+import type { IForecastOneDay } from '../../shared/types'
 
 import './Week.scss'
 

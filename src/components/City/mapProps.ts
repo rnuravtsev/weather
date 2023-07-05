@@ -1,7 +1,7 @@
 import type { IForecastAPI } from '../../models/IForecastAPI'
 import type { IWeatherAPI } from '../../models/IWeatherAPI'
 import type { IWeatherSearchingPlaceAPI } from '../../models/IWeatherSearchingPlaceAPI'
-import type { IForecast, IWeather } from '../../types'
+import type { IForecast, IWeather } from '../../shared/types'
 
 export const mapWeatherProps = (data?: IWeatherAPI | IWeatherSearchingPlaceAPI): IWeather | undefined => {
     if (!data) {

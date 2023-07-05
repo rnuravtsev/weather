@@ -1,7 +1,7 @@
 import React from 'react'
 import { ToastContainer } from 'react-toastify'
 import type { FC } from 'react'
-import { AppTheme, WeatherForecast } from '../../consts'
+import { AppTheme, WeatherForecast } from '../../shared/consts'
 import CityContainer from '../City/CityContainer'
 import Date from '../Date/Date'
 import FavsContainer from '../Favs/FavsContainer'

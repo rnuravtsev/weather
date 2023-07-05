@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { setUserTheme } from '../../ducks/slices/userSlice'
 import { useAppDispatch, useAppSelector } from '../../hooks/redux'
 import type { RootState } from '../../ducks/store'
-import { AppTheme } from '../../consts'
+import { AppTheme } from '../../shared/consts'
 
 import './ThemeSwitcher.scss'
 

@@ -2,12 +2,12 @@ import React from 'react'
 import type { FC } from 'react'
 import { setCurrentCity } from '../../ducks/slices/userSlice'
 import { useAppDispatch, useAppSelector } from '../../hooks/redux'
-import { capitalizeEachFirstLetter } from '../../utils'
+import { capitalizeEachFirstLetter } from '../../shared/utils'
 import type { RootState } from '../../ducks/store'
-import type { IFavItem } from '../../types'
+import type { IFavoriteItem } from '../../shared/types'
 
 interface FavItemProps {
-    item: IFavItem
+    item: IFavoriteItem
 }
 
 const FavItem: FC<FavItemProps> = ({ item }) => {

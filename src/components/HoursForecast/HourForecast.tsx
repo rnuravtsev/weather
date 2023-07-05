@@ -1,7 +1,7 @@
 import React from 'react'
 import type { FC } from 'react'
 import { renderWeatherIcon } from '../City/utils'
-import type { IHourForecast } from '../../types'
+import type { IHourForecast } from '../../shared/types'
 
 export interface ICityHourForecastProps {
     hourForecast?: IHourForecast

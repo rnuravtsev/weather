@@ -1,6 +1,6 @@
 import React from 'react'
 import ContentLoader from 'react-content-loader'
-import { AppTheme } from '../../consts'
+import { AppTheme } from '../../shared/consts'
 import { useAppSelector } from '../../hooks/redux'
 import type { RootState } from '../../ducks/store'
 
