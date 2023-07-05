@@ -22,31 +22,31 @@
 }
 
 .weather-icon_type_sunny {
-    background-image: url('./assets/sunny.svg');
+    background-image: url('./assets/icons/sunny.svg');
 }
 
 .weather-icon_type_cloudly {
-    background-image: url('./assets/cloudly.svg');
+    background-image: url('./assets/icons/cloudly.svg');
 }
 
 .weather-icon_type_partlySunny {
-    background-image: url('./assets/partlySunny.svg');
+    background-image: url('./assets/icons/partlySunny.svg');
 }
 
 .weather-icon_type_rain {
-    background-image: url('./assets/rain.svg');
+    background-image: url('./assets/icons/rain.svg');
 }
 
 .weather-icon_type_chanceRain {
-    background-image: url('./assets/chanceRain.svg');
+    background-image: url('./assets/icons/chanceRain.svg');
 }
 
 .weather-icon_type_chanceStorm {
-    background-image: url('./assets/chanceStorm.svg');
+    background-image: url('./assets/icons/chanceStorm.svg');
 }
 
 .weather-icon_type_snow {
-    background-image: url('./assets/snow-dark.svg');
+    background-image: url('./assets/icons/snow-dark.svg');
 }
 
 .app_weather_clouds:not(.app_theme_dark) .fa-droplet {
