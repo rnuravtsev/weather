@@ -45,10 +45,9 @@
     font-style: normal;
 }
 
-//.theme-switcher__icon_sun {
-//    order: 2;
-//    color: yellow;
-//}
+.theme-switcher__icon_sun {
+    order: 2;
+}
 
 .theme-switcher__btn {
     position: relative;
@@ -60,8 +59,9 @@
     border: none;
     border-radius: 50%;
 
-    transition: all 1s ease;
+    transition: all 0.5s ease;
 }
+
 
 .theme-switcher__btn:active {
     animation-name: switchAnimation;
