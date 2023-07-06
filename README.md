@@ -4,8 +4,9 @@
 
 
 ## Демо
-![Uploading weather-bx6e.onrender.com_.png…]()
-[Демонстрация проекта](https://weather-bx6e.onrender.com/)
+[Live Demo](https://weather-bx6e.onrender.com/)
+
+![weather-bx6e onrender com_](https://github.com/rnuravtsev/weather/assets/38334418/fb940c2b-8c68-4b7b-9105-7470529a985c)
 ## Описание проекта
 Weather - удобное веб-приложение, которое позволяет вам получить актуальную информацию о погоде в любом городе по всему миру. Независимо от того, где вы находитесь, с Weather вы всегда будете в курсе прогноза погоды.
 
