@@ -1,7 +1,7 @@
 import React from 'react'
 import ContentLoader from 'react-content-loader'
 import { AppTheme } from '../../shared/consts'
-import { useAppSelector } from '../../hooks/redux'
+import { useAppSelector } from '../../ducks/hooks/redux'
 import type { RootState } from '../../ducks/store'
 
 const Canvas = {

@@ -5,7 +5,7 @@ import { faStar as faStarSolid } from '@fortawesome/free-solid-svg-icons/faStar'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import classNames from 'classnames'
 import { removeFavItem, setFavItem } from '../../ducks/slices/userSlice'
-import { useAppDispatch } from '../../hooks/redux'
+import { useAppDispatch } from '../../ducks/hooks/redux'
 import type { IWeatherSearchingPlaceAPI } from '../../models/IWeatherSearchingPlaceAPI'
 import type { TFavorites } from '../../shared/types'
 

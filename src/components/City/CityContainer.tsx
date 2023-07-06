@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { setCurrentCity } from '../../ducks/slices/userSlice'
-import { useAppDispatch, useAppSelector } from '../../hooks/redux'
+import { useAppDispatch, useAppSelector } from '../../ducks/hooks/redux'
 import { weatherAPI } from '../../services/weatherService'
 import { convertGeoForRequest } from '../../shared/utils'
 import City from './City'

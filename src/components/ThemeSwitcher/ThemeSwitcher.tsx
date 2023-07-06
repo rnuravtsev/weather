@@ -1,7 +1,7 @@
 import classNames from 'classnames'
 import React, { useState } from 'react'
 import { setUserTheme } from '../../ducks/slices/userSlice'
-import { useAppDispatch, useAppSelector } from '../../hooks/redux'
+import { useAppDispatch, useAppSelector } from '../../ducks/hooks/redux'
 import type { RootState } from '../../ducks/store'
 import { AppTheme } from '../../shared/consts'
 

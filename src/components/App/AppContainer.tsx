@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { AppTheme } from '../../shared/consts'
 import { userGeoConfirm } from '../../ducks/ActionCreators'
 import { setUserTheme } from '../../ducks/slices/userSlice'
-import { useAppDispatch, useAppSelector } from '../../hooks/redux'
+import { useAppDispatch, useAppSelector } from '../../ducks/hooks/redux'
 import App from './App'
 import type { RootState } from '../../ducks/store'
 

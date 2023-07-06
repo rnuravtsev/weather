@@ -1,7 +1,7 @@
 import React from 'react'
 import type { FC } from 'react'
 import { setCurrentCity } from '../../ducks/slices/userSlice'
-import { useAppDispatch, useAppSelector } from '../../hooks/redux'
+import { useAppDispatch, useAppSelector } from '../../ducks/hooks/redux'
 import { capitalizeEachFirstLetter } from '../../shared/utils'
 import type { RootState } from '../../ducks/store'
 import type { IFavoriteItem } from '../../shared/types'

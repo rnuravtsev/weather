@@ -1,5 +1,5 @@
 import React from 'react'
-import { useAppSelector } from '../../hooks/redux'
+import { useAppSelector } from '../../ducks/hooks/redux'
 import Favs from './Favs'
 import type { RootState } from '../../ducks/store'
 
