@@ -2,6 +2,12 @@ import type { IForecastOneDayAPI } from '../services/models/IForecastOneDayAPI'
 import type { IHourForecastAPI } from '../services/models/IHourForecastAPI'
 import type { IWeatherSearchingPlaceAPI } from '../services/models/IWeatherSearchingPlaceAPI'
 
+export const enum Status {
+    Error = 'error',
+    Warning = 'warning',
+    Success = 'success',
+}
+
 export interface IFavoriteItem {
     name: string
     description: string
@@ -47,3 +53,13 @@ export interface IForecast {
 }
 
 export type TFavorites = IWeatherSearchingPlaceAPI[]
+
+export const enum WeatherForecast {
+    Storm = 'Storm',
+    Thunderstorm = 'Thunderstorm',
+}
+
+export const enum AppTheme {
+    Light = 'Light',
+    Dark = 'Dark',
+}

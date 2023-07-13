@@ -7,12 +7,15 @@ import {
     setCurrentCity,
 } from '../../ducks/slices/userSlice'
 import { useAppDispatch, useAppSelector } from '../../ducks/hooks/redux'
-import { useFetchWeatherForPlaceQuery, useFetchWeekForecastQuery } from '../../services/weatherService'
+import {
+    useFetchWeatherForPlaceQuery,
+    useFetchWeekForecastQuery,
+} from '../../services/weatherService'
 import { convertGeoForRequest } from '../../shared/utils'
-import City from './City'
+import { City } from './City'
 import SkeletonCityLead from './SkeletonCityLead'
 
-const CityContainer = memo(() => {
+export const CityContainer = memo(() => {
     const isGeoConfirm = useAppSelector(selectGeoConfirm)
     const geoPosition = useAppSelector(selectGeo)
     const currentCity = useAppSelector(selectCurrentCity)
@@ -47,13 +50,13 @@ const CityContainer = memo(() => {
     const finalErrors = userGeoError || weekForecastError
 
     // TODO: Понять что в какой момент рендерить, нужно разделить сущности
-    const resolveWeatherForPlace = () => {
-        if (currentCity) {
-            return currentCity
-        }
-
-        return weather
-    }
+    // const resolveWeatherForPlace = () => {
+    //     if (currentCity) {
+    //         return currentCity
+    //     }
+    //
+    //     return weather
+    // }
 
     return (
         <>
@@ -72,5 +75,3 @@ const CityContainer = memo(() => {
         </>
     )
 })
-
-export default CityContainer

@@ -4,27 +4,24 @@ import { faTriangleExclamation } from '@fortawesome/free-solid-svg-icons/faTrian
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
 import type { FC, PropsWithChildren } from 'react'
-
-type TRenderIcon = {
-    [key in IAlertProps['type']]: () => JSX.Element
-}
+import type { Status } from '../../shared/types'
 
 interface IAlertProps {
-    msg: string
-    type: 'error' | 'success' | 'warning'
+    message: string
+    type: Status
 }
 
-const renderIcon: TRenderIcon = {
-    success: () => <FontAwesomeIcon icon={faCircleCheck} />,
-    error: () => <FontAwesomeIcon icon={faCircleExclamation} />,
-    warning: () => <FontAwesomeIcon icon={faTriangleExclamation} />,
+const renderIcon: Record<Status, JSX.Element> = {
+    success: <FontAwesomeIcon icon={faCircleCheck} />,
+    error: <FontAwesomeIcon icon={faCircleExclamation} />,
+    warning: <FontAwesomeIcon icon={faTriangleExclamation} />,
 }
 
-const Alert: FC<PropsWithChildren<IAlertProps>> = ({ msg, type }) => (
+const Alert: FC<PropsWithChildren<IAlertProps>> = ({ message, type }) => (
     <div className="alert">
         <div className="alert__flex-wrapper">
-            {renderIcon[type]()}
-            <p className="alert__message">{msg}</p>
+            {renderIcon[type]}
+            <p className="alert__message">{message}</p>
         </div>
     </div>
 )

@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import { PersistGate } from 'redux-persist/integration/react'
-import AppContainer from './components/App/AppContainer'
+import { AppContainer } from './components/App/AppContainer'
 import store, { persistor } from './ducks/store'
 import reportWebVitals from './reportWebVitals'
 

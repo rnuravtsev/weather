@@ -9,10 +9,8 @@ interface ILightningProps {
     children: JSX.Element
 }
 
-const Lightnings: FC<ILightningProps> = ({ in: inProp, children }) => (
+export const Lightnings: FC<ILightningProps> = ({ in: inProp, children }) => (
     <CSSTransition in={inProp} timeout={750} classNames="lightnings">
         <div className="lightnings">{children}</div>
     </CSSTransition>
 )
-
-export default Lightnings

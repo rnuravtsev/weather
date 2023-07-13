@@ -16,7 +16,7 @@ interface ISaveProps {
     favorites?: TFavorites
 }
 
-const Save: FC<ISaveProps> = ({ currentCity, favorites }) => {
+export const Save: FC<ISaveProps> = ({ currentCity, favorites }) => {
     const [clicked, setClicked] = useState(false)
     const dispatch = useAppDispatch()
 
@@ -30,7 +30,9 @@ const Save: FC<ISaveProps> = ({ currentCity, favorites }) => {
 
     const onButtonClick = () => {
         // eslint-disable-next-line @typescript-eslint/no-unused-expressions
-        isAlreadyFav ? dispatch(removeFavItem(currentCity?.name)) : dispatch(setFavItem(currentCity))
+        isAlreadyFav
+            ? dispatch(removeFavItem(currentCity?.name))
+            : dispatch(setFavItem(currentCity))
 
         animate()
     }
@@ -39,13 +41,17 @@ const Save: FC<ISaveProps> = ({ currentCity, favorites }) => {
         <section className="save">
             <button className="btn save__btn" onClick={onButtonClick} type="button">
                 {isAlreadyFav ? (
-                    <FontAwesomeIcon className={classNames({ 'fa-flip': clicked })} icon={faStarSolid} />
+                    <FontAwesomeIcon
+                        className={classNames({ 'fa-flip': clicked })}
+                        icon={faStarSolid}
+                    />
                 ) : (
-                    <FontAwesomeIcon className={classNames({ 'fa-flip': clicked })} icon={faStarRegular} />
+                    <FontAwesomeIcon
+                        className={classNames({ 'fa-flip': clicked })}
+                        icon={faStarRegular}
+                    />
                 )}
             </button>
         </section>
     )
 }
-
-export default Save

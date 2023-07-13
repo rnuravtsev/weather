@@ -6,7 +6,7 @@ const RainIcon = () => <i className="weather-icon weather-icon_type_rain" />
 const StormIcon = () => <i className="weather-icon weather-icon_type_chanceStorm" />
 const SnowIcon = () => <i className="weather-icon weather-icon_type_snow" />
 
-export const renderWeatherIcon = (id: number | undefined) => {
+export const renderWeatherIcon = (id?: number) => {
     if (!id) return null
     if (id <= 232) {
         return StormIcon()
@@ -26,5 +26,5 @@ export const renderWeatherIcon = (id: number | undefined) => {
 
 export const getTodayDate = () => new Date().toDateString()
 
-export const getDayLight = (sunrise: number, sunset: number): number =>
+export const getDayLight = (sunrise: number, sunset: number) =>
     new Date((sunset - sunrise) * 1000).getUTCHours()

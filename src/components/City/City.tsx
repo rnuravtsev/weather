@@ -1,11 +1,16 @@
-import { faDroplet, faLocationArrow, faSun, faWind } from '@fortawesome/free-solid-svg-icons'
+import {
+    faDroplet,
+    faLocationArrow,
+    faSun,
+    faWind,
+} from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
 import type { FC } from 'react'
 import { capitalizeEachFirstLetter } from '../../shared/utils'
-import HoursForecast from '../HoursForecast/HoursForecast'
-import SaveContainer from '../Save/SaveContainer'
-import WeekForecast from '../WeekForecast/Week'
+import { HoursForecast } from '../HoursForecast/HoursForecast'
+import { SaveContainer } from '../Save/SaveContainer'
+import { WeekForecast } from '../WeekForecast/Week'
 import { getDayLight, renderWeatherIcon } from './utils'
 import type { IForecast, IWeather } from '../../shared/types'
 
@@ -19,7 +24,12 @@ interface ICityProps {
     searchingPlace: boolean
 }
 
-const City: FC<ICityProps> = ({ weather, isGeoConfirm, weekForecast, searchingPlace }) => {
+export const City: FC<ICityProps> = ({
+    weather,
+    isGeoConfirm,
+    weekForecast,
+    searchingPlace,
+}) => {
     if (!weather) {
         return null
     }
@@ -56,27 +66,39 @@ const City: FC<ICityProps> = ({ weather, isGeoConfirm, weekForecast, searchingPl
                                 />
                             )}
                         </h3>
-                        {country === 'RU' ? <i className="city__icon city__icon_type_flag">🇷🇺</i> : null}
+                        {country === 'RU' ? (
+                            <i className="city__icon city__icon_type_flag">🇷🇺</i>
+                        ) : null}
                     </div>
                     <p className="city__temp">{Math.floor(temperature)}&#176;</p>
                 </div>
                 <div className="city__peripheral">
                     <div className="city__description">
                         {renderWeatherIcon(iconId)}
-                        <p className="city__text">{capitalizeEachFirstLetter(description)}</p>
+                        <p className="city__text">
+                            {capitalizeEachFirstLetter(description)}
+                        </p>
                     </div>
                     <div className="city__temperatures">
-                        <p className="city__temp-max">H:{Math.floor(temperatureMax)}&#176;</p>
-                        <p className="city__temp-min">L:{Math.floor(temperatureMin)}&#176;</p>
+                        <p className="city__temp-max">
+                            H:{Math.floor(temperatureMax)}&#176;
+                        </p>
+                        <p className="city__temp-min">
+                            L:{Math.floor(temperatureMin)}&#176;
+                        </p>
                     </div>
                     <ul className="city__additional">
                         <li className="city__wind city__flex-wrapper">
                             <FontAwesomeIcon icon={faWind} />
-                            <p className="city__unit city__unit_type_wind">{windSpeed} km/h</p>
+                            <p className="city__unit city__unit_type_wind">
+                                {windSpeed} km/h
+                            </p>
                         </li>
                         <li className="city__humidity city__flex-wrapper">
                             <FontAwesomeIcon icon={faDroplet} />
-                            <p className="city__unit city__unit_type_humidity">{humidity} %</p>
+                            <p className="city__unit city__unit_type_humidity">
+                                {humidity} %
+                            </p>
                         </li>
                         <li className="city__light-day city__flex-wrapper">
                             <FontAwesomeIcon icon={faSun} />
@@ -96,5 +118,3 @@ const City: FC<ICityProps> = ({ weather, isGeoConfirm, weekForecast, searchingPl
         </section>
     )
 }
-
-export default City

@@ -2,11 +2,11 @@ import classNames from 'classnames'
 import React, { useState, memo } from 'react'
 import { selectUserTheme, setUserTheme } from '../../ducks/slices/userSlice'
 import { useAppDispatch, useAppSelector } from '../../ducks/hooks/redux'
-import { AppTheme } from '../../shared/consts'
+import { AppTheme } from '../../shared/types'
 
 import './ThemeSwitcher.scss'
 
-const ThemeSwitcher = memo(() => {
+export const ThemeSwitcher = memo(() => {
     const appTheme = useAppSelector(selectUserTheme)
     const [dark, setDark] = useState(appTheme === AppTheme.Dark)
     const dispatch = useAppDispatch()
@@ -47,5 +47,3 @@ const ThemeSwitcher = memo(() => {
         </section>
     )
 })
-
-export default ThemeSwitcher

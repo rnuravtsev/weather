@@ -1,16 +1,15 @@
 import React from 'react'
 import { ToastContainer } from 'react-toastify'
 import type { FC } from 'react'
-import { AppTheme, WeatherForecast } from '../../shared/consts'
-import CityContainer from '../City/CityContainer'
-import Date from '../Date/Date'
-import FavoritesContainer from '../Favs/FavoritesContainer'
-import Footer from '../Footer/Footer'
-import Header from '../Header/Header'
-import Lightnings from '../Lightnings/Lightnings'
+import classNames from 'classnames'
+import { CityContainer } from '../City/CityContainer'
+import { Date } from '../Date/Date'
+import { FavoritesContainer } from '../Favs/FavoritesContainer'
+import { Footer } from '../Footer/Footer'
+import { Header } from '../Header/Header'
+import { Lightnings } from '../Lightnings/Lightnings'
+import { AppTheme, WeatherForecast } from '../../shared/types'
 
-import 'modern-normalize/modern-normalize.css'
-import 'react-toastify/dist/ReactToastify.css'
 import './App.scss'
 
 interface IApp {
@@ -18,13 +17,18 @@ interface IApp {
     weather?: string
 }
 
-const App: FC<IApp> = ({ theme, weather }) => {
+export const App: FC<IApp> = ({ theme, weather }) => {
     const isLightnings =
         (weather === WeatherForecast.Storm || weather === WeatherForecast.Thunderstorm) &&
         theme === AppTheme.Dark
     return (
         <Lightnings in={isLightnings}>
-            <div className={`app app_theme_${theme.toLowerCase()} app_weather_${weather?.toLowerCase()}`}>
+            <div
+                className={classNames('app', {
+                    [`app_theme_${theme.toLowerCase()}`]: theme,
+                    [`app_weather_${weather?.toLowerCase()}`]: weather,
+                })}
+            >
                 <div className="app__header">
                     <Header />
                 </div>
@@ -48,5 +52,3 @@ const App: FC<IApp> = ({ theme, weather }) => {
         </Lightnings>
     )
 }
-
-export default App

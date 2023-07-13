@@ -1,8 +1,8 @@
 import React, { memo } from 'react'
 import ContentLoader from 'react-content-loader'
-import { AppTheme } from '../../shared/consts'
 import { useAppSelector } from '../../ducks/hooks/redux'
 import { selectUserTheme } from '../../ducks/slices/userSlice'
+import { AppTheme } from '../../shared/types'
 
 const Canvas = {
     WIDTH: 886,
@@ -119,10 +119,14 @@ const SkeletonCityLead = memo(() => {
             style={{ width: '100%' }}
             viewBox={`0 0 ${Canvas.WIDTH} ${Canvas.HEIGHT}`}
             backgroundColor={
-                theme === AppTheme.Light ? Canvas.LIGHT_THEME_BACKGROUND : Canvas.DARK_THEME_BACKGROUND
+                theme === AppTheme.Light
+                    ? Canvas.LIGHT_THEME_BACKGROUND
+                    : Canvas.DARK_THEME_BACKGROUND
             }
             foregroundColor={
-                theme === AppTheme.Light ? Canvas.LIGHT_THEME_FOREGROUND : Canvas.DARK_THEME_FOREGROUND
+                theme === AppTheme.Light
+                    ? Canvas.LIGHT_THEME_FOREGROUND
+                    : Canvas.DARK_THEME_FOREGROUND
             }
         >
             <rect x="0" y="0" rx="5" ry="2" width="148" height="20" />

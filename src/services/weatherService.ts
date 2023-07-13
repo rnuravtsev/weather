@@ -1,6 +1,4 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/dist/query/react'
-import type { BaseQueryResult } from '@reduxjs/toolkit/dist/query/baseQueryTypes'
-import { BaseQueryMeta } from '@reduxjs/toolkit/dist/query/baseQueryTypes'
 import { API_KEY, BASE_WEATHER_API, TEMPERATURE_UNITS } from '../shared/consts'
 import type { IForecastAPI } from './models/IForecastAPI'
 import type { IWeatherAPI } from './models/IWeatherAPI'
@@ -32,7 +30,8 @@ export const weatherAPI = createApi({
                     units: TEMPERATURE_UNITS,
                 },
             }),
-            transformResponse: (response: IWeatherAPI): IWeather => mapWeatherProps(response),
+            transformResponse: (response: IWeatherAPI): IWeather =>
+                mapWeatherProps(response),
             providesTags: () => ['Weather'],
         }),
         fetchWeekForecast: build.query<IForecast, IFetchWeatherForPlace>({
@@ -49,19 +48,20 @@ export const weatherAPI = createApi({
             transformResponse: (response: IForecastAPI) => mapForecastProps(response),
             providesTags: () => ['Weather'],
         }),
-        fetchWeatherForSearchingPlace: build.query<IWeatherSearchingPlaceAPI, IFetchWeatherForSearchingPlace>(
-            {
-                query: ({ place }) => ({
-                    url: 'weather',
-                    params: {
-                        q: place,
-                        appid: API_KEY,
-                        units: TEMPERATURE_UNITS,
-                    },
-                }),
-                providesTags: () => ['Weather'],
-            },
-        ),
+        fetchWeatherForSearchingPlace: build.query<
+            IWeatherSearchingPlaceAPI,
+            IFetchWeatherForSearchingPlace
+        >({
+            query: ({ place }) => ({
+                url: 'weather',
+                params: {
+                    q: place,
+                    appid: API_KEY,
+                    units: TEMPERATURE_UNITS,
+                },
+            }),
+            providesTags: () => ['Weather'],
+        }),
     }),
 })
 

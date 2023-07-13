@@ -10,12 +10,16 @@ interface IWeekDayForecast {
     forecast?: IForecastOneDay
 }
 
-const WeekDayForecast: FC<IWeekDayForecast> = ({ forecast }) => {
+export const WeekDayForecast: FC<IWeekDayForecast> = ({ forecast }) => {
     const { temperatureMin, temperatureMax, iconId, weekDay } = forecast || {}
     const certainDay = new Date((weekDay || 0) * 1000).getDay()
 
-    const resolveTemperatureMax = temperatureMax ? Math.floor(temperatureMax) : 'нет данных'
-    const resolveTemperatureMin = temperatureMin ? Math.floor(temperatureMin) : 'нет данных'
+    const resolveTemperatureMax = temperatureMax
+        ? Math.floor(temperatureMax)
+        : 'нет данных'
+    const resolveTemperatureMin = temperatureMin
+        ? Math.floor(temperatureMin)
+        : 'нет данных'
 
     return (
         <tr className="week__day">
@@ -34,5 +38,3 @@ const WeekDayForecast: FC<IWeekDayForecast> = ({ forecast }) => {
         </tr>
     )
 }
-
-export default WeekDayForecast

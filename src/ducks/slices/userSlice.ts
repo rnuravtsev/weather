@@ -1,8 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { AppTheme } from '../../shared/consts'
 import type { IWeather, TFavorites } from '../../shared/types'
 import { weatherAPI } from '../../services/weatherService'
 import type { RootState } from '../store'
+import { AppTheme } from '../../shared/types'
 
 interface IUserState {
     theme: string
@@ -59,8 +59,14 @@ export const userSlice = createSlice({
     },
 })
 
-export const { setGeoPosition, setUserGeoConfirm, setUserTheme, setFavItem, setCurrentCity, removeFavItem } =
-    userSlice.actions
+export const {
+    setGeoPosition,
+    setUserGeoConfirm,
+    setUserTheme,
+    setFavItem,
+    setCurrentCity,
+    removeFavItem,
+} = userSlice.actions
 
 export const selectCurrentCity = (state: RootState) => state.userReducer.currentCity
 export const selectUserTheme = (state: RootState) => state.userReducer.theme
@@ -70,6 +76,7 @@ export const selectGeoConfirm = (state: RootState) => state.userReducer.isGeoCon
 export const selectGeo = (state: RootState) => state.userReducer.geo
 
 // FIXME: Проверить типы
-export const selectWeather = (state: RootState) => state.userReducer.currentCity?.weather?.[0].main
+export const selectWeather = (state: RootState) =>
+    state.userReducer.currentCity?.weather?.[0].main
 
 export default userSlice.reducer

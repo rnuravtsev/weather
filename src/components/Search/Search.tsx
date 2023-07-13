@@ -17,9 +17,10 @@ interface ISearchProps {
     onChange: (value: string) => void
 }
 
-const Search: FC<ISearchProps> = ({ onChange, isLoading }) => {
+export const Search: FC<ISearchProps> = ({ onChange, isLoading }) => {
     const [hasFocus, setFocus] = useState<boolean>(false)
-    const onChangeInput = (evt: React.ChangeEvent<HTMLInputElement>) => onChange(evt.target.value)
+    const onChangeInput = (evt: React.ChangeEvent<HTMLInputElement>) =>
+        onChange(evt.target.value)
     const debouncedOnChangeInput = debounce(onChangeInput)
 
     const inputRef = useRef<HTMLInputElement>(null!)
@@ -54,14 +55,16 @@ const Search: FC<ISearchProps> = ({ onChange, isLoading }) => {
                     onFocus={() => setFocus(true)}
                     onBlur={onInputBlur}
                 />
-                <div className={classNames('doc-search', { 'doc-search_hide': hasFocus })}>
+                <div
+                    className={classNames('doc-search', { 'doc-search_hide': hasFocus })}
+                >
                     <span className="doc-search__key">ctrl</span>
                     <span className="doc-search__key">k</span>
                 </div>
-                {isLoading && <FontAwesomeIcon className="search__icon" icon={faSpinner} />}
+                {isLoading && (
+                    <FontAwesomeIcon className="search__icon" icon={faSpinner} />
+                )}
             </div>
         </section>
     )
 }
-
-export default Search

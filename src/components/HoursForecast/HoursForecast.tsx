@@ -9,7 +9,7 @@ interface IHoursForecastProps {
     hours?: IHourForecastAPI[]
 }
 
-const HoursForecast: FC<IHoursForecastProps> = ({ hours }) => {
+export const HoursForecast: FC<IHoursForecastProps> = ({ hours }) => {
     const mapOneHourForecast = (data?: IHourForecastAPI): IHourForecast | undefined => ({
         hour: data?.dt,
         temperature: data?.temp,
@@ -21,11 +21,12 @@ const HoursForecast: FC<IHoursForecastProps> = ({ hours }) => {
             <ul className="hours__forecast">
                 {hours?.slice(0, MAX_HOUR_CONT_FORECAST).map((hour, i) => (
                     // eslint-disable-next-line react/no-array-index-key
-                    <HourForecast key={`hour-forecast-${i}`} hourForecast={mapOneHourForecast(hour)} />
+                    <HourForecast
+                        key={`hour-forecast-${i}`}
+                        hourForecast={mapOneHourForecast(hour)}
+                    />
                 ))}
             </ul>
         </section>
     )
 }
-
-export default HoursForecast
