@@ -23,7 +23,7 @@ const rootReducer = combineReducers({
 const rootPersistConfig = getPersistConfig({
     key: 'root',
     storage,
-    whitelist: ['userReducer.favs'],
+    whitelist: ['userReducer.favorites'],
     rootReducer,
 })
 

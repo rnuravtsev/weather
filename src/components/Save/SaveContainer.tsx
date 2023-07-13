@@ -1,13 +1,13 @@
-import React from 'react'
+import React, { memo } from 'react'
 import { useAppSelector } from '../../ducks/hooks/redux'
 import Save from './Save'
-import type { RootState } from '../../ducks/store'
+import { selectCurrentCity, selectFavorites } from '../../ducks/slices/userSlice'
 
-const SaveContainer = () => {
-    const currentCity = useAppSelector((state: RootState) => state.userReducer.currentCity)
-    const favs = useAppSelector((state: RootState) => state.userReducer.favs)
+const SaveContainer = memo(() => {
+    const currentCity = useAppSelector(selectCurrentCity)
+    const favorites = useAppSelector(selectFavorites)
 
-    return <Save favs={favs} currentCity={currentCity} />
-}
+    return <Save favorites={favorites} currentCity={currentCity} />
+})
 
 export default SaveContainer

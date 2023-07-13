@@ -1,7 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { AppTheme } from '../../shared/consts'
-import type { IWeatherSearchingPlaceAPI } from '../../models/IWeatherSearchingPlaceAPI'
-import type { TFavorites } from '../../shared/types'
+import type { IWeather, TFavorites } from '../../shared/types'
+import { weatherAPI } from '../../services/weatherService'
+import type { RootState } from '../store'
 
 interface IUserState {
     theme: string
@@ -10,8 +11,8 @@ interface IUserState {
         longitude?: number
         latitude?: number
     }
-    currentCity?: IWeatherSearchingPlaceAPI
-    favs?: TFavorites
+    currentCity?: IWeather
+    favorites?: TFavorites
 }
 
 const initialState: IUserState = {
@@ -22,7 +23,7 @@ const initialState: IUserState = {
         longitude: undefined,
         latitude: undefined,
     },
-    favs: [],
+    favorites: [],
 }
 
 export const userSlice = createSlice({
@@ -39,19 +40,36 @@ export const userSlice = createSlice({
             state.isGeoConfirm = true
         },
         setFavItem(state, action) {
-            state.favs?.push(action.payload)
+            state.favorites?.push(action.payload)
         },
         setCurrentCity(state, action) {
             state.currentCity = action.payload
         },
         removeFavItem(state, action) {
-            state.favs = state.favs?.filter((el) => el.name !== action.payload)
+            state.favorites = state.favorites?.filter((el) => el.name !== action.payload)
         },
     },
-    extraReducers: {},
+    extraReducers: (builder) => {
+        builder.addMatcher(
+            weatherAPI.endpoints?.fetchWeatherForPlace.matchFulfilled,
+            (state, { payload }) => {
+                state.currentCity = payload
+            },
+        )
+    },
 })
 
 export const { setGeoPosition, setUserGeoConfirm, setUserTheme, setFavItem, setCurrentCity, removeFavItem } =
     userSlice.actions
+
+export const selectCurrentCity = (state: RootState) => state.userReducer.currentCity
+export const selectUserTheme = (state: RootState) => state.userReducer.theme
+export const selectFavorites = (state: RootState) => state.userReducer.favorites
+export const selectGeoConfirm = (state: RootState) => state.userReducer.isGeoConfirm
+
+export const selectGeo = (state: RootState) => state.userReducer.geo
+
+// FIXME: Проверить типы
+export const selectWeather = (state: RootState) => state.userReducer.currentCity?.weather?.[0].main
 
 export default userSlice.reducer

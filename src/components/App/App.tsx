@@ -4,7 +4,7 @@ import type { FC } from 'react'
 import { AppTheme, WeatherForecast } from '../../shared/consts'
 import CityContainer from '../City/CityContainer'
 import Date from '../Date/Date'
-import FavsContainer from '../Favs/FavsContainer'
+import FavoritesContainer from '../Favs/FavoritesContainer'
 import Footer from '../Footer/Footer'
 import Header from '../Header/Header'
 import Lightnings from '../Lightnings/Lightnings'
@@ -31,7 +31,7 @@ const App: FC<IApp> = ({ theme, weather }) => {
                 <main className="app__main">
                     <Date />
                     <CityContainer />
-                    <FavsContainer />
+                    <FavoritesContainer />
                 </main>
                 <div className="app__footer">
                     <Footer />

@@ -1,14 +1,13 @@
 import classNames from 'classnames'
-import React, { useState } from 'react'
-import { setUserTheme } from '../../ducks/slices/userSlice'
+import React, { useState, memo } from 'react'
+import { selectUserTheme, setUserTheme } from '../../ducks/slices/userSlice'
 import { useAppDispatch, useAppSelector } from '../../ducks/hooks/redux'
-import type { RootState } from '../../ducks/store'
 import { AppTheme } from '../../shared/consts'
 
 import './ThemeSwitcher.scss'
 
-const ThemeSwitcher = () => {
-    const appTheme = useAppSelector((state: RootState) => state.userReducer.theme)
+const ThemeSwitcher = memo(() => {
+    const appTheme = useAppSelector(selectUserTheme)
     const [dark, setDark] = useState(appTheme === AppTheme.Dark)
     const dispatch = useAppDispatch()
 
@@ -42,11 +41,11 @@ const ThemeSwitcher = () => {
                     })}
                     onClick={onButtonClick}
                     type="button"
-                    aria-label="Switch between dark and light mode"
+                    aria-label="Switch between dark and light theme"
                 />
             </div>
         </section>
     )
-}
+})
 
 export default ThemeSwitcher

@@ -6,21 +6,21 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import classNames from 'classnames'
 import { removeFavItem, setFavItem } from '../../ducks/slices/userSlice'
 import { useAppDispatch } from '../../ducks/hooks/redux'
-import type { IWeatherSearchingPlaceAPI } from '../../models/IWeatherSearchingPlaceAPI'
+import type { IWeatherSearchingPlaceAPI } from '../../services/models/IWeatherSearchingPlaceAPI'
 import type { TFavorites } from '../../shared/types'
 
 import './Save.scss'
 
 interface ISaveProps {
     currentCity?: IWeatherSearchingPlaceAPI
-    favs?: TFavorites
+    favorites?: TFavorites
 }
 
-const Save: FC<ISaveProps> = ({ currentCity, favs }) => {
+const Save: FC<ISaveProps> = ({ currentCity, favorites }) => {
     const [clicked, setClicked] = useState(false)
     const dispatch = useAppDispatch()
 
-    const isAlreadyFav = Boolean(favs?.some((el) => el.name === currentCity?.name))
+    const isAlreadyFav = Boolean(favorites?.some((el) => el.name === currentCity?.name))
 
     const animate = () => {
         setClicked(true)

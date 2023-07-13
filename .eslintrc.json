@@ -30,13 +30,14 @@
     "max-len": [
       "error",
       {
-        "code": 110,
+        "code": 90,
         "ignoreComments": true,
         "ignoreStrings": true,
         "ignoreTemplateLiterals": true,
         "ignoreRegExpLiterals": true
       }
     ],
+    "react/prop-types": "off",
     "react/function-component-definition": [
       "error",
       {

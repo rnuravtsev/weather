@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { memo } from 'react'
 import ContentLoader from 'react-content-loader'
 import { AppTheme } from '../../shared/consts'
 import { useAppSelector } from '../../ducks/hooks/redux'
-import type { RootState } from '../../ducks/store'
+import { selectUserTheme } from '../../ducks/slices/userSlice'
 
 const Canvas = {
     WIDTH: 886,
@@ -23,8 +23,8 @@ const Canvas = {
     DARK_THEME_FOREGROUND: '#b5b3ac',
 }
 
-const SkeletonCityLead = () => {
-    const theme = useAppSelector((state: RootState) => state.userReducer.theme)
+const SkeletonCityLead = memo(() => {
+    const theme = useAppSelector(selectUserTheme)
 
     const skeletonHours: JSX.Element[] = []
     const skeletonWeek: JSX.Element[] = []
@@ -140,6 +140,6 @@ const SkeletonCityLead = () => {
             {renderWeekSkeleton(8)}
         </ContentLoader>
     )
-}
+})
 
 export default SkeletonCityLead

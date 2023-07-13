@@ -1,14 +1,13 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, memo } from 'react'
 import { AppTheme } from '../../shared/consts'
 import { userGeoConfirm } from '../../ducks/ActionCreators'
-import { setUserTheme } from '../../ducks/slices/userSlice'
+import { selectUserTheme, selectWeather, setUserTheme } from '../../ducks/slices/userSlice'
 import { useAppDispatch, useAppSelector } from '../../ducks/hooks/redux'
 import App from './App'
-import type { RootState } from '../../ducks/store'
 
-const AppContainer = () => {
-    const appTheme = useAppSelector((state: RootState) => state.userReducer.theme)
-    const weather = useAppSelector((state: RootState) => state.userReducer.currentCity?.weather[0].main)
+const AppContainer = memo(() => {
+    const appTheme = useAppSelector(selectUserTheme)
+    const weather = useAppSelector(selectWeather)
     const dispatch = useAppDispatch()
 
     useEffect(() => {
@@ -29,7 +28,8 @@ const AppContainer = () => {
                 .matchMedia('(prefers-color-scheme: dark)')
                 .removeEventListener('change', windowThemeChangeHandler)
     }, [dispatch])
+
     return <App weather={weather} theme={appTheme} />
-}
+})
 
 export default AppContainer

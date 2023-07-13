@@ -1,6 +1,6 @@
-import type { IForecastOneDayAPI } from '../models/IForecastOneDayAPI'
-import type { IHourForecastAPI } from '../models/IHourForecastAPI'
-import type { IWeatherSearchingPlaceAPI } from '../models/IWeatherSearchingPlaceAPI'
+import type { IForecastOneDayAPI } from '../services/models/IForecastOneDayAPI'
+import type { IHourForecastAPI } from '../services/models/IHourForecastAPI'
+import type { IWeatherSearchingPlaceAPI } from '../services/models/IWeatherSearchingPlaceAPI'
 
 export interface IFavoriteItem {
     name: string

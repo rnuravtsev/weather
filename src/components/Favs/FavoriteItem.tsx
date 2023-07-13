@@ -1,25 +1,24 @@
-import React from 'react'
+import React, { memo } from 'react'
 import type { FC } from 'react'
-import { setCurrentCity } from '../../ducks/slices/userSlice'
+import { selectFavorites, setCurrentCity } from '../../ducks/slices/userSlice'
 import { useAppDispatch, useAppSelector } from '../../ducks/hooks/redux'
 import { capitalizeEachFirstLetter } from '../../shared/utils'
-import type { RootState } from '../../ducks/store'
 import type { IFavoriteItem } from '../../shared/types'
 
-interface FavItemProps {
+interface FavoriteItemProps {
     item: IFavoriteItem
 }
 
-const FavItem: FC<FavItemProps> = ({ item }) => {
+const FavoriteItem: FC<FavoriteItemProps> = memo(({ item }) => {
     const { name, description, temperature, temperatureMin, temperatureMax } = item
 
     const dispatch = useAppDispatch()
-    const favs = useAppSelector((state: RootState) => state.userReducer.favs)
+    const favorites = useAppSelector(selectFavorites)
 
-    const currentFav = favs?.find((fav) => fav.name === name)
+    const currentFavorite = favorites?.find((favorite) => favorite.name === name)
 
     const onItemClick = () => {
-        dispatch(setCurrentCity(currentFav))
+        dispatch(setCurrentCity(currentFavorite))
     }
     return (
         <li key={name} className="favs__item" title={name}>
@@ -34,6 +33,6 @@ const FavItem: FC<FavItemProps> = ({ item }) => {
             </button>
         </li>
     )
-}
+})
 
-export default FavItem
+export default FavoriteItem

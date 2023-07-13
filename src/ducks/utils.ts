@@ -1,6 +1,6 @@
 import { setGeoPosition, setUserGeoConfirm } from './slices/userSlice'
 import type { AppDispatch } from './store'
-import type { IWeatherSearchingPlaceAPI } from '../models/IWeatherSearchingPlaceAPI'
+import type { IWeatherSearchingPlaceAPI } from '../services/models/IWeatherSearchingPlaceAPI'
 
 export const onNavGeoSuccess = async (pos: GeolocationPosition, dispatch: AppDispatch) => {
     dispatch(
