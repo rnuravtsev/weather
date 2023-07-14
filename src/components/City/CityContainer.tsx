@@ -13,7 +13,7 @@ import {
 } from '../../services/weatherService'
 import { convertGeoForRequest } from '../../shared/utils'
 import { City } from './City'
-import SkeletonCityLead from './SkeletonCityLead'
+import { SkeletonCityLead } from './SkeletonCityLead'
 
 export const CityContainer = memo(() => {
     const isGeoConfirm = useAppSelector(selectGeoConfirm)
@@ -62,9 +62,9 @@ export const CityContainer = memo(() => {
         <>
             {finalErrors && <p>error</p>}
 
-            {finalLoading && SkeletonCityLead}
+            {!finalLoading && <SkeletonCityLead />}
 
-            {!finalLoading && !finalErrors && (
+            {finalLoading && !finalErrors && (
                 <City
                     weekForecast={weekForecast}
                     weather={weather}

@@ -23,7 +23,7 @@ const Canvas = {
     DARK_THEME_FOREGROUND: '#b5b3ac',
 }
 
-const SkeletonCityLead = memo(() => {
+export const SkeletonCityLead = memo(() => {
     const theme = useAppSelector(selectUserTheme)
 
     const skeletonHours: JSX.Element[] = []
@@ -34,7 +34,7 @@ const SkeletonCityLead = memo(() => {
             return skeletonHours
         }
 
-        const renderHour = () => (
+        skeletonHours.push(
             <>
                 <rect
                     x={Canvas.HOUR_INIT_X + Canvas.HOUR_GAP_X * (count - 1)}
@@ -60,10 +60,8 @@ const SkeletonCityLead = memo(() => {
                     width="25"
                     height="20"
                 />
-            </>
+            </>,
         )
-
-        skeletonHours.push(renderHour())
 
         return renderHoursSkeleton(count - 1)
     }
@@ -73,39 +71,36 @@ const SkeletonCityLead = memo(() => {
             return skeletonWeek
         }
 
-        const renderDay = () => {
-            const randomWidth = Math.random() * 85
-            return (
-                <>
-                    <rect
-                        x={Canvas.DAY_INIT_X}
-                        y={Canvas.DAY_INIT_Y + 55 + Canvas.DAY_GAP_Y * (count - 1)}
-                        rx="5"
-                        ry="2"
-                        width={randomWidth < 60 ? 60 : randomWidth}
-                        height="20"
-                    />
-                    <rect
-                        x={Canvas.DAY_INIT_X + 480}
-                        y={Canvas.DAY_INIT_Y + 55 + Canvas.DAY_GAP_Y * (count - 1)}
-                        rx="5"
-                        ry="2"
-                        width="45"
-                        height="20"
-                    />
-                    <rect
-                        x={Canvas.WIDTH - 120}
-                        y={Canvas.DAY_INIT_Y + 55 + Canvas.DAY_GAP_Y * (count - 1)}
-                        rx="5"
-                        ry="2"
-                        width="120"
-                        height="20"
-                    />
-                </>
-            )
-        }
+        const randomWidth = Math.random() * 85
 
-        skeletonWeek.push(renderDay())
+        skeletonWeek.push(
+            <>
+                <rect
+                    x={Canvas.DAY_INIT_X}
+                    y={Canvas.DAY_INIT_Y + 55 + Canvas.DAY_GAP_Y * (count - 1)}
+                    rx="5"
+                    ry="2"
+                    width={randomWidth < 60 ? 60 : randomWidth}
+                    height="20"
+                />
+                <rect
+                    x={Canvas.DAY_INIT_X + 480}
+                    y={Canvas.DAY_INIT_Y + 55 + Canvas.DAY_GAP_Y * (count - 1)}
+                    rx="5"
+                    ry="2"
+                    width="45"
+                    height="20"
+                />
+                <rect
+                    x={Canvas.WIDTH - 120}
+                    y={Canvas.DAY_INIT_Y + 55 + Canvas.DAY_GAP_Y * (count - 1)}
+                    rx="5"
+                    ry="2"
+                    width="120"
+                    height="20"
+                />
+            </>,
+        )
 
         return renderWeekSkeleton(count - 1)
     }
@@ -145,5 +140,3 @@ const SkeletonCityLead = memo(() => {
         </ContentLoader>
     )
 })
-
-export default SkeletonCityLead
