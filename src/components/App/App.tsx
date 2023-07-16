@@ -4,7 +4,7 @@ import type { FC } from 'react'
 import classNames from 'classnames'
 import { CityContainer } from '../City/CityContainer'
 import { Date } from '../Date/Date'
-import { FavoritesContainer } from '../Favs/FavoritesContainer'
+import { FavoritesContainer } from '../Favorites/FavoritesContainer'
 import { Footer } from '../Footer/Footer'
 import { Header } from '../Header/Header'
 import { Lightnings } from '../Lightnings/Lightnings'
@@ -19,13 +19,13 @@ interface IApp {
 
 export const App: FC<IApp> = ({ theme, weather }) => {
     const isLightnings =
-        (weather === WeatherForecast.Storm || weather === WeatherForecast.Thunderstorm) &&
-        theme === AppTheme.Dark
+        theme === AppTheme.Dark &&
+        (weather === WeatherForecast.Storm || weather === WeatherForecast.Thunderstorm)
     return (
         <Lightnings in={isLightnings}>
             <div
                 className={classNames('app', {
-                    [`app_theme_${theme.toLowerCase()}`]: theme,
+                    [`app_theme_${theme}`]: theme,
                     [`app_weather_${weather?.toLowerCase()}`]: weather,
                 })}
             >

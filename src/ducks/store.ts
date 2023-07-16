@@ -11,13 +11,15 @@ import {
     REHYDRATE,
 } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
-import { weatherAPI } from '../services/weatherService'
+import { baseApi } from '../api/base.api'
 import { rtkQueryErrorHandler } from './middlewares'
-import userReducer from './slices/userSlice'
+import userReducer from './slices/user.slice'
+import appReducer from './slices/app.slice'
 
 const rootReducer = combineReducers({
     userReducer,
-    [weatherAPI.reducerPath]: weatherAPI.reducer,
+    appReducer,
+    [baseApi.reducerPath]: baseApi.reducer,
 })
 
 const rootPersistConfig = getPersistConfig({
@@ -36,7 +38,7 @@ const store = configureStore({
             serializableCheck: {
                 ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
             },
-        }).concat(weatherAPI.middleware, rtkQueryErrorHandler),
+        }).concat(baseApi.middleware, rtkQueryErrorHandler),
 })
 
 const appStoreType = () => store

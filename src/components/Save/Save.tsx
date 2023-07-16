@@ -1,37 +1,35 @@
+import React, { useMemo } from 'react'
 import type { FC } from 'react'
-import React, { useState } from 'react'
 import { faStar as faStarRegular } from '@fortawesome/free-regular-svg-icons/faStar'
 import { faStar as faStarSolid } from '@fortawesome/free-solid-svg-icons/faStar'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import classNames from 'classnames'
-import { removeFavItem, setFavItem } from '../../ducks/slices/userSlice'
+import type { IWeather } from '../../shared/types'
+import { removeFavItem, setFavItem } from '../../ducks/slices/user.slice'
 import { useAppDispatch } from '../../ducks/hooks/redux'
-import type { IWeatherSearchingPlaceAPI } from '../../services/models/IWeatherSearchingPlaceAPI'
-import type { TFavorites } from '../../shared/types'
+import { useAnimateFlip } from './hooks/useAnimateFlip'
 
 import './Save.scss'
 
 interface ISaveProps {
-    currentCity?: IWeatherSearchingPlaceAPI
-    favorites?: TFavorites
+    currentCity?: IWeather
+    favorites?: IWeather[]
 }
 
 export const Save: FC<ISaveProps> = ({ currentCity, favorites }) => {
-    const [clicked, setClicked] = useState(false)
+    // TODO: Проверить работу кастомного хука
+    const { animate, clicked } = useAnimateFlip()
     const dispatch = useAppDispatch()
 
-    const isAlreadyFav = Boolean(favorites?.some((el) => el.name === currentCity?.name))
-
-    const animate = () => {
-        setClicked(true)
-
-        setTimeout(() => setClicked(false), 300)
-    }
+    const isAlreadyFav = useMemo(
+        () => favorites?.some((el) => el.location === currentCity?.location),
+        [favorites, currentCity?.location],
+    )
 
     const onButtonClick = () => {
         // eslint-disable-next-line @typescript-eslint/no-unused-expressions
         isAlreadyFav
-            ? dispatch(removeFavItem(currentCity?.name))
+            ? dispatch(removeFavItem(currentCity?.location))
             : dispatch(setFavItem(currentCity))
 
         animate()

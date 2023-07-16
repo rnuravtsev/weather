@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react'
-import { setCurrentCity } from '../../ducks/slices/userSlice'
+import React, { useCallback, useEffect, useState } from 'react'
+import { setCurrentCity } from '../../ducks/slices/app.slice'
 import { useAppDispatch } from '../../ducks/hooks/redux'
-import { weatherAPI } from '../../services/weatherService'
+import { useFetchSearchingPlaceWeatherQuery } from '../../api/weather.api'
 import { Search } from './Search'
 
 export const SearchContainer = () => {
@@ -9,10 +9,7 @@ export const SearchContainer = () => {
     const dispatch = useAppDispatch()
 
     const { data: searchPlaceWeatherData, isLoading } =
-        weatherAPI.useFetchWeatherForSearchingPlaceQuery(
-            { place: inputValue },
-            { skip: !inputValue },
-        )
+        useFetchSearchingPlaceWeatherQuery({ place: inputValue }, { skip: !inputValue })
 
     useEffect(() => {
         if (inputValue) {
@@ -20,7 +17,7 @@ export const SearchContainer = () => {
         }
     }, [searchPlaceWeatherData, inputValue, dispatch])
 
-    const handleSearchChange = (value: string) => setInputValue(value)
+    const handleSearchChange = useCallback((value: string) => setInputValue(value), [])
 
     return <Search isLoading={isLoading} onChange={handleSearchChange} />
 }

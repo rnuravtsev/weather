@@ -1,8 +1,8 @@
 import React, { memo } from 'react'
 import ContentLoader from 'react-content-loader'
 import { useAppSelector } from '../../ducks/hooks/redux'
-import { selectUserTheme } from '../../ducks/slices/userSlice'
 import { AppTheme } from '../../shared/types'
+import { selectUserTheme } from '../../ducks/slices/app.slice'
 
 const Canvas = {
     WIDTH: 886,

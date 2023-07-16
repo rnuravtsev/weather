@@ -1,5 +1,5 @@
 import type { FC } from 'react'
-import React, { useEffect, useRef, useState } from 'react'
+import React, { memo, useCallback, useEffect, useRef, useState } from 'react'
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons/faMagnifyingGlass'
 import { faSpinner } from '@fortawesome/free-solid-svg-icons/faSpinner'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -17,18 +17,19 @@ interface ISearchProps {
     onChange: (value: string) => void
 }
 
-export const Search: FC<ISearchProps> = ({ onChange, isLoading }) => {
-    const [hasFocus, setFocus] = useState<boolean>(false)
+export const Search: FC<ISearchProps> = memo(({ onChange, isLoading }) => {
+    const [hasFocus, setFocus] = useState(false)
+    const inputRef = useRef<HTMLInputElement>(null!)
     const onChangeInput = (evt: React.ChangeEvent<HTMLInputElement>) =>
         onChange(evt.target.value)
     const debouncedOnChangeInput = debounce(onChangeInput)
 
-    const inputRef = useRef<HTMLInputElement>(null!)
+    const onInputFocus = useCallback(() => setFocus(true), [])
 
-    const onInputBlur = () => {
+    const onInputBlur = useCallback(() => {
         setFocus(false)
         inputRef.current.value = ''
-    }
+    }, [])
 
     useEffect(() => {
         const keyboardListener = (evt: KeyboardEvent) => {
@@ -52,7 +53,7 @@ export const Search: FC<ISearchProps> = ({ onChange, isLoading }) => {
                     className="search__input"
                     placeholder="Search"
                     onChange={debouncedOnChangeInput}
-                    onFocus={() => setFocus(true)}
+                    onFocus={onInputFocus}
                     onBlur={onInputBlur}
                 />
                 <div
@@ -67,4 +68,4 @@ export const Search: FC<ISearchProps> = ({ onChange, isLoading }) => {
             </div>
         </section>
     )
-}
+})

@@ -1,6 +1,5 @@
-import type { IForecastOneDayAPI } from '../services/models/IForecastOneDayAPI'
-import type { IHourForecastAPI } from '../services/models/IHourForecastAPI'
-import type { IWeatherSearchingPlaceAPI } from '../services/models/IWeatherSearchingPlaceAPI'
+import type { IForecastOneDayAPI } from '../api/models/IForecastOneDayAPI'
+import type { IHourForecastAPI } from '../api/models/IHourForecastAPI'
 
 export const enum Status {
     Error = 'error',
@@ -8,12 +7,9 @@ export const enum Status {
     Success = 'success',
 }
 
-export interface IFavoriteItem {
-    name: string
-    description: string
-    temperature: number
-    temperatureMin: number
-    temperatureMax: number
+export interface Coordinates {
+    lat: number
+    lon: number
 }
 
 export interface IWeather {
@@ -31,6 +27,7 @@ export interface IWeather {
     temperatureMin: number
     temperatureMax: number
     windSpeed: number
+    coordinates: Coordinates
 }
 
 export interface IHourForecast {
@@ -52,14 +49,12 @@ export interface IForecast {
     weekForecast?: IForecastOneDayAPI[]
 }
 
-export type TFavorites = IWeatherSearchingPlaceAPI[]
-
 export const enum WeatherForecast {
     Storm = 'Storm',
     Thunderstorm = 'Thunderstorm',
 }
 
 export const enum AppTheme {
-    Light = 'Light',
-    Dark = 'Dark',
+    Light = 'light',
+    Dark = 'dark',
 }

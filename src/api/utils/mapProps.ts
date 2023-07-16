@@ -1,9 +1,11 @@
-import type { IForecastAPI } from './models/IForecastAPI'
-import type { IWeatherAPI } from './models/IWeatherAPI'
-import type { IWeatherSearchingPlaceAPI } from './models/IWeatherSearchingPlaceAPI'
-import type { IForecast, IWeather } from '../shared/types'
+import type { IForecastAPI } from '../models/IForecastAPI'
+import type { IWeatherAPI } from '../models/IWeatherAPI'
+import type { IWeatherSearchingPlaceAPI } from '../models/IWeatherSearchingPlaceAPI'
+import type { IForecast, IWeather } from '../../shared/types'
 
-export const mapWeatherProps = (data: IWeatherAPI | IWeatherSearchingPlaceAPI): IWeather => ({
+export const mapWeatherProps = (
+    data: IWeatherAPI | IWeatherSearchingPlaceAPI,
+): IWeather => ({
     id: data.id,
     location: data.name,
     condition: data.cod,
@@ -18,6 +20,7 @@ export const mapWeatherProps = (data: IWeatherAPI | IWeatherSearchingPlaceAPI): 
     temperatureMin: Math.round(data.main.temp_min),
     temperatureMax: Math.round(data.main.temp_max),
     windSpeed: Math.round(data.wind.speed * 3.6),
+    coordinates: data.coord,
 })
 
 export const mapForecastProps = (forecast: IForecastAPI): IForecast => ({

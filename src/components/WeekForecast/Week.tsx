@@ -1,7 +1,7 @@
 import React from 'react'
 import type { FC } from 'react'
 import { WeekDayForecast } from './WeekDayForecast'
-import type { IForecastOneDayAPI } from '../../services/models/IForecastOneDayAPI'
+import type { IForecastOneDayAPI } from '../../api/models/IForecastOneDayAPI'
 import type { IForecastOneDay } from '../../shared/types'
 
 interface IWeekForecastProps {
@@ -18,7 +18,7 @@ export const WeekForecast: FC<IWeekForecastProps> = ({ list }) => {
         iconId: data?.weather[0].id,
     })
     return (
-        <section className="city__week week">
+        <section className="week">
             <h2 className="week__title">Week forecast</h2>
             <table className="week__table">
                 <tbody>

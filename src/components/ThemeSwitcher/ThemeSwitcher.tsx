@@ -1,8 +1,8 @@
 import classNames from 'classnames'
 import React, { useState, memo } from 'react'
-import { selectUserTheme, setUserTheme } from '../../ducks/slices/userSlice'
 import { useAppDispatch, useAppSelector } from '../../ducks/hooks/redux'
 import { AppTheme } from '../../shared/types'
+import { selectUserTheme, setUserTheme } from '../../ducks/slices/app.slice'
 
 import './ThemeSwitcher.scss'
 
