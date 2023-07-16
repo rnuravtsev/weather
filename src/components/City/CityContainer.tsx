@@ -24,18 +24,14 @@ export const CityContainer = memo(() => {
         },
     )
 
-    return (
-        <>
-            {isAppLoading ? (
-                <SkeletonCityLead />
-            ) : (
-                <City
-                    weekForecast={weekForecast}
-                    weather={currentCity}
-                    isGeoConfirm={isGeoConfirm}
-                    searchingPlace={Boolean(currentCity)}
-                />
-            )}
-        </>
+    return isAppLoading ? (
+        <SkeletonCityLead />
+    ) : (
+        <City
+            weekForecast={weekForecast}
+            weather={currentCity}
+            isGeoConfirm={isGeoConfirm}
+            searchingPlace={Boolean(currentCity)}
+        />
     )
 })

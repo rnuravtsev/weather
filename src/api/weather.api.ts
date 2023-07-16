@@ -18,12 +18,12 @@ interface IFetchWeatherForSearchingPlace {
 
 export const weatherApi = baseApi.injectEndpoints({
     endpoints: (build) => ({
-        fetchGeolocationWeather: build.query<IWeather, IFetchWeatherPayload>({
-            query: ({ latitude, longitude }) => ({
+        fetchGeolocationWeather: build.query<IWeather, IFetchWeatherPayload | undefined>({
+            query: (payload) => ({
                 url: '/weather',
                 params: {
-                    lat: latitude,
-                    lon: longitude,
+                    lat: payload?.latitude,
+                    lon: payload?.longitude,
                     apikey: API_KEY,
                     units: TEMPERATURE_UNITS,
                 },

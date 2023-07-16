@@ -2,7 +2,7 @@ import React, { memo } from 'react'
 import { selectUserTheme, selectWeather } from '../../ducks/slices/app.slice'
 import { useAppSelector } from '../../ducks/hooks/redux'
 import { App } from './App'
-import { useThemeSwitch } from './hooks/useThemeSwitch'
+import { useThemeSwitch } from './hooks'
 
 export const AppContainer = memo(() => {
     const appTheme = useAppSelector(selectUserTheme)

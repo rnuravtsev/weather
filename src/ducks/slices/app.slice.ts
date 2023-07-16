@@ -1,4 +1,4 @@
-import { createSlice, isPending } from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit'
 import type { IWeather } from '../../shared/types'
 import { AppTheme } from '../../shared/types'
 import type { RootState } from '../store'

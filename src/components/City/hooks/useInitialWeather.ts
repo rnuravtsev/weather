@@ -15,7 +15,7 @@ export const useInitialWeather = () => {
     const dispatch = useAppDispatch()
 
     const { data } = useFetchGeolocationWeatherQuery(geoPosition, {
-        skip: !isGeoConfirm,
+        skip: !isGeoConfirm || !geoPosition,
     })
 
     useEffect(() => {
@@ -24,5 +24,5 @@ export const useInitialWeather = () => {
         } else if (favoriteCity) {
             dispatch(setCurrentCity(favoriteCity))
         }
-    }, [isGeoConfirm])
+    }, [isGeoConfirm, dispatch])
 }
