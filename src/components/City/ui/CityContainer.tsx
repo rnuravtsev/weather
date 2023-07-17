@@ -1,12 +1,12 @@
 import React, { memo } from 'react'
-import { selectGeo, selectGeoConfirm } from '../../ducks/slices/user.slice'
-import { selectAppLoading, selectCurrentCity } from '../../ducks/slices/app.slice'
-import { useAppSelector } from '../../ducks/hooks/redux'
-import { useFetchWeekForecastQuery } from '../../api/weather.api'
-import { convertGeoForRequest } from '../../shared/utils'
+import { selectGeo, selectGeoConfirm } from '../../../ducks/slices/user.slice'
+import { selectAppLoading, selectCurrentCity } from '../../../ducks/slices/app.slice'
+import { useAppSelector } from '../../../ducks/hooks/redux'
+import { useFetchWeekForecastQuery } from '../../../api/weather.api'
 import { City } from './City'
 import { SkeletonCityLead } from './SkeletonCityLead'
-import { useInitialWeather } from './hooks'
+import { useInitialWeather } from '../hooks'
+import { convertGeoForRequest } from '../../../shared/lib'
 
 export const CityContainer = memo(() => {
     const geoPosition = useAppSelector(selectGeo)

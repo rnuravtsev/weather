@@ -1,9 +1,9 @@
-.save {
+.switch-favorite {
     display: flex;
     justify-content: center;
 }
 
-.save__btn {
+.switch-favorite__btn {
     font-size: 1.2rem;
     color: currentcolor;
     background-color: transparent;
@@ -12,11 +12,11 @@
 
 /* theme */
 
-.app_theme_dark .save__btn {
+.app_theme_dark .switch-favorite__btn {
     color: var(--theme-black-color);
 }
 
-.save__btn:not(:disabled):hover {
+.switch-favorite__btn:not(:disabled):hover {
     opacity: 0.75;
 }
 

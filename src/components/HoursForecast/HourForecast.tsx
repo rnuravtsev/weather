@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import type { FC } from 'react'
-import { renderWeatherIcon } from '../City/utils'
 import type { IHourForecast } from '../../shared/types'
+import { renderWeatherIcon } from '../../shared/lib'
 
 export interface ICityHourForecastProps {
     hourForecast?: IHourForecast
@@ -10,7 +10,10 @@ export interface ICityHourForecastProps {
 const CityHourForecast: FC<ICityHourForecastProps> = ({ hourForecast }) => {
     const { hour, temperature, iconId } = hourForecast || {}
 
-    const peopleHour = hour ? new Date(hour * 1000).getHours() : null
+    const peopleHour = useMemo(
+        () => (hour ? new Date(hour * 1000).getHours() : null),
+        [hour],
+    )
 
     return (
         <li className="city__hour-forecast">

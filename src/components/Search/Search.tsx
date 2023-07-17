@@ -4,7 +4,7 @@ import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons/faMagnifyin
 import { faSpinner } from '@fortawesome/free-solid-svg-icons/faSpinner'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import classNames from 'classnames'
-import { debounce } from '../../shared/utils'
+import { debounce } from '../../shared/lib'
 
 import './Search.scss'
 

@@ -3,7 +3,7 @@ import React from 'react'
 import { MAX_HOUR_CONT_FORECAST } from '../../shared/consts'
 import HourForecast from './HourForecast'
 import type { IHourForecastAPI } from '../../api/models/IHourForecastAPI'
-import { mapOneHourForecast } from './utils'
+import { mapOneHourForecast } from './lib'
 
 interface IHoursForecastProps {
     hours?: IHourForecastAPI[]

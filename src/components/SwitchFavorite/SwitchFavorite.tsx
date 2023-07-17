@@ -9,15 +9,14 @@ import { removeFavItem, setFavItem } from '../../ducks/slices/user.slice'
 import { useAppDispatch } from '../../ducks/hooks/redux'
 import { useAnimateFlip } from './hooks/useAnimateFlip'
 
-import './Save.scss'
+import './SwitchFavorite.scss'
 
 interface ISaveProps {
     currentCity?: IWeather
     favorites?: IWeather[]
 }
 
-export const Save: FC<ISaveProps> = ({ currentCity, favorites }) => {
-    // TODO: Проверить работу кастомного хука
+export const SwitchFavorite: FC<ISaveProps> = ({ currentCity, favorites }) => {
     const { animate, clicked } = useAnimateFlip()
     const dispatch = useAppDispatch()
 
@@ -36,8 +35,12 @@ export const Save: FC<ISaveProps> = ({ currentCity, favorites }) => {
     }
 
     return (
-        <section className="save">
-            <button className="btn save__btn" onClick={onButtonClick} type="button">
+        <section className="switch-favorite">
+            <button
+                className="btn switch-favorite__btn"
+                onClick={onButtonClick}
+                type="button"
+            >
                 {isAlreadyFav ? (
                     <FontAwesomeIcon
                         className={classNames({ 'fa-flip': clicked })}

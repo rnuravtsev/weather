@@ -4,7 +4,8 @@ import type { IWeather } from '../../shared/types'
 import { selectFavoriteCities } from '../../ducks/slices/user.slice'
 import { setCurrentCity } from '../../ducks/slices/app.slice'
 import { useAppDispatch, useAppSelector } from '../../ducks/hooks/redux'
-import { capitalizeEachFirstLetter } from '../../shared/utils'
+
+import { capitalizeEachFirstLetter } from '../../shared/lib'
 
 interface FavoriteItemProps {
     item: IWeather

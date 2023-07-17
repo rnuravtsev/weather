@@ -7,12 +7,12 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
 import type { FC } from 'react'
-import { capitalizeEachFirstLetter } from '../../shared/utils'
-import { HoursForecast } from '../HoursForecast/HoursForecast'
-import { SaveContainer } from '../Save/SaveContainer'
-import { WeekForecast } from '../WeekForecast/Week'
-import { getDayLight, renderWeatherIcon } from './utils'
-import type { IForecast, IWeather } from '../../shared/types'
+import { HoursForecast } from '../../HoursForecast/HoursForecast'
+import { SwitchFavoriteContainer } from '../../SwitchFavorite/SwitchFavoriteContainer'
+import { WeekForecast } from '../../WeekForecast/Week'
+import type { IForecast, IWeather } from '../../../shared/types'
+import { getDayLight } from '../lib'
+import { capitalizeEachFirstLetter, renderWeatherIcon } from '../../../shared/lib'
 
 import './City.scss'
 import './Hours.scss'
@@ -56,7 +56,7 @@ export const City: FC<ICityProps> = ({
             <div className="city__lead">
                 <div className="city__main">
                     <div className="city__flex-wrapper">
-                        <SaveContainer />
+                        <SwitchFavoriteContainer />
                         <h3 className="city__name">
                             {location}
                             {showIconLocation && (

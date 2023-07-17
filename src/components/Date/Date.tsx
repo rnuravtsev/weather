@@ -1,5 +1,5 @@
 import React from 'react'
-import { getTodayDate } from '../City/utils'
+import { getTodayDate } from './lib'
 
 import './Date.scss'
 
