@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { useAppDispatch } from '../../../ducks/hooks/redux'
 import { setUserTheme } from '../../../ducks/slices/app.slice'
-import { AppTheme } from '../../../shared/types'
+import { AppTheme } from '../../../shared/model/types'
 import { userGeoConfirm } from '../../../ducks/actions'
 
 export const useThemeSwitch = () => {

@@ -1,6 +1,6 @@
 import { createSelector, createSlice } from '@reduxjs/toolkit'
 import isEmpty from 'lodash/isEmpty'
-import type { IWeather } from '../../shared/types'
+import type { IWeather } from '../../shared/model/types'
 import type { RootState } from '../store'
 
 interface IUserState {

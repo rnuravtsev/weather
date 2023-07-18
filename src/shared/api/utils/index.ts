@@ -1,10 +1,8 @@
-import type { IForecastAPI } from '../models/IForecastAPI'
-import type { IWeatherAPI } from '../models/IWeatherAPI'
-import type { IWeatherSearchingPlaceAPI } from '../models/IWeatherSearchingPlaceAPI'
-import type { IForecast, IWeather } from '../../shared/types'
+import type { IForecast, IWeather } from '../../model/types'
+import type { ForecastDto, IWeatherAPI, WeatherSearchingPlaceDto } from '../model'
 
 export const mapWeatherProps = (
-    data: IWeatherAPI | IWeatherSearchingPlaceAPI,
+    data: IWeatherAPI | WeatherSearchingPlaceDto,
 ): IWeather => ({
     id: data.id,
     location: data.name,
@@ -23,7 +21,7 @@ export const mapWeatherProps = (
     coordinates: data.coord,
 })
 
-export const mapForecastProps = (forecast: IForecastAPI): IForecast => ({
+export const mapForecastProps = (forecast: ForecastDto): IForecast => ({
     hourlyForecast: forecast.hourly,
     weekForecast: forecast.daily,
 })

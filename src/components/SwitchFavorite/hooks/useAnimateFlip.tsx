@@ -1,10 +1,9 @@
 import { useEffect, useState } from 'react'
-import type { TimeoutId } from '@reduxjs/toolkit/dist/query/core/buildMiddleware/types'
 
 export const useAnimateFlip = (delay: number = 300) => {
     const [clicked, setClicked] = useState(false)
 
-    let timer: TimeoutId
+    let timer: ReturnType<typeof setTimeout>
 
     useEffect(() => () => clearTimeout(timer), [])
 

@@ -2,11 +2,11 @@ import type { FC } from 'react'
 import React from 'react'
 import { MAX_HOUR_CONT_FORECAST } from '../../shared/consts'
 import HourForecast from './HourForecast'
-import type { IHourForecastAPI } from '../../api/models/IHourForecastAPI'
 import { mapOneHourForecast } from './lib'
+import type { HourForecastDto } from '../../shared/api/model'
 
 interface IHoursForecastProps {
-    hours?: IHourForecastAPI[]
+    hours?: HourForecastDto[]
 }
 
 export const HoursForecast: FC<IHoursForecastProps> = ({ hours }) => (

@@ -1,15 +1,14 @@
-import type { IForecastOneDayAPI } from '../api/models/IForecastOneDayAPI'
-import type { IHourForecastAPI } from '../api/models/IHourForecastAPI'
+import type { ForecastOneDayDto, HourForecastDto } from '../api/model'
+
+interface Coordinates {
+    lat: number
+    lon: number
+}
 
 export const enum Status {
     Error = 'error',
     Warning = 'warning',
     Success = 'success',
-}
-
-export interface Coordinates {
-    lat: number
-    lon: number
 }
 
 export interface IWeather {
@@ -45,8 +44,8 @@ export interface IForecastOneDay {
 }
 
 export interface IForecast {
-    hourlyForecast?: IHourForecastAPI[]
-    weekForecast?: IForecastOneDayAPI[]
+    hourlyForecast?: HourForecastDto[]
+    weekForecast?: ForecastOneDayDto[]
 }
 
 export const enum WeatherForecast {

@@ -1,16 +1,16 @@
 import React from 'react'
 import type { FC } from 'react'
 import { WeekDayForecast } from './WeekDayForecast'
-import type { IForecastOneDayAPI } from '../../api/models/IForecastOneDayAPI'
-import type { IForecastOneDay } from '../../shared/types'
+import type { IForecastOneDay } from '../../shared/model/types'
+import type { ForecastOneDayDto } from '../../shared/api/model'
 
 interface IWeekForecastProps {
-    list?: IForecastOneDayAPI[]
+    list?: ForecastOneDayDto[]
 }
 
 export const WeekForecast: FC<IWeekForecastProps> = ({ list }) => {
     const mapOneDayForecast = (
-        data?: IForecastOneDayAPI,
+        data?: ForecastOneDayDto,
     ): IForecastOneDay | undefined => ({
         weekDay: data?.dt,
         temperatureMax: data?.temp.max,

@@ -31,26 +31,32 @@ export const convertGeoForRequest = (obj: { lat: number; lon: number } | undefin
     return undefined
 }
 
-const SunIcon = () => <i className="weather-icon weather-icon_type_sunny" />
-const CloudIcon = () => <i className="weather-icon weather-icon_type_cloudly" />
-const RainIcon = () => <i className="weather-icon weather-icon_type_rain" />
-const StormIcon = () => <i className="weather-icon weather-icon_type_chanceStorm" />
-const SnowIcon = () => <i className="weather-icon weather-icon_type_snow" />
+const enum Icons {
+    Sunny = 'sunny',
+    Cloudly = 'cloudly',
+    Rain = 'rain',
+    ChanceStorm = 'chanceStorm',
+    Snow = 'snow',
+}
+
+const makeIcon = (name: Icons) => (
+    <i className={`weather-icon weather-icon_type_${name}`} />
+)
 
 export const renderWeatherIcon = (id?: number) => {
     if (!id) return null
     if (id <= 232) {
-        return <StormIcon />
+        return makeIcon(Icons.ChanceStorm)
     }
     if (id >= 300 && id <= 531) {
-        return <RainIcon />
+        return makeIcon(Icons.Rain)
     }
     if (id >= 600 && id <= 622) {
-        return <SnowIcon />
+        return makeIcon(Icons.Snow)
     }
     if (id === 800) {
-        return <SunIcon />
+        return makeIcon(Icons.Sunny)
     }
 
-    return <CloudIcon />
+    return makeIcon(Icons.Cloudly)
 }

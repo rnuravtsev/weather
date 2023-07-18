@@ -4,7 +4,7 @@ import { faStar as faStarRegular } from '@fortawesome/free-regular-svg-icons/faS
 import { faStar as faStarSolid } from '@fortawesome/free-solid-svg-icons/faStar'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import classNames from 'classnames'
-import type { IWeather } from '../../shared/types'
+import type { IWeather } from '../../shared/model/types'
 import { removeFavItem, setFavItem } from '../../ducks/slices/user.slice'
 import { useAppDispatch } from '../../ducks/hooks/redux'
 import { useAnimateFlip } from './hooks/useAnimateFlip'

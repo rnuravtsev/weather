@@ -11,7 +11,7 @@ import {
     REHYDRATE,
 } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
-import { baseApi } from '../api/base.api'
+import { baseApi } from '../shared/api/base.api'
 import { rtkQueryErrorHandler } from './middlewares'
 import userReducer from './slices/user.slice'
 import appReducer from './slices/app.slice'

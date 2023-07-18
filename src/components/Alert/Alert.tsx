@@ -4,7 +4,7 @@ import { faTriangleExclamation } from '@fortawesome/free-solid-svg-icons/faTrian
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
 import type { FC, PropsWithChildren } from 'react'
-import type { Status } from '../../shared/types'
+import type { Status } from '../../shared/model/types'
 
 interface IAlertProps {
     message: string

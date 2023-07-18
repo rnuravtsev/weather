@@ -1,6 +1,6 @@
 import React, { memo, useCallback } from 'react'
 import type { FC } from 'react'
-import type { IWeather } from '../../shared/types'
+import type { IWeather } from '../../shared/model/types'
 import { selectFavoriteCities } from '../../ducks/slices/user.slice'
 import { setCurrentCity } from '../../ducks/slices/app.slice'
 import { useAppDispatch, useAppSelector } from '../../ducks/hooks/redux'

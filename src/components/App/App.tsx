@@ -8,7 +8,7 @@ import { FavoritesContainer } from '../Favorites/FavoritesContainer'
 import { Footer } from '../Footer/Footer'
 import { Header } from '../Header/Header'
 import { Lightnings } from '../Lightnings/Lightnings'
-import { AppTheme, WeatherForecast } from '../../shared/types'
+import { AppTheme, WeatherForecast } from '../../shared/model/types'
 
 import './App.scss'
 

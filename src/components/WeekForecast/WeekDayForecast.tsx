@@ -1,6 +1,6 @@
 import React from 'react'
 import type { FC } from 'react'
-import type { IForecastOneDay } from '../../shared/types'
+import type { IForecastOneDay } from '../../shared/model/types'
 import { getWeekDay } from './lib'
 import { renderWeatherIcon } from '../../shared/lib'
 

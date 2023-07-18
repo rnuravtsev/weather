@@ -1,11 +1,9 @@
 import { baseApi } from './base.api'
-import type { IWeatherAPI } from './models/IWeatherAPI'
-import type { IForecastAPI } from './models/IForecastAPI'
-import type { IWeatherSearchingPlaceAPI } from './models/IWeatherSearchingPlaceAPI'
-import type { IForecast, IWeather } from '../shared/types'
+import type { IForecast, IWeather } from '../model/types'
 
-import { mapForecastProps, mapWeatherProps } from './utils/mapProps'
-import { API_KEY, TEMPERATURE_UNITS, CacheTags } from '../shared/consts'
+import { mapForecastProps, mapWeatherProps } from './utils'
+import { API_KEY, TEMPERATURE_UNITS, CacheTags } from '../consts'
+import type { ForecastDto, IWeatherAPI, WeatherSearchingPlaceDto } from './model'
 
 interface IFetchWeatherPayload {
     latitude?: number
@@ -42,7 +40,7 @@ export const weatherApi = baseApi.injectEndpoints({
                         units: TEMPERATURE_UNITS,
                     },
                 }),
-                transformResponse: (response: IWeatherSearchingPlaceAPI) =>
+                transformResponse: (response: WeatherSearchingPlaceDto) =>
                     mapWeatherProps(response),
                 providesTags: () => [CacheTags.Weather],
             },
@@ -58,7 +56,7 @@ export const weatherApi = baseApi.injectEndpoints({
                     units: TEMPERATURE_UNITS,
                 },
             }),
-            transformResponse: (response: IForecastAPI) => mapForecastProps(response),
+            transformResponse: (response: ForecastDto) => mapForecastProps(response),
             providesTags: () => [CacheTags.Weather],
         }),
     }),

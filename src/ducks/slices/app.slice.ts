@@ -1,8 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit'
-import type { IWeather } from '../../shared/types'
-import { AppTheme } from '../../shared/types'
+import type { IWeather } from '../../shared/model/types'
+import { AppTheme } from '../../shared/model/types'
 import type { RootState } from '../store'
-import { weatherApi } from '../../api/weather.api'
+import { weatherApi } from '../../shared/api/weather.api'
 import { userGeoConfirm } from '../actions'
 
 interface IAppState {

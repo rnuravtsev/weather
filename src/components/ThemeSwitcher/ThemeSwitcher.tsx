@@ -1,7 +1,7 @@
 import classNames from 'classnames'
 import React, { memo } from 'react'
 import { useAppDispatch, useAppSelector } from '../../ducks/hooks/redux'
-import { AppTheme } from '../../shared/types'
+import { AppTheme } from '../../shared/model/types'
 import { selectUserTheme, setUserTheme } from '../../ducks/slices/app.slice'
 
 import './ThemeSwitcher.scss'

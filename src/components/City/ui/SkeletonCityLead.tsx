@@ -1,7 +1,7 @@
 import React, { memo } from 'react'
 import ContentLoader from 'react-content-loader'
 import { useAppSelector } from '../../../ducks/hooks/redux'
-import { AppTheme } from '../../../shared/types'
+import { AppTheme } from '../../../shared/model/types'
 import { selectUserTheme } from '../../../ducks/slices/app.slice'
 
 const Canvas = {

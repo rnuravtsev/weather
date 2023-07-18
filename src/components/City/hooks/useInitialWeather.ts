@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { useFetchGeolocationWeatherQuery } from '../../../api/weather.api'
+import { useFetchGeolocationWeatherQuery } from '../../../shared/api/weather.api'
 import { setCurrentCity } from '../../../ducks/slices/app.slice'
 import { useAppDispatch, useAppSelector } from '../../../ducks/hooks/redux'
 import {

@@ -10,7 +10,7 @@ import type { FC } from 'react'
 import { HoursForecast } from '../../HoursForecast/HoursForecast'
 import { SwitchFavoriteContainer } from '../../SwitchFavorite/SwitchFavoriteContainer'
 import { WeekForecast } from '../../WeekForecast/Week'
-import type { IForecast, IWeather } from '../../../shared/types'
+import type { IForecast, IWeather } from '../../../shared/model/types'
 import { getDayLight } from '../lib'
 import { capitalizeEachFirstLetter, renderWeatherIcon } from '../../../shared/lib'
 

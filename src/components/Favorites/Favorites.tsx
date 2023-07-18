@@ -1,7 +1,7 @@
 import type { FC } from 'react'
 import React from 'react'
 import { FavoriteItem } from './FavoriteItem'
-import type { IWeather } from '../../shared/types'
+import type { IWeather } from '../../shared/model/types'
 
 import './Favorites.scss'
 

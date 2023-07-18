@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react'
 import type { FC } from 'react'
-import type { IHourForecast } from '../../shared/types'
+import type { IHourForecast } from '../../shared/model/types'
 import { renderWeatherIcon } from '../../shared/lib'
 
 export interface ICityHourForecastProps {

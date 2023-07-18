@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import { setCurrentCity } from '../../ducks/slices/app.slice'
 import { useAppDispatch } from '../../ducks/hooks/redux'
-import { useFetchSearchingPlaceWeatherQuery } from '../../api/weather.api'
+import { useFetchSearchingPlaceWeatherQuery } from '../../shared/api/weather.api'
 import { Search } from './Search'
 
 export const SearchContainer = () => {
