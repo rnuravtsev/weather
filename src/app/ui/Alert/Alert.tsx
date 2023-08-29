@@ -3,9 +3,9 @@ import { faCircleExclamation } from '@fortawesome/free-solid-svg-icons/faCircleE
 import { faTriangleExclamation } from '@fortawesome/free-solid-svg-icons/faTriangleExclamation'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
-import type { FC, PropsWithChildren } from 'react'
+import type { FC } from 'react'
 
-import type { Status } from '../../../shared/types'
+import type { Status } from '@shared/types'
 
 interface IAlertProps {
     message: string
@@ -18,7 +18,7 @@ const renderIcon: Record<Status, JSX.Element> = {
     warning: <FontAwesomeIcon icon={faTriangleExclamation} />,
 }
 
-const Alert: FC<PropsWithChildren<IAlertProps>> = ({ message, type }) => (
+const Alert: FC<IAlertProps> = ({ message, type }) => (
     <div className="alert">
         <div className="alert__flex-wrapper">
             {renderIcon[type]}

@@ -11,11 +11,11 @@ import {
     REHYDRATE,
 } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
-import { baseApi } from '../../shared/api/base.api'
+import { baseApi } from '@shared/api/base'
+import userReducer from '@module/user/models/userSlice'
+import locationReducer from '@module/location/model/locationSlice'
+import themeReducer from '@module/theme/model/themeSlice'
 import { rtkQueryErrorHandler } from './middlewares'
-import userReducer from '../../entity/user/models/userSlice'
-import locationReducer from '../../entity/location/model/locationSlice'
-import themeReducer from '../../entity/theme/model/themeSlice'
 
 const rootReducer = combineReducers({
     userReducer,

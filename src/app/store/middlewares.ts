@@ -1,8 +1,8 @@
 import { isRejectedWithValue } from '@reduxjs/toolkit'
 import { toast } from 'react-toastify'
 import type { Middleware } from '@reduxjs/toolkit'
-import { capitalizeFirstLetter } from '../../shared/lib'
-import { Status } from '../../shared/types'
+import { capitalizeFirstLetter } from '@shared/lib'
+import { Status } from '@shared/types'
 
 /**
  * Промежуточное ПО для отклоненных экшнов

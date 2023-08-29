@@ -52,6 +52,7 @@
       }
     ],
     "react/require-default-props": 0,
+    "react/no-array-index-key": 0,
     "import/prefer-default-export": 0,
     "@typescript-eslint/consistent-type-imports": "error",
     "prettier/prettier": "error"
@@ -59,6 +60,16 @@
   "settings": {
     "import/resolver": {
       "typescript": true
-    }
+    },
+    "alias": {
+      "map": [
+        ["@app", "./src/app"],
+        ["@assets", "./src/assets"],
+        ["@module", "./src/module"],
+        ["@shared", "./src/shared"]
+      ]
+    },
+    "extensions": [".ts", ".tsx"]
   }
+
 }

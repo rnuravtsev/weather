@@ -1,6 +1,6 @@
 import React from 'react'
-import { SearchContainer } from '../../../../entity/location/ui/Search'
-import { ThemeSwitcher } from '../../../../entity/theme/ui/ThemeSwitcher'
+import { SearchContainer } from '@module/location/ui/Search'
+import { ThemeSwitcher } from '@module/theme/ui/ThemeSwitcher'
 
 import './Header.scss'
 

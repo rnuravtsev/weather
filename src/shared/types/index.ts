@@ -9,7 +9,9 @@ export const enum AppTheme {
 }
 
 export const enum Status {
+    Success = 'success',
     Error = 'error',
+    Warning = 'warning',
 }
 
 interface Coordinates {

@@ -15,7 +15,13 @@
         "isolatedModules": true,
         "noEmit": true,
         "jsx": "react-jsx",
-        "types": ["vite/client"]
+        "types": ["vite/client"],
+        "paths": {
+            "@app/*": ["./src/app/*"],
+            "@assets/*": ["./src/assets/*"],
+            "@module/*": ["./src/module/*"],
+            "@shared/*": ["./src/shared/*"],
+        }
     },
     "include": ["src"],
     "references": [{ "path": "./tsconfig.node.json" }]

@@ -1,8 +1,8 @@
 import { useEffect } from 'react'
-import { setUserTheme } from '../../entity/theme/model/themeSlice'
-import { useAppDispatch } from '../../shared/model'
-import { AppTheme } from '../../shared/types'
-import { userGeoConfirm } from '../../entity/user/models'
+import { setUserTheme } from '@module/theme/model/themeSlice'
+import { useAppDispatch } from '@shared/model'
+import { AppTheme } from '@shared/types'
+import { userGeoConfirm } from '@module/user/models'
 
 export const useSystemTheme = () => {
     const dispatch = useAppDispatch()
