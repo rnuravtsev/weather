@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/dist/query/react'
-import { BASE_WEATHER_API, CacheTags } from '../consts'
+import { BASE_WEATHER_API, CacheTags } from '../constants'
 
 export const baseApi = createApi({
     reducerPath: 'baseApi',

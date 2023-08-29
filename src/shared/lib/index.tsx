@@ -20,7 +20,7 @@ export const debounce = <T extends unknown[]>(
     }
 }
 
-export const convertGeoForRequest = (obj: { lat: number; lon: number } | undefined) => {
+export const convertGeoForRequest = (obj?: { lat: number; lon: number }) => {
     if (obj) {
         return {
             latitude: obj.lat,
