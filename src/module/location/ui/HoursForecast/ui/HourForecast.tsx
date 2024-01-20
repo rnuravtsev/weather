@@ -4,11 +4,11 @@ import { renderWeatherIcon } from '@shared/lib'
 
 import type { HourForecast } from '../../../model'
 
-export interface ICityHourForecastProps {
+export type CityHourForecastProps = {
     hourForecast?: HourForecast
 }
 
-const CityHourForecast: FC<ICityHourForecastProps> = ({ hourForecast }) => {
+const CityHourForecast: FC<CityHourForecastProps> = ({ hourForecast }) => {
     const { hour, temperature, iconId } = hourForecast || {}
 
     const peopleHour = useMemo(

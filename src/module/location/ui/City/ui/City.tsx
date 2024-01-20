@@ -18,13 +18,13 @@ import type { ExtendedForecast } from '../../../model'
 import './City.scss'
 import './Hours.scss'
 
-interface ICityProps {
+type CityProps = {
     weather?: Location & ExtendedForecast
     isGeoConfirm: boolean
     searchingPlace: boolean
 }
 
-export const City: FC<ICityProps> = ({ weather, isGeoConfirm, searchingPlace }) => {
+export const City: FC<CityProps> = ({ weather, isGeoConfirm, searchingPlace }) => {
     if (!weather) {
         return null
     }

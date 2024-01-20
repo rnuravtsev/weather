@@ -7,7 +7,7 @@ import type { FC } from 'react'
 
 import type { Status } from '@shared/types'
 
-interface IAlertProps {
+type AlertProps = {
     message: string
     type: Status
 }
@@ -18,7 +18,7 @@ const renderIcon: Record<Status, JSX.Element> = {
     warning: <FontAwesomeIcon icon={faTriangleExclamation} />,
 }
 
-const Alert: FC<IAlertProps> = ({ message, type }) => (
+const Alert: FC<AlertProps> = ({ message, type }) => (
     <div className="alert">
         <div className="alert__flex-wrapper">
             {renderIcon[type]}

@@ -5,11 +5,11 @@ import { WeekDayForecast } from './WeekDayForecast'
 
 import type { OneDayForecast } from '../../../model'
 
-interface IWeekForecastProps {
+type WeekForecastProps = {
     list?: ForecastOneDayDto[]
 }
 
-export const WeekForecast: FC<IWeekForecastProps> = ({ list }) => {
+export const WeekForecast: FC<WeekForecastProps> = ({ list }) => {
     const mapOneDayForecast = (data?: ForecastOneDayDto): OneDayForecast | undefined => ({
         weekDay: data?.dt,
         temperatureMax: data?.temp.max,

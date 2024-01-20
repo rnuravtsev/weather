@@ -9,12 +9,12 @@ import { useKeyboardSearchFocus } from '../hooks/useKeyboardSearchFocus'
 
 import './Search.scss'
 
-interface ISearchProps {
+type SearchProps = {
     isLoading: boolean
     onChange: (value: string) => void
 }
 
-export const Search: FC<ISearchProps> = memo(({ onChange, isLoading }) => {
+export const Search: FC<SearchProps> = memo(({ onChange, isLoading }) => {
     const [hasFocus, setFocus] = useState(false)
     const inputRef = useRef<HTMLInputElement>(null!)
 

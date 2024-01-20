@@ -11,12 +11,12 @@ import { useAnimateFlip } from '../hooks/useAnimateFlip'
 
 import './SwitchFavorite.scss'
 
-interface ISaveProps {
+type SaveProps = {
     currentCity?: Location
     favorites?: Location[]
 }
 
-export const SwitchFavorite: FC<ISaveProps> = ({ currentCity, favorites }) => {
+export const SwitchFavorite: FC<SaveProps> = ({ currentCity, favorites }) => {
     const { animate, clicked } = useAnimateFlip()
     const dispatch = useAppDispatch()
 

@@ -13,9 +13,9 @@
 .favs__list {
   display: grid;
   gap: 25px;
-  padding-left: 1rem;
 
   margin: 0;
+  padding-left: 1rem;
 
   list-style: none;
 
@@ -45,11 +45,11 @@
 }
 
 .favs__name {
+  overflow: hidden;
   grid-area: name;
   justify-self: start;
 
   max-width: 100px;
-  overflow: hidden;
 
   font-size: 1.25rem;
   font-weight: 700;
@@ -71,6 +71,7 @@
 .favs__temperature {
   grid-area: temperature;
   justify-self: end;
+
   font-size: 1.25rem;
   font-weight: 700;
   line-height: 1;

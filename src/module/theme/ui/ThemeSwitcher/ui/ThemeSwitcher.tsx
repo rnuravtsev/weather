@@ -9,7 +9,7 @@ import './ThemeSwitcher.scss'
 
 export const ThemeSwitcher = memo(() => {
     const appTheme = useAppSelector(selectUserTheme)
-    const [toggleTheme] = useThemeSwitch(appTheme)
+    const { toggleTheme } = useThemeSwitch(appTheme)
 
     return (
         <section className="theme-switcher">

@@ -6,11 +6,11 @@ import type { OneDayForecast } from '../../../model'
 
 import './Week.scss'
 
-interface IWeekDayForecast {
+type WeekDayForecastProps = {
     forecast?: OneDayForecast
 }
 
-export const WeekDayForecast: FC<IWeekDayForecast> = ({ forecast }) => {
+export const WeekDayForecast: FC<WeekDayForecastProps> = ({ forecast }) => {
     const { temperatureMin, temperatureMax, iconId, weekDay } = forecast || {}
     const certainDay = new Date((weekDay || 0) * 1000).getDay()
 

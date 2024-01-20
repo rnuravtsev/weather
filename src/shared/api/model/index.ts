@@ -1,4 +1,4 @@
-export interface ForecastOneDayDto {
+export type ForecastOneDayDto = {
     dt: number
     sunrise: number
     sunset: number
@@ -38,7 +38,7 @@ export interface ForecastOneDayDto {
     uvi: number
 }
 
-export interface HourForecastDto {
+export type HourForecastDto = {
     dt: number
     temp: number
     feels_like: number
@@ -62,7 +62,7 @@ export interface HourForecastDto {
     pop: number
 }
 
-export interface ForecastDto {
+export type ForecastDto = {
     lat: number
     lon: number
     timezone: string
@@ -71,7 +71,7 @@ export interface ForecastDto {
     hourly: HourForecastDto[]
 }
 
-export interface IWeatherAPI {
+export type IWeatherAPI = {
     coord: {
         lon: number
         lat: number
@@ -116,7 +116,7 @@ export interface IWeatherAPI {
     cod: number
 }
 
-export interface WeatherSearchingPlaceDto {
+export type WeatherSearchingPlaceDto = {
     coord: {
         lon: number
         lat: number

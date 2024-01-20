@@ -7,7 +7,7 @@ import type { Location } from '@shared/types'
 import { selectFavoriteCities } from '@module/user/models'
 import { setLocation } from '@module/location/model'
 
-interface FavoriteItemProps {
+type FavoriteItemProps = {
     item: Location
 }
 

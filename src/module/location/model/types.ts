@@ -1,20 +1,20 @@
 import type { ForecastOneDayDto, HourForecastDto } from '@shared/api/model'
 
-export interface HourForecast {
+export type HourForecast = {
     hour?: number
     weatherIcon?: number
     temperature?: number
     iconId?: number
 }
 
-export interface OneDayForecast {
+export type OneDayForecast = {
     weekDay?: number
     temperatureMax?: number
     temperatureMin?: number
     iconId?: number
 }
 
-export interface ExtendedForecast {
+export type ExtendedForecast = {
     hourlyForecast?: HourForecastDto[]
     weekForecast?: ForecastOneDayDto[]
 }

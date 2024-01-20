@@ -5,11 +5,11 @@ import { MAX_HOUR_CONT_FORECAST } from '@shared/constants'
 import HourForecast from './HourForecast'
 import { mapOneHourForecast } from '../lib'
 
-interface IHoursForecastProps {
+type HoursForecastProps = {
     hours?: HourForecastDto[]
 }
 
-export const HoursForecast: FC<IHoursForecastProps> = ({ hours }) => (
+export const HoursForecast: FC<HoursForecastProps> = ({ hours }) => (
     <section className="hours">
         <h2 className="hours__title">Hour forecast</h2>
         <ul className="hours__forecast">

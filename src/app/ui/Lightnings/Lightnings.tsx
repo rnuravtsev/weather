@@ -4,12 +4,12 @@ import type { FC } from 'react'
 
 import './Lightnings.scss'
 
-interface ILightningProps {
+type LightningProps = {
     in: boolean
     children: JSX.Element
 }
 
-export const Lightnings: FC<ILightningProps> = ({ in: inProp, children }) => (
+export const Lightnings: FC<LightningProps> = ({ in: inProp, children }) => (
     <CSSTransition in={inProp} timeout={750} classNames="lightnings">
         <div className="lightnings">{children}</div>
     </CSSTransition>

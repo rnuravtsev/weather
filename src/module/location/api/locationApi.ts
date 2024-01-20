@@ -6,12 +6,12 @@ import type { Location } from '@shared/types'
 import { API_KEY, TEMPERATURE_UNITS } from '@shared/constants'
 import { mapForecastProps, mapWeatherProps } from '../lib'
 
-interface IFetchWeatherPayload {
+type FetchWeatherPayload = {
     latitude?: number
     longitude?: number
 }
 
-interface IFetchWeatherForSearchingPlace {
+type FetchWeatherForSearchingPlace = {
     place: string
 }
 
@@ -19,7 +19,7 @@ export const locationApi = baseApi.injectEndpoints({
     endpoints: (build) => ({
         fetchLocation: build.query<
             Location,
-            IFetchWeatherPayload | IFetchWeatherForSearchingPlace
+            FetchWeatherPayload | FetchWeatherForSearchingPlace
         >({
             queryFn: async (payload, _baseQuery, _extraConfig, fetchWithBQ) => {
                 let queryParams: {}

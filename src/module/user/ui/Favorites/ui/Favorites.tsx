@@ -7,11 +7,11 @@ import { FavoriteItem } from './FavoriteItem'
 
 import './Favorites.scss'
 
-interface IFavoritesProps {
+type FavoritesProps = {
     favorites?: Location[]
 }
 
-export const Favorites: FC<IFavoritesProps> = memo(() => {
+export const Favorites: FC<FavoritesProps> = memo(() => {
     const favorites = useAppSelector(selectFavoriteCities)
 
     if (!favorites?.length) return null

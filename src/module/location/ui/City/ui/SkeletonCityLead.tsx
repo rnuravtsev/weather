@@ -4,6 +4,8 @@ import { useAppSelector } from '@shared/model/hooks'
 import { AppTheme } from '@shared/types'
 import { selectUserTheme } from '@module/theme/model/themeSlice'
 
+// TODO: Переписать на Skeleton-CSS
+
 const Canvas = {
     WIDTH: 886,
     HEIGHT: 988,

@@ -8,6 +8,12 @@ export const useSystemTheme = () => {
     const dispatch = useAppDispatch()
 
     useEffect(() => {
+        window.matchMedia('(prefers-color-scheme: dark)').matches
+            ? dispatch(setUserTheme(AppTheme.Dark))
+            : dispatch(setUserTheme(AppTheme.Light))
+    }, [])
+
+    useEffect(() => {
         const windowThemeChangeHandler = (evt: MediaQueryListEvent) => {
             if (evt.matches) {
                 dispatch(setUserTheme(AppTheme.Dark))

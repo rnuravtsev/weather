@@ -12,12 +12,12 @@ import { Lightnings } from './ui/Lightnings/Lightnings'
 
 import './App.scss'
 
-interface IApp {
+type AppProps = {
     theme: string
     weather?: string
 }
 
-export const App: FC<IApp> = ({ theme, weather }) => {
+export const App: FC<AppProps> = ({ theme, weather }) => {
     const isLightnings =
         theme === AppTheme.Dark &&
         (weather === WeatherType.Storm || weather === WeatherType.Thunderstorm)

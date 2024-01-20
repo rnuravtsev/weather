@@ -5,7 +5,9 @@ import './Footer.scss'
 const date = new Date()
 export const Footer = () => (
     <footer className="footer">
-        <p>CRA {date.getFullYear()}</p>
+        <p>
+            mw {`<3`} {date.getFullYear()}
+        </p>
         <p>
             Powered by{' '}
             <a

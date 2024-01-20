@@ -2,11 +2,11 @@ import { createSlice } from '@reduxjs/toolkit'
 import { AppTheme } from '@shared/types'
 import type { RootState } from '@app/store/store'
 
-interface IThemeState {
+type ThemeState = {
     theme: AppTheme
 }
 
-const initialState: IThemeState = {
+const initialState: ThemeState = {
     theme: AppTheme.Light,
 }
 

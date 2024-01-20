@@ -1,13 +1,5 @@
 module.exports = {
     extends: [
-        'stylelint-config-recommended-scss',
-        'stylelint-config-recess-order',
+        'stylelint-config-scss-favorite',
     ],
-    plugins: [
-        'stylelint-order',
-    ],
-    rules: {
-        'selector-class-pattern': null,
-        'max-nesting-depth': 3,
-    }
 }

@@ -15,7 +15,7 @@ export const useInitialLocation = () => {
     })
 
     useEffect(() => {
-        if (isGeoConfirm && favoriteCity) {
+        if (!isGeoConfirm && favoriteCity) {
             dispatch(setLocation(favoriteCity))
         }
     }, [isGeoConfirm, dispatch, favoriteCity, data])

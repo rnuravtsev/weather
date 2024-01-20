@@ -14,12 +14,12 @@ export const enum Status {
     Warning = 'warning',
 }
 
-interface Coordinates {
+type Coordinates = {
     lat: number
     lon: number
 }
 
-export interface Location {
+export type Location = {
     country: string
     condition: number
     description: string

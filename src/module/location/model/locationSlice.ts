@@ -3,11 +3,11 @@ import type { Location } from '@shared/types'
 import type { RootState } from '@app/store/store'
 import { locationApi } from '../api/locationApi'
 
-interface ILocationState {
+type LocationState = {
     location?: Location
 }
 
-const initialState: ILocationState = {
+const initialState: LocationState = {
     location: undefined,
 }
 

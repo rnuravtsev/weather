@@ -4,6 +4,7 @@ import { setUserTheme } from '../../../model/themeSlice'
 
 export const useThemeSwitch = (appTheme: AppTheme) => {
     const dispatch = useAppDispatch()
+
     const toggleTheme = () => {
         switch (appTheme) {
             case AppTheme.Light:
@@ -17,5 +18,5 @@ export const useThemeSwitch = (appTheme: AppTheme) => {
         }
     }
 
-    return [toggleTheme]
+    return { toggleTheme }
 }
