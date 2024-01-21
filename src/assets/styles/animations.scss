@@ -1,0 +1,53 @@
+@keyframes stormy {
+    0% {
+        background-color: var(--bg-theme-black);
+    }
+
+    50% {
+        background-color: white;
+    }
+
+    100% {
+        background-color: var(--bg-theme-black);
+    }
+}
+
+@keyframes animated-star {
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-1000px);
+    }
+}
+
+@keyframes move-gradient {
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+@keyframes key-press {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(0.8);
+    }
+}
+
+@keyframes switch-animation {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}

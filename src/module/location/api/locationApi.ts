@@ -82,4 +82,4 @@ export const locationApi = baseApi.injectEndpoints({
     }),
 })
 
-export const { useFetchLocationQuery } = locationApi
+export const { useFetchLocationQuery, useLazyFetchLocationQuery } = locationApi

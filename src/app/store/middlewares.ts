@@ -7,13 +7,29 @@ import { Status } from '@shared/types'
 /**
  * Промежуточное ПО для отклоненных экшнов
  */
-export const rtkQueryErrorHandler: Middleware = () => (next) => (action) => {
+export const citySearchErrorMiddleware: Middleware = () => (next) => (action) => {
     if (isRejectedWithValue(action)) {
-        toast(`${capitalizeFirstLetter(action.payload.data.message)}`, {
-            position: 'top-right',
-            autoClose: 3000,
-            type: Status.Error,
-        })
+        const {
+            meta: {
+                arg: { originalArgs },
+            },
+        } = action || {}
+
+        if ('place' in originalArgs) {
+            toast(
+                `${capitalizeFirstLetter(
+                    `Sorry, the city ${
+                        originalArgs.place.charAt(0).toUpperCase() +
+                        originalArgs.place.slice(1)
+                    } was not found.`,
+                )}`,
+                {
+                    position: 'top-right',
+                    autoClose: 2500,
+                    type: Status.Error,
+                },
+            )
+        }
     }
 
     return next(action)

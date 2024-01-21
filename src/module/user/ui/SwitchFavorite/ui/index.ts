@@ -1,1 +1,1 @@
-export * from './SwitchFavoriteContainer'
+export * from './SwitchFavorite'

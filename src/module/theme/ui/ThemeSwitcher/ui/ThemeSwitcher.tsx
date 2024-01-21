@@ -1,18 +1,22 @@
 import classNames from 'classnames'
+import type { FC } from 'react'
 import React, { memo } from 'react'
-import { useAppSelector } from '@shared/model'
+import type { BaseComponentProps } from '@shared/types'
 import { AppTheme } from '@shared/types'
-import { selectUserTheme } from '../../../model/themeSlice'
+import { selectUserTheme } from '@module/theme/store/themeSlice'
+import { useAppSelector } from '@shared/store'
 import { useThemeSwitch } from '../hooks/useThemeSwitch'
 
 import './ThemeSwitcher.scss'
 
-export const ThemeSwitcher = memo(() => {
+type ThemeSwitcherProps = BaseComponentProps
+
+export const ThemeSwitcher: FC<ThemeSwitcherProps> = memo(({ className = '' }) => {
     const appTheme = useAppSelector(selectUserTheme)
     const { toggleTheme } = useThemeSwitch(appTheme)
 
     return (
-        <section className="theme-switcher">
+        <section className={classNames('theme-switcher', className)}>
             <h2 className="visually-hidden">Переключатель цветовой темы</h2>
             <div className="theme-switcher__wrapper">
                 {appTheme === AppTheme.Light ? (

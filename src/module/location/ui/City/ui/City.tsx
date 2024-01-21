@@ -5,27 +5,36 @@ import {
     faWind,
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import React from 'react'
+import React, { memo } from 'react'
 import type { FC } from 'react'
 import { capitalizeEachFirstLetter, renderWeatherIcon } from '@shared/lib'
-import type { Location } from '@shared/types'
-import { SwitchFavoriteContainer } from '@module/user/ui/SwitchFavorite'
+import { SwitchFavorite } from '@module/user/ui/SwitchFavorite'
+import { useAppSelector } from '@shared/store'
+import { selectGeoConfirm } from '@module/user/store'
+import { useInitialLocation } from '@module/location/ui/City/hooks'
+import { SkeletonCityLead } from '@module/location/ui/City/ui/SkeletonCityLead'
+import classNames from 'classnames'
+import type { BaseComponentProps } from '@shared/types'
 import { HoursForecast } from '../../HoursForecast'
 import { WeekForecast } from '../../WeekForecast'
 import { getDayLight } from '../lib'
-import type { ExtendedForecast } from '../../../model'
+import { selectCurrentCity } from '../../../store'
 
 import './City.scss'
 import './Hours.scss'
 
-type CityProps = {
-    weather?: Location & ExtendedForecast
-    isGeoConfirm: boolean
-    searchingPlace: boolean
-}
+type CityProps = BaseComponentProps
 
-export const City: FC<CityProps> = ({ weather, isGeoConfirm, searchingPlace }) => {
-    if (!weather) {
+export const City: FC<CityProps> = memo(({ className = '' }) => {
+    const currentCityWeather = useAppSelector(selectCurrentCity)
+    const isGeoConfirm = useAppSelector(selectGeoConfirm)
+
+    const { needLoader } = useInitialLocation()
+
+    // TODO: Доработать загрузку приложения
+    if (needLoader) return <SkeletonCityLead />
+
+    if (!currentCityWeather) {
         return null
     }
 
@@ -41,17 +50,17 @@ export const City: FC<CityProps> = ({ weather, isGeoConfirm, searchingPlace }) =
         sunset,
         iconId,
         country,
-    } = weather
+    } = currentCityWeather
 
-    const showIconLocation = isGeoConfirm && searchingPlace
+    const showIconLocation = isGeoConfirm && Boolean(currentCityWeather)
 
     return (
-        <section className="city">
+        <section className={classNames('city', className)}>
             <h2 className="city__title">Current</h2>
             <div className="city__lead">
                 <div className="city__main">
                     <div className="city__flex-wrapper">
-                        <SwitchFavoriteContainer />
+                        <SwitchFavorite />
                         <h3 className="city__name">
                             {location}
                             {showIconLocation && (
@@ -105,11 +114,11 @@ export const City: FC<CityProps> = ({ weather, isGeoConfirm, searchingPlace }) =
                 </div>
             </div>
             <div className="city__hours">
-                <HoursForecast hours={weather?.hourlyForecast} />
+                <HoursForecast hours={currentCityWeather?.hourlyForecast} />
             </div>
             <div className="city__week">
-                <WeekForecast list={weather?.weekForecast} />
+                <WeekForecast list={currentCityWeather?.weekForecast} />
             </div>
         </section>
     )
-}
+})

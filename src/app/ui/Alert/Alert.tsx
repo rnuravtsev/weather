@@ -5,9 +5,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
 import type { FC } from 'react'
 
-import type { Status } from '@shared/types'
+import type { BaseComponentProps, Status } from '@shared/types'
+import classNames from 'classnames'
 
-type AlertProps = {
+type AlertProps = BaseComponentProps & {
     message: string
     type: Status
 }
@@ -18,8 +19,8 @@ const renderIcon: Record<Status, JSX.Element> = {
     warning: <FontAwesomeIcon icon={faTriangleExclamation} />,
 }
 
-const Alert: FC<AlertProps> = ({ message, type }) => (
-    <div className="alert">
+const Alert: FC<AlertProps> = ({ className = '', message, type }) => (
+    <div className={classNames('alert', className)}>
         <div className="alert__flex-wrapper">
             {renderIcon[type]}
             <p className="alert__message">{message}</p>

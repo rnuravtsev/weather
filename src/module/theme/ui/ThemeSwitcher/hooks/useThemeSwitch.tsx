@@ -1,6 +1,6 @@
 import { AppTheme } from '@shared/types'
-import { useAppDispatch } from '@shared/model'
-import { setUserTheme } from '../../../model/themeSlice'
+import { setUserTheme } from '@module/theme/store/themeSlice'
+import { useAppDispatch } from '@shared/store'
 
 export const useThemeSwitch = (appTheme: AppTheme) => {
     const dispatch = useAppDispatch()

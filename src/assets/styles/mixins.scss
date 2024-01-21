@@ -1,0 +1,37 @@
+@mixin complex-border($bg-color: linear-gradient(
+                    60deg,
+                    hsl(224deg 85% 66%),
+                    hsl(269deg 85% 66%),
+                    hsl(314deg 85% 66%),
+                    hsl(359deg 85% 66%),
+                    hsl(44deg 85% 66%),
+                    hsl(89deg 85% 66%),
+                    hsl(134deg 85% 66%),
+                    hsl(179deg 85% 66%)
+    ), $animated: false) {
+  --border-width: 3px;
+
+  position: relative;
+  border-radius: var(--border-width);
+
+  &::after {
+    content: "";
+
+    position: absolute;
+    z-index: 1;
+    top: calc(-1 * var(--border-width));
+    left: calc(-1 * var(--border-width));
+
+    width: calc(100% + var(--border-width) * 2);
+    height: calc(100% + var(--border-width) * 2);
+
+    background: $bg-color;
+    background-position: 0 50%;
+    background-size: 300% 300%;
+    border-radius: calc(2 * var(--border-width));
+
+    @if $animated == true {
+      animation: move-gradient 4s alternate infinite;
+    }
+  }
+}

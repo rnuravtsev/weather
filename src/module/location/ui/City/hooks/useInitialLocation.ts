@@ -1,8 +1,8 @@
 import { useEffect } from 'react'
-import { useAppDispatch, useAppSelector } from '@shared/model'
-import { selectFirstFavoriteCity, selectGeo, selectGeoConfirm } from '@module/user/models'
+import { useAppDispatch, useAppSelector } from '@shared/store'
+import { selectFirstFavoriteCity, selectGeo, selectGeoConfirm } from '@module/user/store'
 import { useFetchLocationQuery } from '../../../api/locationApi'
-import { setLocation } from '../../../model'
+import { setLocation } from '../../../store'
 
 export const useInitialLocation = () => {
     const isGeoConfirm = useAppSelector(selectGeoConfirm)

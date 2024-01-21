@@ -13,7 +13,8 @@ export const debounce = <T extends unknown[]>(
     cb: (...args: T) => unknown,
     delay = 1000,
 ) => {
-    let timeout: number | undefined
+    let timeout: ReturnType<typeof setTimeout>
+
     return (...args: T) => {
         clearTimeout(timeout)
         timeout = setTimeout(() => cb.apply(this, args), delay)

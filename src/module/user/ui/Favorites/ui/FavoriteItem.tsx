@@ -1,17 +1,17 @@
 import React, { memo, useMemo } from 'react'
 import type { FC } from 'react'
-
 import { capitalizeEachFirstLetter } from '@shared/lib'
-import { useAppDispatch, useAppSelector } from '@shared/model'
-import type { Location } from '@shared/types'
-import { selectFavoriteCities } from '@module/user/models'
-import { setLocation } from '@module/location/model'
+import type { BaseComponentProps, Location } from '@shared/types'
+import { useAppDispatch, useAppSelector } from '@shared/store'
+import { setLocation } from '@module/location/store'
+import classNames from 'classnames'
+import { selectFavoriteCities } from '../../../store'
 
-type FavoriteItemProps = {
+type FavoriteItemProps = BaseComponentProps & {
     item: Location
 }
 
-export const FavoriteItem: FC<FavoriteItemProps> = memo(({ item }) => {
+export const FavoriteItem: FC<FavoriteItemProps> = memo(({ className = '', item }) => {
     const {
         location,
         description = '',
@@ -33,7 +33,11 @@ export const FavoriteItem: FC<FavoriteItemProps> = memo(({ item }) => {
     }
 
     return (
-        <li key={location} className="favs__item" title={location}>
+        <li
+            key={location}
+            className={classNames('favs__item', className)}
+            title={location}
+        >
             <button className="btn favs__btn" onClick={onItemClick} type="button">
                 <p className="favs__name">{location}</p>
                 <p className="favs__description">

@@ -4,19 +4,19 @@ import { faStar as faStarRegular } from '@fortawesome/free-regular-svg-icons/faS
 import { faStar as faStarSolid } from '@fortawesome/free-solid-svg-icons/faStar'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import classNames from 'classnames'
-import { useAppDispatch } from '@shared/model'
-import type { Location } from '@shared/types'
-import { removeFavItem, setFavItem } from '@module/user/models'
+import { selectCurrentCity } from '@module/location/store'
+import { useAppDispatch, useAppSelector } from '@shared/store'
+import type { BaseComponentProps } from '@shared/types'
+import { removeFavItem, selectFavoriteCities, setFavItem } from '../../../store'
 import { useAnimateFlip } from '../hooks/useAnimateFlip'
 
 import './SwitchFavorite.scss'
 
-type SaveProps = {
-    currentCity?: Location
-    favorites?: Location[]
-}
+type SaveProps = BaseComponentProps
 
-export const SwitchFavorite: FC<SaveProps> = ({ currentCity, favorites }) => {
+export const SwitchFavorite: FC<SaveProps> = ({ className = '' }) => {
+    const currentCity = useAppSelector(selectCurrentCity)
+    const favorites = useAppSelector(selectFavoriteCities)
     const { animate, clicked } = useAnimateFlip()
     const dispatch = useAppDispatch()
 
@@ -35,7 +35,7 @@ export const SwitchFavorite: FC<SaveProps> = ({ currentCity, favorites }) => {
     }
 
     return (
-        <section className="switch-favorite">
+        <section className={classNames('switch-favorite', className)}>
             <button
                 className="btn switch-favorite__btn"
                 onClick={onButtonClick}

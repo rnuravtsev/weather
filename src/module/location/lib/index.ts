@@ -4,7 +4,7 @@ import type {
     WeatherSearchingPlaceDto,
 } from '@shared/api/model'
 import type { Location } from '@shared/types'
-import type { ExtendedForecast } from '../model'
+import type { ExtendedForecast } from '../store'
 
 export const mapWeatherProps = (
     data: IWeatherAPI | WeatherSearchingPlaceDto,

@@ -1,3 +1,7 @@
+export type BaseComponentProps = {
+    className?: string
+}
+
 export const enum WeatherType {
     Storm = 'Storm',
     Thunderstorm = 'Thunderstorm',

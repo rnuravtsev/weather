@@ -1,12 +1,18 @@
+import type { FC } from 'react'
 import React from 'react'
+import type { BaseComponentProps } from '@shared/types'
+import classNames from 'classnames'
 
 import './Footer.scss'
 
-const date = new Date()
-export const Footer = () => (
-    <footer className="footer">
-        <p>
-            mw {`<3`} {date.getFullYear()}
+type FooterProps = BaseComponentProps
+
+export const Footer: FC<FooterProps> = ({ className = '' }) => (
+    <footer className={classNames('footer', className)}>
+        <p className="footer__sign">
+            <b>
+                mw <span className="footer__heart">{`<3`}</span>
+            </b>
         </p>
         <p>
             Powered by{' '}

@@ -9,6 +9,13 @@ export default defineConfig({
         outDir: './docs',
         sourcemap: true
     },
+    css: {
+        preprocessorOptions: {
+            scss: {
+                additionalData: `@use '@assets/styles/mixins.scss' as *;`,
+            },
+        },
+    },
     resolve: {
         alias: {
             '@app': path.join(__dirname, './src/app'),

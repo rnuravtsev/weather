@@ -12,10 +12,10 @@ import {
 } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
 import { baseApi } from '@shared/api/base'
-import userReducer from '@module/user/models/userSlice'
-import locationReducer from '@module/location/model/locationSlice'
-import themeReducer from '@module/theme/model/themeSlice'
-import { rtkQueryErrorHandler } from './middlewares'
+import userReducer from '@module/user/store/userSlice'
+import locationReducer from '@module/location/store/locationSlice'
+import themeReducer from '@module/theme/store/themeSlice'
+import { citySearchErrorMiddleware } from './middlewares'
 
 const rootReducer = combineReducers({
     userReducer,
@@ -40,7 +40,7 @@ const store = configureStore({
             serializableCheck: {
                 ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
             },
-        }).concat(baseApi.middleware, rtkQueryErrorHandler),
+        }).concat(baseApi.middleware, citySearchErrorMiddleware),
 })
 
 const appStoreType = () => store

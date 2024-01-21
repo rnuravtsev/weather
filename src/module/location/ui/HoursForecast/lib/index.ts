@@ -1,6 +1,6 @@
 import type { HourForecastDto } from '@shared/api/model'
 
-import type { HourForecast } from '../../../model'
+import type { HourForecast } from '../../../store'
 
 export const mapOneHourForecast = (data?: HourForecastDto): HourForecast | undefined => ({
     hour: data?.dt,

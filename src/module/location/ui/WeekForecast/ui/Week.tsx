@@ -1,15 +1,17 @@
 import React from 'react'
 import type { FC } from 'react'
 import type { ForecastOneDayDto } from '@shared/api/model'
+import type { BaseComponentProps } from '@shared/types'
+import classNames from 'classnames'
 import { WeekDayForecast } from './WeekDayForecast'
 
-import type { OneDayForecast } from '../../../model'
+import type { OneDayForecast } from '../../../store'
 
-type WeekForecastProps = {
+type WeekForecastProps = BaseComponentProps & {
     list?: ForecastOneDayDto[]
 }
 
-export const WeekForecast: FC<WeekForecastProps> = ({ list }) => {
+export const WeekForecast: FC<WeekForecastProps> = ({ className = '', list }) => {
     const mapOneDayForecast = (data?: ForecastOneDayDto): OneDayForecast | undefined => ({
         weekDay: data?.dt,
         temperatureMax: data?.temp.max,
@@ -17,7 +19,7 @@ export const WeekForecast: FC<WeekForecastProps> = ({ list }) => {
         iconId: data?.weather[0].id,
     })
     return (
-        <section className="week">
+        <section className={classNames('week', className)}>
             <h2 className="week__title">Week forecast</h2>
             <table className="week__table">
                 <tbody>

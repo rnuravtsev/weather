@@ -1,20 +1,29 @@
 import type { MutableRefObject } from 'react'
 import { useEffect } from 'react'
-
-const enum KeyCodes {
-    K = 'KeyK',
-}
+import hotkeys from 'hotkeys-js'
 
 export const useKeyboardSearchFocus = (inputRef: MutableRefObject<HTMLInputElement>) => {
     useEffect(() => {
-        const keyboardListener = (evt: KeyboardEvent) => {
-            if (evt.ctrlKey && evt.code === KeyCodes.K) {
-                inputRef.current.focus()
-            }
+        hotkeys('cmd + k, ctrl + k', () => inputRef.current.focus())
+
+        return () => hotkeys.unbind('cmd + k, ctrl + k')
+    })
+
+    const getOperatingSystem = () => {
+        const { userAgent } = navigator
+
+        if (/Macintosh|MacIntel|MacPPC|Mac68K/.test(userAgent)) {
+            return 'MacOS'
         }
 
-        window.addEventListener('keypress', keyboardListener)
+        return undefined
+    }
 
-        return () => window.removeEventListener('keypress', keyboardListener)
-    })
+    const userOperatingSystem = getOperatingSystem()
+
+    const keyName = userOperatingSystem === 'MacOS' ? '⌘' : 'Ctrl'
+
+    return {
+        keyName,
+    }
 }

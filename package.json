@@ -18,6 +18,7 @@
     "@fortawesome/react-fontawesome": "0.2.0",
     "@reduxjs/toolkit": "1.9.3",
     "classnames": "2.3.2",
+    "hotkeys-js": "3.13.5",
     "lodash": "4.17.21",
     "modern-normalize": "1.1.0",
     "react": "^18.2.0",
@@ -61,7 +62,7 @@
     "stylelint-config-standard-scss": "7.0.1",
     "stylelint-order": "6.0.3",
     "stylelint-selector-bem-pattern": "2.1.1",
-    "typescript": "4.9.3",
+    "typescript": "5.3.3",
     "vite": "4.2.0"
   }
 }

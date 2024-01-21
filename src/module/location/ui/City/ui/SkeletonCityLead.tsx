@@ -1,8 +1,8 @@
 import React, { memo } from 'react'
 import ContentLoader from 'react-content-loader'
-import { useAppSelector } from '@shared/model/hooks'
+import { useAppSelector } from '@shared/store/hooks'
 import { AppTheme } from '@shared/types'
-import { selectUserTheme } from '@module/theme/model/themeSlice'
+import { selectUserTheme } from '@module/theme/store/themeSlice'
 
 // TODO: Переписать на Skeleton-CSS
 

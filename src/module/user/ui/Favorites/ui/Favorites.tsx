@@ -1,23 +1,22 @@
 import type { FC } from 'react'
 import React, { memo } from 'react'
-import type { Location } from '@shared/types'
-import { useAppSelector } from '@shared/model'
-import { selectFavoriteCities } from '@module/user/models'
+import type { BaseComponentProps } from '@shared/types'
+import classNames from 'classnames'
+import { useAppSelector } from '@shared/store'
+import { selectFavoriteCities } from '../../../store'
 import { FavoriteItem } from './FavoriteItem'
 
 import './Favorites.scss'
 
-type FavoritesProps = {
-    favorites?: Location[]
-}
+type FavoritesProps = BaseComponentProps
 
-export const Favorites: FC<FavoritesProps> = memo(() => {
+export const Favorites: FC<FavoritesProps> = memo(({ className = '' }) => {
     const favorites = useAppSelector(selectFavoriteCities)
 
     if (!favorites?.length) return null
 
     return (
-        <section className="favs">
+        <section className={classNames('favs', className)}>
             <h2 className="favs__title">Favorites</h2>
             <ul className="favs__list">
                 {favorites.map((el) => (

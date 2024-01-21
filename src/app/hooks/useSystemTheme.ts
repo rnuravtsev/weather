@@ -1,17 +1,18 @@
 import { useEffect } from 'react'
-import { setUserTheme } from '@module/theme/model/themeSlice'
-import { useAppDispatch } from '@shared/model'
+import { setUserTheme } from '@module/theme/store/themeSlice'
 import { AppTheme } from '@shared/types'
-import { userGeoConfirm } from '@module/user/models'
+import { useAppDispatch } from '@shared/store'
+import { userGeoConfirm } from '@module/user/store'
 
 export const useSystemTheme = () => {
     const dispatch = useAppDispatch()
 
     useEffect(() => {
+        // eslint-disable-next-line @typescript-eslint/no-unused-expressions
         window.matchMedia('(prefers-color-scheme: dark)').matches
             ? dispatch(setUserTheme(AppTheme.Dark))
             : dispatch(setUserTheme(AppTheme.Light))
-    }, [])
+    }, [dispatch])
 
     useEffect(() => {
         const windowThemeChangeHandler = (evt: MediaQueryListEvent) => {

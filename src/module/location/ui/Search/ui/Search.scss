@@ -1,22 +1,21 @@
-@keyframes keyPress {
-    from {
-        transform: scale(1);
-    }
-
-    to {
-        transform: scale(0.8);
-    }
-}
-
 .search {
-    grid-area: search;
+    @include complex-border(var(--text-main), true);
 }
 
-.search__flex-wrapper {
+.search_animated {
+    @include complex-border();
+}
+
+.search__wrapper {
     position: relative;
+    z-index: 2;
+
     display: flex;
     gap: 5px;
     align-items: center;
+
+    background-color: white;
+    border-radius: 4px;
 }
 
 .search__icon {
@@ -29,14 +28,22 @@
     min-height: 2.75rem;
     padding-right: 80px;
     padding-left: 40px;
+
     font-size: 1.125rem;
+
+    border: none;
+
+    &:focus {
+        outline-width: 4px;
+        outline-offset: 0;
+    }
 }
 
 .search__input::placeholder {
     color: currentcolor;
 }
 
-.doc-search {
+.keyboard-keys {
     position: absolute;
     right: 8px;
 
@@ -50,12 +57,12 @@
     transition: all 0.35s ease;
 }
 
-.doc-search_hide {
+.keyboard-keys_hide {
     opacity: 0;
-    animation: keyPress 0.35s ease-in-out;
+    animation: key-press 0.35s ease-in-out;
 }
 
-.doc-search__key {
+.keyboard-keys__key {
     position: relative;
 
     display: flex;
@@ -67,7 +74,7 @@
     padding-bottom: 2px;
 
     font-weight: 500;
-    color: #3d3d3d;
+    color: var(--text-main);
 
     background: linear-gradient(-225deg, #d5dbe4, #f8f8f8);
     border-radius: 3px;
