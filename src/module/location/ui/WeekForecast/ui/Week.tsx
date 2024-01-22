@@ -19,8 +19,8 @@ export const WeekForecast: FC<WeekForecastProps> = ({ className = '', list }) =>
         iconId: data?.weather[0].id,
     })
     return (
-        <section className={classNames('week', className)}>
-            <h2 className="week__title">Week forecast</h2>
+        <section className={classNames('week box', className)}>
+            <h2 className="week__title title-section">Week forecast</h2>
             <table className="week__table">
                 <tbody>
                     {list?.map((el, i) => (

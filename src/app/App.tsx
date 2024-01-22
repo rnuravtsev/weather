@@ -12,6 +12,7 @@ import { selectUserTheme } from '@module/theme/store/themeSlice'
 import { selectWeather } from '@module/location/store'
 import { useSystemTheme } from '@app/hooks'
 import { useNetworkStatus } from '@app/hooks/useNetworkStatus'
+import { selectFavoriteCities } from '@module/user/store'
 import { Footer } from './ui/layout/Footer/Footer'
 import { Header } from './ui/layout/Header/Header'
 import { Lightnings } from './ui/Lightnings/Lightnings'
@@ -26,6 +27,8 @@ export const App: FC<AppProps> = memo(({ className = '' }) => {
 
     const theme = useAppSelector(selectUserTheme)
     const weather = useAppSelector(selectWeather)
+
+    const favorites = useAppSelector(selectFavoriteCities)
 
     const isLightnings =
         theme === AppTheme.Dark &&
@@ -42,10 +45,14 @@ export const App: FC<AppProps> = memo(({ className = '' }) => {
                 <div className="app__header">
                     <Header />
                 </div>
-                <main className="app__main">
+                <main
+                    className={classNames('app__main', {
+                        app__main_mono: !favorites?.length,
+                    })}
+                >
                     <Date />
                     <City />
-                    <Favorites />
+                    {!!favorites?.length && <Favorites className="app__favs" />}
                 </main>
                 <div className="app__footer">
                     <Footer />

@@ -9,11 +9,6 @@ type FooterProps = BaseComponentProps
 
 export const Footer: FC<FooterProps> = ({ className = '' }) => (
     <footer className={classNames('footer', className)}>
-        <p className="footer__sign">
-            <b>
-                mw <span className="footer__heart">{`<3`}</span>
-            </b>
-        </p>
         <p>
             Powered by{' '}
             <a
@@ -23,6 +18,11 @@ export const Footer: FC<FooterProps> = ({ className = '' }) => (
             >
                 openweathermap.org
             </a>
+        </p>
+        <p className="footer__sign">
+            <b>
+                mw <span className="footer__heart">{`<3`}</span>
+            </b>
         </p>
     </footer>
 )

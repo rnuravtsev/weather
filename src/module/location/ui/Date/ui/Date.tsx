@@ -9,7 +9,7 @@ import './Date.scss'
 type DateProps = BaseComponentProps
 
 export const Date: FC<DateProps> = ({ className = '' }) => (
-    <section className={classNames('date', className)}>
+    <section className={classNames('date box', className)}>
         <h2 className="date__title">Date</h2>
         <p className="date__day">{getTodayDate()}</p>
     </section>

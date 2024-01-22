@@ -2,10 +2,12 @@
   overflow: hidden;
   display: grid;
   grid-template-columns: 1fr 3fr 1fr;
-  grid-template-rows: minmax(100px, auto) 1fr minmax(100px, auto);
-  gap: 25px;
+  grid-template-rows: auto 1fr auto;
+  gap: 12px;
 
   min-height: 100vh;
+
+  background-color: #eceef2;
 
   transition: background-color 0.35s ease-out;
 }
@@ -49,6 +51,14 @@
   color: var(--text-main);
 }
 
+.app_theme_dark .box {
+  background-color: rgb(255 255 255 / 10%);
+}
+
+.app_theme_light .box {
+  background-color: rgb(255 255 255 / 50%);
+}
+
 .app__header {
   grid-column: 2;
   grid-row: 1;
@@ -57,14 +67,23 @@
 .app__main {
   display: grid;
   grid-column: 2;
-  grid-gap: 20px;
   grid-row: 2;
   grid-template-areas:
         'date .'
-        'city favs'
-        'city .'
-        'city .';
-  grid-template-columns: 1fr auto;
+        'city favs';
+  grid-template-columns: 1fr minmax(auto, 300px);
+  row-gap: 16px;
+}
+
+.app__main_mono {
+  grid-template-areas:
+          'date'
+          'city';
+  grid-template-columns: 1fr;
+}
+
+.app__favs {
+  margin-left: 24px;
 }
 
 .app__empty {
@@ -75,6 +94,7 @@
 .app__footer {
   grid-column: 2;
   grid-row: 3;
+  margin-top: 1rem;
 }
 
 @media (min-width: 1440px) {

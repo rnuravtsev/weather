@@ -1,11 +1,18 @@
 .date {
+    display: flex;
     grid-area: date;
+    align-items: baseline;
+    justify-content: space-between;
+
+    height: fit-content;
 }
 
 .date__title {
-    margin-top: 0;
+    margin: 0;
 }
 
 .date__day {
+    margin: 0;
+    font-weight: bold;
     font-style: italic;
 }

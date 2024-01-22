@@ -1,9 +1,10 @@
 .footer {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
+    justify-content: space-between;
 
-    padding-top: 1rem;
+    padding: 16px 0;
 
     border-top: 1px solid currentcolor;
 }
@@ -13,5 +14,5 @@
 }
 
 .footer p {
-    margin: 0.35rem;
+    margin: 0.35rem 0;
 }

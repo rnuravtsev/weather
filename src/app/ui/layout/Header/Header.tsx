@@ -11,7 +11,7 @@ type HeaderProps = BaseComponentProps
 
 export const Header: FC<HeaderProps> = ({ className = '' }) => (
     <header className={classNames('header', className)}>
-        <h1>&ldquo;Weather&rdquo;</h1>
+        <h1 className="header__title">&ldquo;Weather&rdquo;</h1>
         <Search />
         <ThemeSwitcher />
     </header>

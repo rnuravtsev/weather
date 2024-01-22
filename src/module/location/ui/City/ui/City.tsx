@@ -56,7 +56,6 @@ export const City: FC<CityProps> = memo(({ className = '' }) => {
 
     return (
         <section className={classNames('city', className)}>
-            <h2 className="city__title">Current</h2>
             <div className="city__lead">
                 <div className="city__main">
                     <div className="city__flex-wrapper">
