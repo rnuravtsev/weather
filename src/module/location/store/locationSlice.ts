@@ -4,11 +4,11 @@ import type { RootState } from '@app/store/store'
 import { locationApi } from '../api/locationApi'
 
 type LocationState = {
-    location?: Location
+    currentCity?: Location
 }
 
 const initialState: LocationState = {
-    location: undefined,
+    currentCity: undefined,
 }
 
 export const locationSlice = createSlice({
@@ -16,7 +16,7 @@ export const locationSlice = createSlice({
     initialState,
     reducers: {
         setLocation(state, { payload }) {
-            state.location = payload
+            state.currentCity = payload
         },
     },
     extraReducers: (builder) => {
@@ -29,8 +29,8 @@ export const locationSlice = createSlice({
 
 export const { setLocation } = locationSlice.actions
 
-export const selectCurrentCity = (state: RootState) => state.locationReducer.location
+export const selectCurrentCity = (state: RootState) => state.locationReducer.currentCity
 export const selectWeather = (state: RootState) =>
-    state.locationReducer.location?.description
+    state.locationReducer.currentCity?.description
 
 export default locationSlice.reducer

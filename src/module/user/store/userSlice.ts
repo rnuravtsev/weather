@@ -1,20 +1,17 @@
-import isEmpty from 'lodash/isEmpty'
-import { createSelector, createSlice } from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit'
 import type { RootState } from '@app/store/store'
 import type { Location } from '@shared/types'
 
 type UserState = {
-    isGeoConfirm: boolean
-    geo?: {
+    geo: {
         longitude: number
         latitude: number
-    }
+    } | null
     favorites?: Location[]
 }
 
 const initialState: UserState = {
-    isGeoConfirm: false,
-    geo: undefined,
+    geo: null,
     favorites: [],
 }
 
@@ -33,12 +30,10 @@ export const userSlice = createSlice({
         },
     },
 })
+
 export const selectFavoriteCities = (state: RootState) => state.userReducer.favorites
-export const selectFirstFavoriteCity = createSelector(
-    selectFavoriteCities,
-    (favorites) => favorites?.[0],
-)
-export const selectGeoConfirm = (state: RootState) => !isEmpty(state.userReducer.geo)
+export const selectFirstFavoriteCity = (state: RootState) =>
+    state.userReducer.favorites?.[0]
 export const selectGeo = (state: RootState) => state.userReducer.geo
 
 export const { setGeoPosition, setFavItem, removeFavItem } = userSlice.actions

@@ -1,2 +1,2 @@
-export * from './thunks'
+export * from '@module/user/store/thunks'
 export * from './userSlice'

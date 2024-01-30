@@ -1,0 +1,14 @@
+@use "../../../assets/styles/mixins";
+
+.splash-screen {
+  @include mixins.core-grid();
+
+  height: 100%;
+}
+
+.splash-screen__animation {
+  display: grid;
+  grid-column: 2;
+  grid-row: 2;
+  place-items: center;
+}

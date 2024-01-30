@@ -19,31 +19,32 @@ type SearchProps = BaseComponentProps
 export const Search: FC<SearchProps> = memo(({ className = '' }) => {
     const [inputValue, setInputValue] = useState('')
     const [hasInputFocus, setInputFocus] = useState(false)
-
-    const currentCity = useAppSelector(selectCurrentCity)
-
-    const [fetchPlace, { isLoading }] = useLazyFetchLocationQuery()
-
     const inputRef = useRef<HTMLInputElement>(null!)
-
-    const debouncedSearch = useDebounce(() => {
-        fetchPlace({ place: inputValue })
-    }, 500)
-
     const { keyName } = useKeyboardSearchFocus(inputRef)
 
+    const currentCity = useAppSelector(selectCurrentCity)
+    const [fetchPlace, { isLoading }] = useLazyFetchLocationQuery()
+
+    const debouncedSearch = useDebounce(() => {
+        if (inputValue.length < 3) return
+
+        fetchPlace({ place: inputValue })
+            .unwrap()
+            .then(() => setInputValue(''))
+    }, 750)
+
     const onInputFocus = () => {
-        inputRef.current.focus()
         setInputFocus(true)
     }
 
     const onInputBlur = () => {
-        inputRef.current.value = ''
+        setInputValue('')
         setInputFocus(false)
     }
 
     const onChangeInput = (evt: React.ChangeEvent<HTMLInputElement>) => {
-        setInputValue(evt.target.value)
+        const { value } = evt.target
+        setInputValue(value)
 
         debouncedSearch()
     }
@@ -65,6 +66,7 @@ export const Search: FC<SearchProps> = memo(({ className = '' }) => {
                     ref={inputRef}
                     className="search__input"
                     placeholder="Search"
+                    value={inputValue}
                     onChange={onChangeInput}
                     onFocus={onInputFocus}
                     onBlur={onInputBlur}
@@ -75,7 +77,7 @@ export const Search: FC<SearchProps> = memo(({ className = '' }) => {
                     })}
                 >
                     <span className="keyboard-keys__key">{keyName}</span>
-                    <span className="keyboard-keys__key">k</span>
+                    <span className="keyboard-keys__key">K</span>
                 </div>
             </div>
         </section>

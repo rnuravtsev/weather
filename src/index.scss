@@ -5,52 +5,7 @@
 @use 'assets/styles/components/Icons';
 @use 'assets/styles/components/Input';
 @use 'assets/styles/components/Link';
+@use 'assets/styles/fonts';
 @use 'assets/styles/animations';
 @use 'assets/styles/custom';
 @use 'assets/styles/mixins';
-
-
-
-:root {
-    --bg-theme-black: #202124;
-    --color-theme-black: rgb(186 176 171);
-    --color-accent: blue;
-    --color-secondary: orange;
-    --color-negative: #ff2800;
-    --text-main: #3d3d3d;
-    --text-secondary: #e0e0e0;
-    --weather-bg-sunny: linear-gradient(180deg, rgb(63 167 241 / 100%) 0%, rgb(167 215 254 / 100%) 100%);
-    --weather-bg-cloudy: linear-gradient(180deg, rgb(214 225 236 / 100%) 0%, rgb(222 231 240 / 100%) 100%);
-    --weather-bg-rainy: linear-gradient(180deg, rgb(99 147 164 / 100%) 0%, rgb(64 108 148 / 100%) 100%);
-    --weather-bg-storm: linear-gradient(180deg, rgb(68 92 116 / 100%) 0%, rgb(33 44 51 / 100%) 100%);
-}
-
-body {
-    overflow: hidden;
-
-    margin: 0;
-
-    font-family: -apple-system, BlinkMacSystemFont, 'Fira Sans', sans-serif;
-    font-size: 16px;
-    color: var(--text-main);
-
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-
-.visually-hidden,
-.visually-hidden-focusable:not(:focus, :focus-within) {
-    position: absolute;
-
-    overflow: hidden;
-
-    width: 1px;
-    height: 1px;
-    margin: -1px;
-    padding: 0;
-
-    white-space: nowrap;
-
-    clip: rect(0, 0, 0, 0);
-    border: 0;
-}

@@ -4,7 +4,7 @@ import type { HourForecastDto } from '@shared/api/model'
 import { MAX_HOUR_CONT_FORECAST } from '@shared/constants'
 import type { BaseComponentProps } from '@shared/types'
 import classNames from 'classnames'
-import HourForecast from './HourForecast'
+import { Hour } from './Hour'
 import { mapOneHourForecast } from '../lib'
 
 type HoursForecastProps = BaseComponentProps & {
@@ -16,7 +16,7 @@ export const HoursForecast: FC<HoursForecastProps> = ({ className = '', hours })
         <h2 className="hours__title title-section">Hour forecast</h2>
         <ul className="hours__forecast">
             {hours?.slice(0, MAX_HOUR_CONT_FORECAST).map((hour, i) => (
-                <HourForecast
+                <Hour
                     key={`hour-forecast-${i}`}
                     hourForecast={mapOneHourForecast(hour)}
                 />

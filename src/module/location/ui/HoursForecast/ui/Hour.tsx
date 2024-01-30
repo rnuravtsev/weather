@@ -6,14 +6,13 @@ import type { BaseComponentProps } from '@shared/types'
 import classNames from 'classnames'
 import type { HourForecast } from '../../../store'
 
+import './Hour.scss'
+
 type CityHourForecastProps = BaseComponentProps & {
     hourForecast?: HourForecast
 }
 
-const CityHourForecast: FC<CityHourForecastProps> = ({
-    className = '',
-    hourForecast,
-}) => {
+export const Hour: FC<CityHourForecastProps> = ({ className = '', hourForecast }) => {
     const { hour, temperature, iconId } = hourForecast || {}
 
     const peopleHour = useMemo(
@@ -22,12 +21,12 @@ const CityHourForecast: FC<CityHourForecastProps> = ({
     )
 
     return (
-        <li className={classNames('city__hour-forecast', className)}>
-            <p className="city__hour">{peopleHour}</p>
+        <li className={classNames('hour', className)}>
+            <p className="hour__time">{peopleHour}</p>
             {renderWeatherIcon(iconId)}
-            <p>{temperature && Math.floor(temperature)}&#176;</p>
+            <p className="hour__temperature">
+                {temperature && Math.floor(temperature)}&#176;
+            </p>
         </li>
     )
 }
-
-export default CityHourForecast

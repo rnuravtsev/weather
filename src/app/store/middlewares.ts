@@ -18,10 +18,9 @@ export const citySearchErrorMiddleware: Middleware = () => (next) => (action) =>
         if ('place' in originalArgs) {
             toast(
                 `${capitalizeFirstLetter(
-                    `Sorry, the city ${
-                        originalArgs.place.charAt(0).toUpperCase() +
-                        originalArgs.place.slice(1)
-                    } was not found.`,
+                    `Sorry, the city "${capitalizeFirstLetter(
+                        originalArgs.place,
+                    )}" was not found.`,
                 )}`,
                 {
                     position: 'top-right',

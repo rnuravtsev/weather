@@ -2,6 +2,11 @@ export type BaseComponentProps = {
     className?: string
 }
 
+export const enum AppStatus {
+    Pending = 'Pending',
+    Ready = 'Ready',
+}
+
 export const enum WeatherType {
     Storm = 'Storm',
     Thunderstorm = 'Thunderstorm',

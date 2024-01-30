@@ -10,7 +10,7 @@
 
 .city__lead {
     display: grid;
-    grid-template-columns: [main] minmax(100px, 400px) [peripheral] 1fr;
+    grid-template-columns: [main] minmax(100px, auto) [peripheral] 1fr;
     grid-template-rows: repeat(2, auto);
 }
 
@@ -100,19 +100,6 @@
 
 .city__unit {
     margin: 0;
-}
-
-.city__hour {
-    font-style: italic;
-}
-
-.city__hour-forecast {
-    display: flex;
-    flex-direction: column;
-    row-gap: 20px;
-    align-items: center;
-
-    font-weight: 500;
 }
 
 .city__icon_type_flag {

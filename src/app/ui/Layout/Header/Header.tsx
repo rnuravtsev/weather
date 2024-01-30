@@ -13,6 +13,6 @@ export const Header: FC<HeaderProps> = ({ className = '' }) => (
     <header className={classNames('header', className)}>
         <h1 className="header__title">&ldquo;Weather&rdquo;</h1>
         <Search />
-        <ThemeSwitcher />
+        <ThemeSwitcher className="header__theme-switcher" />
     </header>
 )

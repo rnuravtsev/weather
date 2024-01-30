@@ -10,7 +10,7 @@ import type { FC } from 'react'
 import { capitalizeEachFirstLetter, renderWeatherIcon } from '@shared/lib'
 import { SwitchFavorite } from '@module/user/ui/SwitchFavorite'
 import { useAppSelector } from '@shared/store'
-import { selectGeoConfirm } from '@module/user/store'
+import { selectGeo } from '@module/user/store'
 import { useInitialLocation } from '@module/location/ui/City/hooks'
 import { SkeletonCityLead } from '@module/location/ui/City/ui/SkeletonCityLead'
 import classNames from 'classnames'
@@ -27,12 +27,16 @@ type CityProps = BaseComponentProps
 
 export const City: FC<CityProps> = memo(({ className = '' }) => {
     const currentCityWeather = useAppSelector(selectCurrentCity)
-    const isGeoConfirm = useAppSelector(selectGeoConfirm)
+    const geo = useAppSelector(selectGeo)
 
     const { needLoader } = useInitialLocation()
 
-    // TODO: Доработать загрузку приложения
-    if (needLoader) return <SkeletonCityLead />
+    if (needLoader)
+        return (
+            <div style={{ display: 'flex' }}>
+                <SkeletonCityLead />
+            </div>
+        )
 
     if (!currentCityWeather) {
         return null
@@ -52,7 +56,7 @@ export const City: FC<CityProps> = memo(({ className = '' }) => {
         country,
     } = currentCityWeather
 
-    const showIconLocation = isGeoConfirm && Boolean(currentCityWeather)
+    const showIconLocation = geo && Boolean(currentCityWeather)
 
     return (
         <section className={classNames('city', className)}>

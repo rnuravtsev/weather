@@ -1,0 +1,14 @@
+.hour {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+
+  font-weight: 700;
+  font-style: italic;
+}
+
+.hour__time,
+.hour__temperature {
+  margin: 0;
+}

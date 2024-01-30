@@ -2,7 +2,6 @@ import { useEffect } from 'react'
 import { setUserTheme } from '@module/theme/store/themeSlice'
 import { AppTheme } from '@shared/types'
 import { useAppDispatch } from '@shared/store'
-import { userGeoConfirm } from '@module/user/store'
 
 export const useSystemTheme = () => {
     const dispatch = useAppDispatch()
@@ -22,8 +21,6 @@ export const useSystemTheme = () => {
                 dispatch(setUserTheme(AppTheme.Light))
             }
         }
-
-        dispatch(userGeoConfirm())
 
         window
             .matchMedia('(prefers-color-scheme: dark)')
